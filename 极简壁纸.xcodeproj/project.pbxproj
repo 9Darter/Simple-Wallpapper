@@ -1,0 +1,451 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A1EFC86C1E053EF300161592 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EFC86B1E053EF300161592 /* main.m */; };
+		A1EFC86F1E053EF300161592 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EFC86E1E053EF300161592 /* AppDelegate.m */; };
+		A1EFC8751E053EF300161592 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1EFC8731E053EF300161592 /* Main.storyboard */; };
+		A1EFC8771E053EF300161592 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1EFC8761E053EF300161592 /* Assets.xcassets */; };
+		A1EFC87A1E053EF300161592 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1EFC8781E053EF300161592 /* LaunchScreen.storyboard */; };
+		BBFCBBCD7FAF8323CA812228 /* libPods-极简壁纸.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC10060E6D2B4FB6E2707CBE /* libPods-极简壁纸.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A1EFC8671E053EF300161592 /* 极简壁纸.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "极简壁纸.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1EFC86B1E053EF300161592 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A1EFC86D1E053EF300161592 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		A1EFC86E1E053EF300161592 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		A1EFC8741E053EF300161592 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A1EFC8761E053EF300161592 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
+		A1EFC8791E053EF300161592 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A1EFC87B1E053EF300161592 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A1EFC8881E05435600161592 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		CC10060E6D2B4FB6E2707CBE /* libPods-极简壁纸.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-极简壁纸.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE94BD93B5682723EE55A11A /* Pods-极简壁纸.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-极简壁纸.release.xcconfig"; path = "Pods/Target Support Files/Pods-极简壁纸/Pods-极简壁纸.release.xcconfig"; sourceTree = "<group>"; };
+		D72259887EF7F6F292823AE1 /* Pods-极简壁纸.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-极简壁纸.debug.xcconfig"; path = "Pods/Target Support Files/Pods-极简壁纸/Pods-极简壁纸.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A1EFC8641E053EF300161592 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BBFCBBCD7FAF8323CA812228 /* libPods-极简壁纸.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		17A667EC6E2FEE5671C24E9C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D72259887EF7F6F292823AE1 /* Pods-极简壁纸.debug.xcconfig */,
+				CE94BD93B5682723EE55A11A /* Pods-极简壁纸.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		A1EFC85E1E053EF200161592 = {
+			isa = PBXGroup;
+			children = (
+				A1EFC8691E053EF300161592 /* 极简壁纸 */,
+				A1EFC8681E053EF300161592 /* Products */,
+				17A667EC6E2FEE5671C24E9C /* Pods */,
+				AACFA0FD5F367C97A3927CD9 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		A1EFC8681E053EF300161592 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A1EFC8671E053EF300161592 /* 极简壁纸.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A1EFC8691E053EF300161592 /* 极简壁纸 */ = {
+			isa = PBXGroup;
+			children = (
+				A1EFC86D1E053EF300161592 /* AppDelegate.h */,
+				A1EFC86E1E053EF300161592 /* AppDelegate.m */,
+				A1EFC8811E05431900161592 /* Category */,
+				A1EFC8821E05431900161592 /* Model */,
+				A1EFC8831E05431900161592 /* NetManager */,
+				A1EFC8841E05431900161592 /* Resource */,
+				A1EFC8851E05431900161592 /* Vendor */,
+				A1EFC8861E05431900161592 /* View */,
+				A1EFC8871E05431900161592 /* ViewController */,
+				A1EFC86A1E053EF300161592 /* Supporting Files */,
+			);
+			path = "极简壁纸";
+			sourceTree = "<group>";
+		};
+		A1EFC86A1E053EF300161592 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A1EFC86B1E053EF300161592 /* main.m */,
+				A1EFC87B1E053EF300161592 /* Info.plist */,
+				A1EFC8881E05435600161592 /* PrefixHeader.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A1EFC8811E05431900161592 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		A1EFC8821E05431900161592 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A1EFC8831E05431900161592 /* NetManager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = NetManager;
+			sourceTree = "<group>";
+		};
+		A1EFC8841E05431900161592 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				A1EFC8731E053EF300161592 /* Main.storyboard */,
+				A1EFC8761E053EF300161592 /* Assets.xcassets */,
+				A1EFC8781E053EF300161592 /* LaunchScreen.storyboard */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		A1EFC8851E05431900161592 /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Vendor;
+			sourceTree = "<group>";
+		};
+		A1EFC8861E05431900161592 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A1EFC8871E05431900161592 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		AACFA0FD5F367C97A3927CD9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CC10060E6D2B4FB6E2707CBE /* libPods-极简壁纸.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A1EFC8661E053EF300161592 /* 极简壁纸 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A1EFC87E1E053EF300161592 /* Build configuration list for PBXNativeTarget "极简壁纸" */;
+			buildPhases = (
+				A4ADC161B6D723B8172E272D /* [CP] Check Pods Manifest.lock */,
+				A1EFC8631E053EF300161592 /* Sources */,
+				A1EFC8641E053EF300161592 /* Frameworks */,
+				A1EFC8651E053EF300161592 /* Resources */,
+				ABF1595E82AB60666F6F501E /* [CP] Embed Pods Frameworks */,
+				84C66184532A67888A24C8A8 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "极简壁纸";
+			productName = "极简壁纸";
+			productReference = A1EFC8671E053EF300161592 /* 极简壁纸.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A1EFC85F1E053EF200161592 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0810;
+				ORGANIZATIONNAME = "璠 王";
+				TargetAttributes = {
+					A1EFC8661E053EF300161592 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 545MYDUHE6;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = A1EFC8621E053EF200161592 /* Build configuration list for PBXProject "极简壁纸" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A1EFC85E1E053EF200161592;
+			productRefGroup = A1EFC8681E053EF300161592 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A1EFC8661E053EF300161592 /* 极简壁纸 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A1EFC8651E053EF300161592 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1EFC87A1E053EF300161592 /* LaunchScreen.storyboard in Resources */,
+				A1EFC8771E053EF300161592 /* Assets.xcassets in Resources */,
+				A1EFC8751E053EF300161592 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		84C66184532A67888A24C8A8 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-极简壁纸/Pods-极简壁纸-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A4ADC161B6D723B8172E272D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		ABF1595E82AB60666F6F501E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-极简壁纸/Pods-极简壁纸-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A1EFC8631E053EF300161592 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1EFC86F1E053EF300161592 /* AppDelegate.m in Sources */,
+				A1EFC86C1E053EF300161592 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		A1EFC8731E053EF300161592 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A1EFC8741E053EF300161592 /* Base */,
+			);
+			name = Main.storyboard;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		A1EFC8781E053EF300161592 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A1EFC8791E053EF300161592 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			path = ..;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A1EFC87C1E053EF300161592 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		A1EFC87D1E053EF300161592 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A1EFC87F1E053EF300161592 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D72259887EF7F6F292823AE1 /* Pods-极简壁纸.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 545MYDUHE6;
+				GCC_PREFIX_HEADER = "$(PRODUCT_NAME)/PrefixHeader.pch";
+				INFOPLIST_FILE = "极简壁纸/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mycompany.----";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A1EFC8801E053EF300161592 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CE94BD93B5682723EE55A11A /* Pods-极简壁纸.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 545MYDUHE6;
+				GCC_PREFIX_HEADER = "$(PRODUCT_NAME)/PrefixHeader.pch";
+				INFOPLIST_FILE = "极简壁纸/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mycompany.----";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A1EFC8621E053EF200161592 /* Build configuration list for PBXProject "极简壁纸" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A1EFC87C1E053EF300161592 /* Debug */,
+				A1EFC87D1E053EF300161592 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A1EFC87E1E053EF300161592 /* Build configuration list for PBXNativeTarget "极简壁纸" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A1EFC87F1E053EF300161592 /* Debug */,
+				A1EFC8801E053EF300161592 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A1EFC85F1E053EF200161592 /* Project object */;
+}

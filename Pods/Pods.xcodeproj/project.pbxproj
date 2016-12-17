@@ -1,0 +1,510 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		00EBF460A8CE9718CF9293FC25C5834C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 695DA86B20FEA7BF7EA40FA7DB65A479 /* UIKit.framework */; };
+		3622ABDEF31E72A4378934F0B1AF5106 /* WMScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = 4CDA3112A4E5E69C54BA431AFBFDE400 /* WMScrollView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48080C415A35E6AF954BE6FFA1A85026 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 792165F2CA033667D6F57205316D40A1 /* Foundation.framework */; };
+		4AFEBFEE2B2FB73B874646FB10C6994F /* WMScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E4F2A9D51F8253C027A29F4726485E /* WMScrollView.m */; };
+		62CF4B87782AFA67EF004811BAF095A0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D9AD02E9CEE9B012A246B3874CF4587 /* CoreGraphics.framework */; };
+		766E827F78760F2127C5994BBCB71E7E /* WMMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8856A5937CFCEE8C3E4FEA05830A27CE /* WMMenuView.m */; };
+		797B64610A0851BEB07AA6D33E5A8610 /* WMPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C13FC27F51642332A3845E9FE1FF824 /* WMPageController.m */; };
+		81B9B58981C3DE0AAEBFAAD04564608F /* WMMenuView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A36B7335CE2F8D5FA1DC13EF94515A2 /* WMMenuView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A9E7118CBF34069502ABBB3B525E7710 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 792165F2CA033667D6F57205316D40A1 /* Foundation.framework */; };
+		AEBEA23E0653ACD2AE0498FDAF3DC68E /* WMMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 301904C407DA29C58DC52EF2A8D7B652 /* WMMenuItem.m */; };
+		B578CEC7A0A7F14D106422CB74544F5D /* WMPageController.h in Headers */ = {isa = PBXBuildFile; fileRef = CB53D62BF2C5A9ED1E130A15433567AB /* WMPageController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BAFC0F96B733E3A6332F6D70B11A4851 /* WMMenuItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 68991FD4E5DD5EFB2EEB0CD996ED5676 /* WMMenuItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C5637EABC7FE21623B875392B0A8C9C5 /* WMProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 849B161FE72BF22A030172DBB9AE49B7 /* WMProgressView.m */; };
+		D1D367653212866BC1E19F954F573A78 /* WMPageController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D1842D547A1337664D075C166035E4B /* WMPageController-dummy.m */; };
+		E7D7D51E46735902C1CDE87F923FFFD4 /* Pods-极简壁纸-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C8081E879E1D1F55DB26F6209D1F492A /* Pods-极简壁纸-dummy.m */; };
+		EB15578DB42A172CE073CBA967B78235 /* WMProgressView.h in Headers */ = {isa = PBXBuildFile; fileRef = 289C4012E8134B2B3A785E0385991683 /* WMProgressView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		13239D349094E81295798C18EDB2FDD3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4A5065798D115536A4E63E70863B90B3;
+			remoteInfo = WMPageController;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		03E4F2A9D51F8253C027A29F4726485E /* WMScrollView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = WMScrollView.m; path = WMPageController/WMMenuView/WMScrollView.m; sourceTree = "<group>"; };
+		10CC3BE3B04F0ABCD9D7CAF694C8CC39 /* libWMPageController.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libWMPageController.a; path = libWMPageController.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C13FC27F51642332A3845E9FE1FF824 /* WMPageController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = WMPageController.m; path = WMPageController/WMPageController.m; sourceTree = "<group>"; };
+		1E5FEFD02A07B4B4D1F96CE3F3B71A7E /* Pods-极简壁纸-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-极简壁纸-acknowledgements.plist"; sourceTree = "<group>"; };
+		289C4012E8134B2B3A785E0385991683 /* WMProgressView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WMProgressView.h; path = WMPageController/WMMenuView/WMProgressView.h; sourceTree = "<group>"; };
+		301904C407DA29C58DC52EF2A8D7B652 /* WMMenuItem.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = WMMenuItem.m; path = WMPageController/WMMenuView/WMMenuItem.m; sourceTree = "<group>"; };
+		387B4B1AF81C78C25FEED771670F18C2 /* Pods-极简壁纸-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-极简壁纸-resources.sh"; sourceTree = "<group>"; };
+		3A36B7335CE2F8D5FA1DC13EF94515A2 /* WMMenuView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WMMenuView.h; path = WMPageController/WMMenuView/WMMenuView.h; sourceTree = "<group>"; };
+		472621064BF3D51CD1F7199EDAC260D4 /* Pods-极简壁纸.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-极简壁纸.release.xcconfig"; sourceTree = "<group>"; };
+		4AD5245F6D342B502DE625B64B5FF77E /* Pods-极简壁纸-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-极简壁纸-acknowledgements.markdown"; sourceTree = "<group>"; };
+		4CDA3112A4E5E69C54BA431AFBFDE400 /* WMScrollView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WMScrollView.h; path = WMPageController/WMMenuView/WMScrollView.h; sourceTree = "<group>"; };
+		4D9AD02E9CEE9B012A246B3874CF4587 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
+		68991FD4E5DD5EFB2EEB0CD996ED5676 /* WMMenuItem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WMMenuItem.h; path = WMPageController/WMMenuView/WMMenuItem.h; sourceTree = "<group>"; };
+		695DA86B20FEA7BF7EA40FA7DB65A479 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		71AC15192E0248D78C74BD47D5DE3169 /* WMPageController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = WMPageController.xcconfig; sourceTree = "<group>"; };
+		792165F2CA033667D6F57205316D40A1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		7C0392BB08EBC37D517D1F26C82D4936 /* Pods-极简壁纸-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-极简壁纸-frameworks.sh"; sourceTree = "<group>"; };
+		7D1842D547A1337664D075C166035E4B /* WMPageController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "WMPageController-dummy.m"; sourceTree = "<group>"; };
+		849B161FE72BF22A030172DBB9AE49B7 /* WMProgressView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = WMProgressView.m; path = WMPageController/WMMenuView/WMProgressView.m; sourceTree = "<group>"; };
+		8856A5937CFCEE8C3E4FEA05830A27CE /* WMMenuView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = WMMenuView.m; path = WMPageController/WMMenuView/WMMenuView.m; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9B6E29418A8200A066D6F73E5F84E108 /* libPods-极简壁纸.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-极简壁纸.a"; path = "libPods-极简壁纸.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C8081E879E1D1F55DB26F6209D1F492A /* Pods-极简壁纸-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-极简壁纸-dummy.m"; sourceTree = "<group>"; };
+		CB53D62BF2C5A9ED1E130A15433567AB /* WMPageController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WMPageController.h; path = WMPageController/WMPageController.h; sourceTree = "<group>"; };
+		F223108DBBEA22F3132D42BE2C8F5DBB /* WMPageController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "WMPageController-prefix.pch"; sourceTree = "<group>"; };
+		F98C082AE0503D8565146CEB89B311F6 /* Pods-极简壁纸.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-极简壁纸.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		36D4C6E1A659CEFA4E82B8FCE2C16B66 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				48080C415A35E6AF954BE6FFA1A85026 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		56EFE1D680D16F931B675F3C3F14E879 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				62CF4B87782AFA67EF004811BAF095A0 /* CoreGraphics.framework in Frameworks */,
+				A9E7118CBF34069502ABBB3B525E7710 /* Foundation.framework in Frameworks */,
+				00EBF460A8CE9718CF9293FC25C5834C /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		122DA2E5084A4393C29BE363C764795C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2D185E38271E1279D6AC3E7A00CAF9BA /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2C75D03C8035F1687AB124DE6978674B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9B6E29418A8200A066D6F73E5F84E108 /* libPods-极简壁纸.a */,
+				10CC3BE3B04F0ABCD9D7CAF694C8CC39 /* libWMPageController.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2D185E38271E1279D6AC3E7A00CAF9BA /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				4D9AD02E9CEE9B012A246B3874CF4587 /* CoreGraphics.framework */,
+				792165F2CA033667D6F57205316D40A1 /* Foundation.framework */,
+				695DA86B20FEA7BF7EA40FA7DB65A479 /* UIKit.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		3A51D53BA2DA34D818FCCD39FD1E2555 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				71AC15192E0248D78C74BD47D5DE3169 /* WMPageController.xcconfig */,
+				7D1842D547A1337664D075C166035E4B /* WMPageController-dummy.m */,
+				F223108DBBEA22F3132D42BE2C8F5DBB /* WMPageController-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/WMPageController";
+			sourceTree = "<group>";
+		};
+		3DDE8F4C8E7974F52F68DB6651D010F2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7203D4571C38A01C89CADBAD3D08B581 /* WMPageController */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		7203D4571C38A01C89CADBAD3D08B581 /* WMPageController */ = {
+			isa = PBXGroup;
+			children = (
+				68991FD4E5DD5EFB2EEB0CD996ED5676 /* WMMenuItem.h */,
+				301904C407DA29C58DC52EF2A8D7B652 /* WMMenuItem.m */,
+				3A36B7335CE2F8D5FA1DC13EF94515A2 /* WMMenuView.h */,
+				8856A5937CFCEE8C3E4FEA05830A27CE /* WMMenuView.m */,
+				CB53D62BF2C5A9ED1E130A15433567AB /* WMPageController.h */,
+				1C13FC27F51642332A3845E9FE1FF824 /* WMPageController.m */,
+				289C4012E8134B2B3A785E0385991683 /* WMProgressView.h */,
+				849B161FE72BF22A030172DBB9AE49B7 /* WMProgressView.m */,
+				4CDA3112A4E5E69C54BA431AFBFDE400 /* WMScrollView.h */,
+				03E4F2A9D51F8253C027A29F4726485E /* WMScrollView.m */,
+				3A51D53BA2DA34D818FCCD39FD1E2555 /* Support Files */,
+			);
+			name = WMPageController;
+			path = WMPageController;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				122DA2E5084A4393C29BE363C764795C /* Frameworks */,
+				3DDE8F4C8E7974F52F68DB6651D010F2 /* Pods */,
+				2C75D03C8035F1687AB124DE6978674B /* Products */,
+				F15B2D905DABB8C5EB128B1E950A2135 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		B2F31A7F96CAEF9D0122E28494CCCCD1 /* Pods-极简壁纸 */ = {
+			isa = PBXGroup;
+			children = (
+				4AD5245F6D342B502DE625B64B5FF77E /* Pods-极简壁纸-acknowledgements.markdown */,
+				1E5FEFD02A07B4B4D1F96CE3F3B71A7E /* Pods-极简壁纸-acknowledgements.plist */,
+				C8081E879E1D1F55DB26F6209D1F492A /* Pods-极简壁纸-dummy.m */,
+				7C0392BB08EBC37D517D1F26C82D4936 /* Pods-极简壁纸-frameworks.sh */,
+				387B4B1AF81C78C25FEED771670F18C2 /* Pods-极简壁纸-resources.sh */,
+				F98C082AE0503D8565146CEB89B311F6 /* Pods-极简壁纸.debug.xcconfig */,
+				472621064BF3D51CD1F7199EDAC260D4 /* Pods-极简壁纸.release.xcconfig */,
+			);
+			name = "Pods-极简壁纸";
+			path = "Target Support Files/Pods-极简壁纸";
+			sourceTree = "<group>";
+		};
+		F15B2D905DABB8C5EB128B1E950A2135 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				B2F31A7F96CAEF9D0122E28494CCCCD1 /* Pods-极简壁纸 */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		4ACEE70C4C6839BADEDD23101FEAA46F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BAFC0F96B733E3A6332F6D70B11A4851 /* WMMenuItem.h in Headers */,
+				81B9B58981C3DE0AAEBFAAD04564608F /* WMMenuView.h in Headers */,
+				B578CEC7A0A7F14D106422CB74544F5D /* WMPageController.h in Headers */,
+				EB15578DB42A172CE073CBA967B78235 /* WMProgressView.h in Headers */,
+				3622ABDEF31E72A4378934F0B1AF5106 /* WMScrollView.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		4A5065798D115536A4E63E70863B90B3 /* WMPageController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0F7FA6B5AD595B1C8E46ACF1245E7178 /* Build configuration list for PBXNativeTarget "WMPageController" */;
+			buildPhases = (
+				476367A055EEBF6633646AD1F1F50DF8 /* Sources */,
+				56EFE1D680D16F931B675F3C3F14E879 /* Frameworks */,
+				4ACEE70C4C6839BADEDD23101FEAA46F /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WMPageController;
+			productName = WMPageController;
+			productReference = 10CC3BE3B04F0ABCD9D7CAF694C8CC39 /* libWMPageController.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		63340B4DC15E9196CB736A0C816AA7EE /* Pods-极简壁纸 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0B4A1C450325C16C7ACDF1061798CB17 /* Build configuration list for PBXNativeTarget "Pods-极简壁纸" */;
+			buildPhases = (
+				9C6515237EC54C4D27997DE212CF773B /* Sources */,
+				36D4C6E1A659CEFA4E82B8FCE2C16B66 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4A303AED20ACE9EE23BF94A159BAAD4E /* PBXTargetDependency */,
+			);
+			name = "Pods-极简壁纸";
+			productName = "Pods-极简壁纸";
+			productReference = 9B6E29418A8200A066D6F73E5F84E108 /* libPods-极简壁纸.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 2C75D03C8035F1687AB124DE6978674B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				63340B4DC15E9196CB736A0C816AA7EE /* Pods-极简壁纸 */,
+				4A5065798D115536A4E63E70863B90B3 /* WMPageController */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		476367A055EEBF6633646AD1F1F50DF8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AEBEA23E0653ACD2AE0498FDAF3DC68E /* WMMenuItem.m in Sources */,
+				766E827F78760F2127C5994BBCB71E7E /* WMMenuView.m in Sources */,
+				D1D367653212866BC1E19F954F573A78 /* WMPageController-dummy.m in Sources */,
+				797B64610A0851BEB07AA6D33E5A8610 /* WMPageController.m in Sources */,
+				C5637EABC7FE21623B875392B0A8C9C5 /* WMProgressView.m in Sources */,
+				4AFEBFEE2B2FB73B874646FB10C6994F /* WMScrollView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9C6515237EC54C4D27997DE212CF773B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E7D7D51E46735902C1CDE87F923FFFD4 /* Pods-极简壁纸-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4A303AED20ACE9EE23BF94A159BAAD4E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = WMPageController;
+			target = 4A5065798D115536A4E63E70863B90B3 /* WMPageController */;
+			targetProxy = 13239D349094E81295798C18EDB2FDD3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		45FD0A63D0713AAE52E32C7E58D03368 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F98C082AE0503D8565146CEB89B311F6 /* Pods-极简壁纸.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		808D7313DABAD6CF51CD5B1425FED8C9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 472621064BF3D51CD1F7199EDAC260D4 /* Pods-极简壁纸.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		82A98BE32D3C2ED256E23ACA68C32279 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 71AC15192E0248D78C74BD47D5DE3169 /* WMPageController.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/WMPageController/WMPageController-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		CACE7C8415F53E79F07C6BBE57F0F61D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		DEA083195575F7C68E352E2D96720587 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 71AC15192E0248D78C74BD47D5DE3169 /* WMPageController.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/WMPageController/WMPageController-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		ED4FC68AB2A4E06C718CFF338F6F156B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0B4A1C450325C16C7ACDF1061798CB17 /* Build configuration list for PBXNativeTarget "Pods-极简壁纸" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				45FD0A63D0713AAE52E32C7E58D03368 /* Debug */,
+				808D7313DABAD6CF51CD5B1425FED8C9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0F7FA6B5AD595B1C8E46ACF1245E7178 /* Build configuration list for PBXNativeTarget "WMPageController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				82A98BE32D3C2ED256E23ACA68C32279 /* Debug */,
+				DEA083195575F7C68E352E2D96720587 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CACE7C8415F53E79F07C6BBE57F0F61D /* Debug */,
+				ED4FC68AB2A4E06C718CFF338F6F156B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}
