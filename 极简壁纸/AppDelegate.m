@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "ViewControllerHeader.h"
 
 @interface AppDelegate ()
 
@@ -23,12 +24,68 @@
         NSString *title;
         switch (i) {
             case 0:
-            vcClass = [RedViewController class];
-            title = @"Greetings";
+            vcClass = [RecommendedController class];
+            title = @"推荐";
             break;
+            
             case 1:
-            vcClass = [BlueViewController class];
-            title = @"Hit Me";
+            vcClass = [TopicController class];
+            title = @"主题套图";
+            break;
+            
+            case 2:
+            vcClass = [LockedScreenController class];
+            title = @"锁屏";
+            break;
+            
+            case 3:
+            vcClass = [HomeScreenController class];
+            title = @"主屏";
+            break;
+            
+            case 4:
+            vcClass = [PerfectCoupleController class];
+            title = @"天生一对";
+            break;
+            
+            case 5:
+            vcClass = [PeopleWatchingController class];
+            title = @"全民看点";
+            break;
+            
+            case 6:
+            vcClass = [LatestController class];
+            title = @"最新图集";
+            break;
+            
+            case 7:
+            vcClass = [MostPopularController class];
+            title = @"最热";
+            break;
+            
+            case 8:
+            vcClass = [BoysController class];
+            title = @"男生请进";
+            break;
+            
+            case 9:
+            vcClass = [GirlsController class];
+            title = @"女生请进";
+            break;
+            
+            case 10:
+            vcClass = [WordWallpapersController class];
+            title = @"文字壁纸";
+            break;
+            
+            case 11:
+            vcClass = [ChatBackgroundsController class];
+            title = @"聊天背景";
+            break;
+            
+            case 12:
+            vcClass = [ProfilePicsController class];
+            title = @"头像";
             break;
         }
         [viewControllers addObject:vcClass];

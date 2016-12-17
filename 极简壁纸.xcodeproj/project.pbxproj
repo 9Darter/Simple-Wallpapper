@@ -12,6 +12,19 @@
 		A1EFC8751E053EF300161592 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1EFC8731E053EF300161592 /* Main.storyboard */; };
 		A1EFC8771E053EF300161592 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1EFC8761E053EF300161592 /* Assets.xcassets */; };
 		A1EFC87A1E053EF300161592 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1EFC8781E053EF300161592 /* LaunchScreen.storyboard */; };
+		A1EFC8991E05696200161592 /* RecommendedController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EFC8981E05696200161592 /* RecommendedController.m */; };
+		A1EFC89C1E05698C00161592 /* TopicController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EFC89B1E05698C00161592 /* TopicController.m */; };
+		A1EFC8A21E0569AF00161592 /* HomeScreenController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EFC8A11E0569AF00161592 /* HomeScreenController.m */; };
+		A1EFC8A51E0569CA00161592 /* LockedScreenController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EFC8A41E0569CA00161592 /* LockedScreenController.m */; };
+		A1EFC8A81E056A0200161592 /* PerfectCoupleController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EFC8A71E056A0200161592 /* PerfectCoupleController.m */; };
+		A1EFC8AB1E056A3A00161592 /* PeopleWatchingController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EFC8AA1E056A3A00161592 /* PeopleWatchingController.m */; };
+		A1EFC8AE1E056A4E00161592 /* LatestController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EFC8AD1E056A4E00161592 /* LatestController.m */; };
+		A1EFC8B11E056A6100161592 /* MostPopularController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EFC8B01E056A6100161592 /* MostPopularController.m */; };
+		A1EFC8B41E056A6D00161592 /* BoysController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EFC8B31E056A6D00161592 /* BoysController.m */; };
+		A1EFC8B71E056A7800161592 /* GirlsController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EFC8B61E056A7800161592 /* GirlsController.m */; };
+		A1EFC8BA1E056A9900161592 /* WordWallpapersController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EFC8B91E056A9900161592 /* WordWallpapersController.m */; };
+		A1EFC8BD1E056AB200161592 /* ChatBackgroundsController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EFC8BC1E056AB200161592 /* ChatBackgroundsController.m */; };
+		A1EFC8C01E056AC400161592 /* ProfilePicsController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EFC8BF1E056AC400161592 /* ProfilePicsController.m */; };
 		BBFCBBCD7FAF8323CA812228 /* libPods-极简壁纸.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC10060E6D2B4FB6E2707CBE /* libPods-极简壁纸.a */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +38,33 @@
 		A1EFC8791E053EF300161592 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A1EFC87B1E053EF300161592 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1EFC8881E05435600161592 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		A1EFC8971E05696200161592 /* RecommendedController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendedController.h; sourceTree = "<group>"; };
+		A1EFC8981E05696200161592 /* RecommendedController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendedController.m; sourceTree = "<group>"; };
+		A1EFC89A1E05698C00161592 /* TopicController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopicController.h; sourceTree = "<group>"; };
+		A1EFC89B1E05698C00161592 /* TopicController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopicController.m; sourceTree = "<group>"; };
+		A1EFC8A01E0569AF00161592 /* HomeScreenController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeScreenController.h; sourceTree = "<group>"; };
+		A1EFC8A11E0569AF00161592 /* HomeScreenController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeScreenController.m; sourceTree = "<group>"; };
+		A1EFC8A31E0569CA00161592 /* LockedScreenController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LockedScreenController.h; sourceTree = "<group>"; };
+		A1EFC8A41E0569CA00161592 /* LockedScreenController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LockedScreenController.m; sourceTree = "<group>"; };
+		A1EFC8A61E056A0200161592 /* PerfectCoupleController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PerfectCoupleController.h; sourceTree = "<group>"; };
+		A1EFC8A71E056A0200161592 /* PerfectCoupleController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PerfectCoupleController.m; sourceTree = "<group>"; };
+		A1EFC8A91E056A3A00161592 /* PeopleWatchingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeopleWatchingController.h; sourceTree = "<group>"; };
+		A1EFC8AA1E056A3A00161592 /* PeopleWatchingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PeopleWatchingController.m; sourceTree = "<group>"; };
+		A1EFC8AC1E056A4E00161592 /* LatestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LatestController.h; sourceTree = "<group>"; };
+		A1EFC8AD1E056A4E00161592 /* LatestController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LatestController.m; sourceTree = "<group>"; };
+		A1EFC8AF1E056A6100161592 /* MostPopularController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MostPopularController.h; sourceTree = "<group>"; };
+		A1EFC8B01E056A6100161592 /* MostPopularController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MostPopularController.m; sourceTree = "<group>"; };
+		A1EFC8B21E056A6D00161592 /* BoysController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoysController.h; sourceTree = "<group>"; };
+		A1EFC8B31E056A6D00161592 /* BoysController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoysController.m; sourceTree = "<group>"; };
+		A1EFC8B51E056A7800161592 /* GirlsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GirlsController.h; sourceTree = "<group>"; };
+		A1EFC8B61E056A7800161592 /* GirlsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GirlsController.m; sourceTree = "<group>"; };
+		A1EFC8B81E056A9900161592 /* WordWallpapersController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordWallpapersController.h; sourceTree = "<group>"; };
+		A1EFC8B91E056A9900161592 /* WordWallpapersController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordWallpapersController.m; sourceTree = "<group>"; };
+		A1EFC8BB1E056AB200161592 /* ChatBackgroundsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatBackgroundsController.h; sourceTree = "<group>"; };
+		A1EFC8BC1E056AB200161592 /* ChatBackgroundsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatBackgroundsController.m; sourceTree = "<group>"; };
+		A1EFC8BE1E056AC400161592 /* ProfilePicsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfilePicsController.h; sourceTree = "<group>"; };
+		A1EFC8BF1E056AC400161592 /* ProfilePicsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfilePicsController.m; sourceTree = "<group>"; };
+		A1EFC8C21E056B1000161592 /* ViewControllerHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewControllerHeader.h; sourceTree = "<group>"; };
 		CC10060E6D2B4FB6E2707CBE /* libPods-极简壁纸.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-极简壁纸.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE94BD93B5682723EE55A11A /* Pods-极简壁纸.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-极简壁纸.release.xcconfig"; path = "Pods/Target Support Files/Pods-极简壁纸/Pods-极简壁纸.release.xcconfig"; sourceTree = "<group>"; };
 		D72259887EF7F6F292823AE1 /* Pods-极简壁纸.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-极简壁纸.debug.xcconfig"; path = "Pods/Target Support Files/Pods-极简壁纸/Pods-极简壁纸.debug.xcconfig"; sourceTree = "<group>"; };
@@ -144,8 +184,139 @@
 		A1EFC8871E05431900161592 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				A1EFC88A1E05691800161592 /* 1推荐 */,
+				A1EFC88B1E05691800161592 /* 2主题套图 */,
+				A1EFC88C1E05691800161592 /* 3锁屏 */,
+				A1EFC88D1E05691800161592 /* 4主屏 */,
+				A1EFC88E1E05691800161592 /* 5天生一对 */,
+				A1EFC88F1E05691800161592 /* 6全民看点 */,
+				A1EFC8901E05691800161592 /* 7最新图集 */,
+				A1EFC8911E05691800161592 /* 8最热 */,
+				A1EFC8921E05691800161592 /* 9男生请进 */,
+				A1EFC8931E05691800161592 /* 10女生请进 */,
+				A1EFC8941E05691800161592 /* 11文字壁纸 */,
+				A1EFC8951E05691800161592 /* 12聊天背景 */,
+				A1EFC8961E05691800161592 /* 13头像 */,
+				A1EFC8C21E056B1000161592 /* ViewControllerHeader.h */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		A1EFC88A1E05691800161592 /* 1推荐 */ = {
+			isa = PBXGroup;
+			children = (
+				A1EFC8971E05696200161592 /* RecommendedController.h */,
+				A1EFC8981E05696200161592 /* RecommendedController.m */,
+			);
+			path = "1推荐";
+			sourceTree = "<group>";
+		};
+		A1EFC88B1E05691800161592 /* 2主题套图 */ = {
+			isa = PBXGroup;
+			children = (
+				A1EFC89A1E05698C00161592 /* TopicController.h */,
+				A1EFC89B1E05698C00161592 /* TopicController.m */,
+			);
+			path = "2主题套图";
+			sourceTree = "<group>";
+		};
+		A1EFC88C1E05691800161592 /* 3锁屏 */ = {
+			isa = PBXGroup;
+			children = (
+				A1EFC8A31E0569CA00161592 /* LockedScreenController.h */,
+				A1EFC8A41E0569CA00161592 /* LockedScreenController.m */,
+			);
+			path = "3锁屏";
+			sourceTree = "<group>";
+		};
+		A1EFC88D1E05691800161592 /* 4主屏 */ = {
+			isa = PBXGroup;
+			children = (
+				A1EFC8A01E0569AF00161592 /* HomeScreenController.h */,
+				A1EFC8A11E0569AF00161592 /* HomeScreenController.m */,
+			);
+			path = "4主屏";
+			sourceTree = "<group>";
+		};
+		A1EFC88E1E05691800161592 /* 5天生一对 */ = {
+			isa = PBXGroup;
+			children = (
+				A1EFC8A61E056A0200161592 /* PerfectCoupleController.h */,
+				A1EFC8A71E056A0200161592 /* PerfectCoupleController.m */,
+			);
+			path = "5天生一对";
+			sourceTree = "<group>";
+		};
+		A1EFC88F1E05691800161592 /* 6全民看点 */ = {
+			isa = PBXGroup;
+			children = (
+				A1EFC8A91E056A3A00161592 /* PeopleWatchingController.h */,
+				A1EFC8AA1E056A3A00161592 /* PeopleWatchingController.m */,
+			);
+			path = "6全民看点";
+			sourceTree = "<group>";
+		};
+		A1EFC8901E05691800161592 /* 7最新图集 */ = {
+			isa = PBXGroup;
+			children = (
+				A1EFC8AC1E056A4E00161592 /* LatestController.h */,
+				A1EFC8AD1E056A4E00161592 /* LatestController.m */,
+			);
+			path = "7最新图集";
+			sourceTree = "<group>";
+		};
+		A1EFC8911E05691800161592 /* 8最热 */ = {
+			isa = PBXGroup;
+			children = (
+				A1EFC8AF1E056A6100161592 /* MostPopularController.h */,
+				A1EFC8B01E056A6100161592 /* MostPopularController.m */,
+			);
+			path = "8最热";
+			sourceTree = "<group>";
+		};
+		A1EFC8921E05691800161592 /* 9男生请进 */ = {
+			isa = PBXGroup;
+			children = (
+				A1EFC8B21E056A6D00161592 /* BoysController.h */,
+				A1EFC8B31E056A6D00161592 /* BoysController.m */,
+			);
+			path = "9男生请进";
+			sourceTree = "<group>";
+		};
+		A1EFC8931E05691800161592 /* 10女生请进 */ = {
+			isa = PBXGroup;
+			children = (
+				A1EFC8B51E056A7800161592 /* GirlsController.h */,
+				A1EFC8B61E056A7800161592 /* GirlsController.m */,
+			);
+			path = "10女生请进";
+			sourceTree = "<group>";
+		};
+		A1EFC8941E05691800161592 /* 11文字壁纸 */ = {
+			isa = PBXGroup;
+			children = (
+				A1EFC8B81E056A9900161592 /* WordWallpapersController.h */,
+				A1EFC8B91E056A9900161592 /* WordWallpapersController.m */,
+			);
+			path = "11文字壁纸";
+			sourceTree = "<group>";
+		};
+		A1EFC8951E05691800161592 /* 12聊天背景 */ = {
+			isa = PBXGroup;
+			children = (
+				A1EFC8BB1E056AB200161592 /* ChatBackgroundsController.h */,
+				A1EFC8BC1E056AB200161592 /* ChatBackgroundsController.m */,
+			);
+			path = "12聊天背景";
+			sourceTree = "<group>";
+		};
+		A1EFC8961E05691800161592 /* 13头像 */ = {
+			isa = PBXGroup;
+			children = (
+				A1EFC8BE1E056AC400161592 /* ProfilePicsController.h */,
+				A1EFC8BF1E056AC400161592 /* ProfilePicsController.m */,
+			);
+			path = "13头像";
 			sourceTree = "<group>";
 		};
 		AACFA0FD5F367C97A3927CD9 /* Frameworks */ = {
@@ -280,7 +451,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1EFC86F1E053EF300161592 /* AppDelegate.m in Sources */,
+				A1EFC8B71E056A7800161592 /* GirlsController.m in Sources */,
 				A1EFC86C1E053EF300161592 /* main.m in Sources */,
+				A1EFC8991E05696200161592 /* RecommendedController.m in Sources */,
+				A1EFC8C01E056AC400161592 /* ProfilePicsController.m in Sources */,
+				A1EFC8AB1E056A3A00161592 /* PeopleWatchingController.m in Sources */,
+				A1EFC8A21E0569AF00161592 /* HomeScreenController.m in Sources */,
+				A1EFC8BA1E056A9900161592 /* WordWallpapersController.m in Sources */,
+				A1EFC89C1E05698C00161592 /* TopicController.m in Sources */,
+				A1EFC8AE1E056A4E00161592 /* LatestController.m in Sources */,
+				A1EFC8A81E056A0200161592 /* PerfectCoupleController.m in Sources */,
+				A1EFC8B41E056A6D00161592 /* BoysController.m in Sources */,
+				A1EFC8BD1E056AB200161592 /* ChatBackgroundsController.m in Sources */,
+				A1EFC8B11E056A6100161592 /* MostPopularController.m in Sources */,
+				A1EFC8A51E0569CA00161592 /* LockedScreenController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
