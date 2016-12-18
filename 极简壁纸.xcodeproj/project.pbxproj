@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A143FD531E062828006D5EB8 /* WallpaperModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A143FD521E062828006D5EB8 /* WallpaperModel.m */; };
+		A143FD561E063B28006D5EB8 /* NSString+WF.m in Sources */ = {isa = PBXBuildFile; fileRef = A143FD551E063B28006D5EB8 /* NSString+WF.m */; };
+		A143FD591E063B96006D5EB8 /* NSObject+Parse.m in Sources */ = {isa = PBXBuildFile; fileRef = A143FD581E063B96006D5EB8 /* NSObject+Parse.m */; };
 		A1EFC86C1E053EF300161592 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EFC86B1E053EF300161592 /* main.m */; };
 		A1EFC86F1E053EF300161592 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EFC86E1E053EF300161592 /* AppDelegate.m */; };
-		A1EFC8751E053EF300161592 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1EFC8731E053EF300161592 /* Main.storyboard */; };
 		A1EFC8771E053EF300161592 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1EFC8761E053EF300161592 /* Assets.xcassets */; };
 		A1EFC87A1E053EF300161592 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1EFC8781E053EF300161592 /* LaunchScreen.storyboard */; };
 		A1EFC8991E05696200161592 /* RecommendedController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EFC8981E05696200161592 /* RecommendedController.m */; };
@@ -29,11 +31,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A143FD511E062828006D5EB8 /* WallpaperModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WallpaperModel.h; sourceTree = "<group>"; };
+		A143FD521E062828006D5EB8 /* WallpaperModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WallpaperModel.m; sourceTree = "<group>"; };
+		A143FD541E063B28006D5EB8 /* NSString+WF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+WF.h"; sourceTree = "<group>"; };
+		A143FD551E063B28006D5EB8 /* NSString+WF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+WF.m"; sourceTree = "<group>"; };
+		A143FD571E063B96006D5EB8 /* NSObject+Parse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Parse.h"; sourceTree = "<group>"; };
+		A143FD581E063B96006D5EB8 /* NSObject+Parse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Parse.m"; sourceTree = "<group>"; };
 		A1EFC8671E053EF300161592 /* 极简壁纸.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "极简壁纸.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1EFC86B1E053EF300161592 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A1EFC86D1E053EF300161592 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A1EFC86E1E053EF300161592 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		A1EFC8741E053EF300161592 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A1EFC8761E053EF300161592 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
 		A1EFC8791E053EF300161592 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A1EFC87B1E053EF300161592 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -139,6 +146,10 @@
 		A1EFC8811E05431900161592 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				A143FD541E063B28006D5EB8 /* NSString+WF.h */,
+				A143FD551E063B28006D5EB8 /* NSString+WF.m */,
+				A143FD571E063B96006D5EB8 /* NSObject+Parse.h */,
+				A143FD581E063B96006D5EB8 /* NSObject+Parse.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -146,6 +157,8 @@
 		A1EFC8821E05431900161592 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A143FD511E062828006D5EB8 /* WallpaperModel.h */,
+				A143FD521E062828006D5EB8 /* WallpaperModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -160,7 +173,6 @@
 		A1EFC8841E05431900161592 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				A1EFC8731E053EF300161592 /* Main.storyboard */,
 				A1EFC8761E053EF300161592 /* Assets.xcassets */,
 				A1EFC8781E053EF300161592 /* LaunchScreen.storyboard */,
 			);
@@ -391,7 +403,6 @@
 			files = (
 				A1EFC87A1E053EF300161592 /* LaunchScreen.storyboard in Resources */,
 				A1EFC8771E053EF300161592 /* Assets.xcassets in Resources */,
-				A1EFC8751E053EF300161592 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -454,15 +465,18 @@
 				A1EFC8B71E056A7800161592 /* GirlsController.m in Sources */,
 				A1EFC86C1E053EF300161592 /* main.m in Sources */,
 				A1EFC8991E05696200161592 /* RecommendedController.m in Sources */,
+				A143FD531E062828006D5EB8 /* WallpaperModel.m in Sources */,
 				A1EFC8C01E056AC400161592 /* ProfilePicsController.m in Sources */,
 				A1EFC8AB1E056A3A00161592 /* PeopleWatchingController.m in Sources */,
 				A1EFC8A21E0569AF00161592 /* HomeScreenController.m in Sources */,
 				A1EFC8BA1E056A9900161592 /* WordWallpapersController.m in Sources */,
 				A1EFC89C1E05698C00161592 /* TopicController.m in Sources */,
+				A143FD561E063B28006D5EB8 /* NSString+WF.m in Sources */,
 				A1EFC8AE1E056A4E00161592 /* LatestController.m in Sources */,
 				A1EFC8A81E056A0200161592 /* PerfectCoupleController.m in Sources */,
 				A1EFC8B41E056A6D00161592 /* BoysController.m in Sources */,
 				A1EFC8BD1E056AB200161592 /* ChatBackgroundsController.m in Sources */,
+				A143FD591E063B96006D5EB8 /* NSObject+Parse.m in Sources */,
 				A1EFC8B11E056A6100161592 /* MostPopularController.m in Sources */,
 				A1EFC8A51E0569CA00161592 /* LockedScreenController.m in Sources */,
 			);
@@ -471,15 +485,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		A1EFC8731E053EF300161592 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A1EFC8741E053EF300161592 /* Base */,
-			);
-			name = Main.storyboard;
-			path = ..;
-			sourceTree = "<group>";
-		};
 		A1EFC8781E053EF300161592 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

@@ -4,6 +4,16 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>AFNetworking.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>MJRefresh.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-极简壁纸.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -14,15 +24,35 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>YYKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>4A5065798D115536A4E63E70863B90B3</key>
+		<key>04CF549EBEEE7BC87AEAE35397184D94</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>63340B4DC15E9196CB736A0C816AA7EE</key>
+		<key>6BF6667813E6C3BA56437D5AF9407EDC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9E033EDB5EC0819481B0546434FA577B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B86D5258E697AB87362000EAF34F1B7C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C20471611276006237655E236422D250</key>
 		<dict>
 			<key>primary</key>
 			<true/>

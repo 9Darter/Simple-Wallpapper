@@ -97,19 +97,30 @@
     pageVC.bounces = YES;
     //让菜单显示在导航栏上
     pageVC.showOnNavigationBar = NO;
+    //设置菜单高度
     //vc.menuHeight = 250;
     //设置菜单背景色
     pageVC.menuBGColor = [UIColor clearColor];
     //选中时的样式
     pageVC.menuViewStyle = WMMenuViewStyleLine;
-    //更多的属性 自己查看头文件 因为都是中文提示
+    //预加载机制，在停止滑动的时候预加载 n 页
     pageVC.preloadPolicy = WMPageControllerPreloadPolicyNeighbour;
+    //选中时的文字颜色
+    pageVC.titleColorSelected = [UIColor greenColor];
+
+    pageVC.navigationItem.title = @"极简壁纸";
     return pageVC;
 }
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    _window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
+    [_window makeKeyAndVisible];
+    WMPageController *vc = [self p_defaultController];
+    
+    _window.rootViewController = [[UINavigationController alloc]initWithRootViewController:vc];
+    
     return YES;
 }
 

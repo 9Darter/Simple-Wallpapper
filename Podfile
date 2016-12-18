@@ -7,11 +7,11 @@ target '极简壁纸' do
 
   # Pods for 极简壁纸
 #  pod "Masonry"
-#  pod "AFNetworking"
-#  pod "YYKit"
+  pod "AFNetworking"
+  pod "YYKit"
 #  pod "BlocksKit"
 #  pod "MBProgressHUD"
-#  pod "MJRefresh"
+  pod "MJRefresh"
 #  pod "CHTCollectionViewWaterfallLayout"
 #  pod "UITableView+FDTemplateLayoutCell"
 #  pod "iCarousel"
