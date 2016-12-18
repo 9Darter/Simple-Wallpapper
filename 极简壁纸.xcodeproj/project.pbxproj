@@ -10,6 +10,8 @@
 		A143FD531E062828006D5EB8 /* WallpaperModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A143FD521E062828006D5EB8 /* WallpaperModel.m */; };
 		A143FD561E063B28006D5EB8 /* NSString+WF.m in Sources */ = {isa = PBXBuildFile; fileRef = A143FD551E063B28006D5EB8 /* NSString+WF.m */; };
 		A143FD591E063B96006D5EB8 /* NSObject+Parse.m in Sources */ = {isa = PBXBuildFile; fileRef = A143FD581E063B96006D5EB8 /* NSObject+Parse.m */; };
+		A143FD5C1E063F38006D5EB8 /* BaseNetmanager.m in Sources */ = {isa = PBXBuildFile; fileRef = A143FD5B1E063F38006D5EB8 /* BaseNetmanager.m */; };
+		A143FD5F1E06414E006D5EB8 /* NetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A143FD5E1E06414E006D5EB8 /* NetManager.m */; };
 		A1EFC86C1E053EF300161592 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EFC86B1E053EF300161592 /* main.m */; };
 		A1EFC86F1E053EF300161592 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EFC86E1E053EF300161592 /* AppDelegate.m */; };
 		A1EFC8771E053EF300161592 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1EFC8761E053EF300161592 /* Assets.xcassets */; };
@@ -37,6 +39,11 @@
 		A143FD551E063B28006D5EB8 /* NSString+WF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+WF.m"; sourceTree = "<group>"; };
 		A143FD571E063B96006D5EB8 /* NSObject+Parse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Parse.h"; sourceTree = "<group>"; };
 		A143FD581E063B96006D5EB8 /* NSObject+Parse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Parse.m"; sourceTree = "<group>"; };
+		A143FD5A1E063F38006D5EB8 /* BaseNetmanager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNetmanager.h; sourceTree = "<group>"; };
+		A143FD5B1E063F38006D5EB8 /* BaseNetmanager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNetmanager.m; sourceTree = "<group>"; };
+		A143FD5D1E06414E006D5EB8 /* NetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetManager.h; sourceTree = "<group>"; };
+		A143FD5E1E06414E006D5EB8 /* NetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetManager.m; sourceTree = "<group>"; };
+		A143FD601E06427A006D5EB8 /* Define.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Define.h; sourceTree = "<group>"; };
 		A1EFC8671E053EF300161592 /* 极简壁纸.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "极简壁纸.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1EFC86B1E053EF300161592 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A1EFC86D1E053EF300161592 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -121,6 +128,7 @@
 			children = (
 				A1EFC86D1E053EF300161592 /* AppDelegate.h */,
 				A1EFC86E1E053EF300161592 /* AppDelegate.m */,
+				A143FD601E06427A006D5EB8 /* Define.h */,
 				A1EFC8811E05431900161592 /* Category */,
 				A1EFC8821E05431900161592 /* Model */,
 				A1EFC8831E05431900161592 /* NetManager */,
@@ -166,6 +174,10 @@
 		A1EFC8831E05431900161592 /* NetManager */ = {
 			isa = PBXGroup;
 			children = (
+				A143FD5A1E063F38006D5EB8 /* BaseNetmanager.h */,
+				A143FD5B1E063F38006D5EB8 /* BaseNetmanager.m */,
+				A143FD5D1E06414E006D5EB8 /* NetManager.h */,
+				A143FD5E1E06414E006D5EB8 /* NetManager.m */,
 			);
 			path = NetManager;
 			sourceTree = "<group>";
@@ -462,6 +474,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1EFC86F1E053EF300161592 /* AppDelegate.m in Sources */,
+				A143FD5F1E06414E006D5EB8 /* NetManager.m in Sources */,
 				A1EFC8B71E056A7800161592 /* GirlsController.m in Sources */,
 				A1EFC86C1E053EF300161592 /* main.m in Sources */,
 				A1EFC8991E05696200161592 /* RecommendedController.m in Sources */,
@@ -474,6 +487,7 @@
 				A143FD561E063B28006D5EB8 /* NSString+WF.m in Sources */,
 				A1EFC8AE1E056A4E00161592 /* LatestController.m in Sources */,
 				A1EFC8A81E056A0200161592 /* PerfectCoupleController.m in Sources */,
+				A143FD5C1E063F38006D5EB8 /* BaseNetmanager.m in Sources */,
 				A1EFC8B41E056A6D00161592 /* BoysController.m in Sources */,
 				A1EFC8BD1E056AB200161592 /* ChatBackgroundsController.m in Sources */,
 				A143FD591E063B96006D5EB8 /* NSObject+Parse.m in Sources */,

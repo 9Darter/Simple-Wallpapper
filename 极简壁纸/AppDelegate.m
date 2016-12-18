@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "ViewControllerHeader.h"
+#import "NetManager.h"
 
 @interface AppDelegate ()
 
@@ -115,6 +116,13 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    [NetManager getWallpaperModelWithTitle:TitleRecommended andPage:1 andLimit:25 completionHandler:^(WallpaperModel *model, NSError *error) {
+        NSLog(@"");
+    }];
+    
+    
+    
     _window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     [_window makeKeyAndVisible];
     WMPageController *vc = [self p_defaultController];

@@ -16,7 +16,11 @@
 
 @implementation WallpaperDataModel
 +(NSDictionary<NSString *,id> *)modelContainerPropertyGenericClass {
-    return @{@"picture": [WallpaperPictureModel class]};
+    return @{@"pictures": [WallpaperPictureModel class]};
+}
++(NSDictionary<NSString *,id> *)modelCustomPropertyMapper {
+    return @{@"descriptionField": @"description",
+             @"shareUtc": @"share_utc"};
 }
 @end
 

@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <YYKit.h>
 
 @interface NSObject (Parse)<YYModel>
 +(id)parse:(id)JSON;

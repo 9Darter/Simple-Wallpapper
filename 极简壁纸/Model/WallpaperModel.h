@@ -20,10 +20,11 @@
 @end
 
 @interface WallpaperDataModel : NSObject
-@property (nonatomic, assign) NSInteger index;
-@property (nonatomic, strong) NSArray<WallpaperPictureModel *> * picture;
-@property (nonatomic, strong) NSString * query;
-@property (nonatomic, strong) NSString * sort;
+@property (nonatomic, strong) NSString * descriptionField;
+@property (nonatomic, strong) NSString * fullname;
+@property (nonatomic, strong) NSArray<WallpaperPictureModel *> * pictures;
+@property (nonatomic, strong) NSString * shareUtc;
+@property (nonatomic, strong) NSString * title;
 @end
 
 @interface WallpaperPictureModel : NSObject
