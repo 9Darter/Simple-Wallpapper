@@ -7,7 +7,6 @@
 //
 
 #import "NetManager.h"
-#import "WallpaperModel.h"
 
 @implementation NetManager
 +(id)getWallpaperModelWithTitle:(Title)title andPage:(NSInteger)page andLimit:(NSInteger)limit completionHandler:(void (^)(WallpaperModel *, NSError *))completionHandler {
@@ -53,8 +52,9 @@
             path = [NSString stringWithFormat:kPath, @"1990155", @"051106304", @"88580", page, limit];
             break;
     }
-    path = kPathTrue;
+    path = [path stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
+//    path = [path stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet characterSetWithCharactersInString:@"`#%^{}\"[]|\\<> "].invertedSet];
     return [self GET:path parameters:nil completionHandler:^(id responseObj, NSError *error) {
         !completionHandler ?: completionHandler([WallpaperModel parse:responseObj], error);
     }];

@@ -22,5 +22,8 @@
 #import <WMPageController.h>
 #import <YYKit.h>
 #import <AFNetworking.h>
+#import <MJRefresh.h>
+#define MAS_SHORTHAND_GLOBALS
+#import <Masonry.h>
 
 #endif /* PrefixHeader_pch */

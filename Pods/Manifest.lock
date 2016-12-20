@@ -14,6 +14,7 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
+  - Masonry (1.0.2)
   - MJRefresh (3.1.12)
   - WMPageController (2.2.1)
   - YYKit (1.0.9):
@@ -22,16 +23,18 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
+  - Masonry
   - MJRefresh
   - WMPageController
   - YYKit
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   WMPageController: 181bcc9b1fb7c9c3466bff66012552953a547d28
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 550269fce9aa5a7d9f57df5adaf5c859ee0f74bb
+PODFILE CHECKSUM: a63dbbb971cf57fc803883bad52a7a3ae1975e00
 
 COCOAPODS: 1.1.1

@@ -6,7 +6,7 @@ target '极简壁纸' do
   # use_frameworks!
 
   # Pods for 极简壁纸
-#  pod "Masonry"
+  pod "Masonry"
   pod "AFNetworking"
   pod "YYKit"
 #  pod "BlocksKit"

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		43EEC8681E08CF6D00ADCB50 /* ThreeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 43EEC8671E08CF6D00ADCB50 /* ThreeCell.m */; };
+		43EEC8DA1E09320400ADCB50 /* TwoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 43EEC8D91E09320400ADCB50 /* TwoCell.m */; };
 		A143FD531E062828006D5EB8 /* WallpaperModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A143FD521E062828006D5EB8 /* WallpaperModel.m */; };
 		A143FD561E063B28006D5EB8 /* NSString+WF.m in Sources */ = {isa = PBXBuildFile; fileRef = A143FD551E063B28006D5EB8 /* NSString+WF.m */; };
 		A143FD591E063B96006D5EB8 /* NSObject+Parse.m in Sources */ = {isa = PBXBuildFile; fileRef = A143FD581E063B96006D5EB8 /* NSObject+Parse.m */; };
@@ -33,6 +35,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		43EEC8661E08CF6D00ADCB50 /* ThreeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThreeCell.h; sourceTree = "<group>"; };
+		43EEC8671E08CF6D00ADCB50 /* ThreeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThreeCell.m; sourceTree = "<group>"; };
+		43EEC8D81E09320400ADCB50 /* TwoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwoCell.h; sourceTree = "<group>"; };
+		43EEC8D91E09320400ADCB50 /* TwoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwoCell.m; sourceTree = "<group>"; };
 		A143FD511E062828006D5EB8 /* WallpaperModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WallpaperModel.h; sourceTree = "<group>"; };
 		A143FD521E062828006D5EB8 /* WallpaperModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WallpaperModel.m; sourceTree = "<group>"; };
 		A143FD541E063B28006D5EB8 /* NSString+WF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+WF.h"; sourceTree = "<group>"; };
@@ -201,6 +207,10 @@
 		A1EFC8861E05431900161592 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				43EEC8661E08CF6D00ADCB50 /* ThreeCell.h */,
+				43EEC8671E08CF6D00ADCB50 /* ThreeCell.m */,
+				43EEC8D81E09320400ADCB50 /* TwoCell.h */,
+				43EEC8D91E09320400ADCB50 /* TwoCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -484,10 +494,12 @@
 				A1EFC8A21E0569AF00161592 /* HomeScreenController.m in Sources */,
 				A1EFC8BA1E056A9900161592 /* WordWallpapersController.m in Sources */,
 				A1EFC89C1E05698C00161592 /* TopicController.m in Sources */,
+				43EEC8681E08CF6D00ADCB50 /* ThreeCell.m in Sources */,
 				A143FD561E063B28006D5EB8 /* NSString+WF.m in Sources */,
 				A1EFC8AE1E056A4E00161592 /* LatestController.m in Sources */,
 				A1EFC8A81E056A0200161592 /* PerfectCoupleController.m in Sources */,
 				A143FD5C1E063F38006D5EB8 /* BaseNetmanager.m in Sources */,
+				43EEC8DA1E09320400ADCB50 /* TwoCell.m in Sources */,
 				A1EFC8B41E056A6D00161592 /* BoysController.m in Sources */,
 				A1EFC8BD1E056AB200161592 /* ChatBackgroundsController.m in Sources */,
 				A143FD591E063B96006D5EB8 /* NSObject+Parse.m in Sources */,
