@@ -8,26 +8,41 @@
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>1</integer>
 		</dict>
 		<key>MJRefresh.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+		<key>Masonry.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>6</integer>
 		</dict>
 		<key>Pods-极简壁纸.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>3</integer>
 		</dict>
 		<key>WMPageController.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>4</integer>
 		</dict>
 		<key>YYKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>5</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
@@ -37,7 +52,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>0DA8E01E622AA4CB1E84FAFF4D8EF7D8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1699DD6AAE31274E17EF91D459EEDDAD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1ECFC1878E710CA50D59204F99DD8D05</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>6BF6667813E6C3BA56437D5AF9407EDC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9DC8D9E02903E93BD0B2FEC9D846EA20</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -10,6 +10,7 @@
 #import "WallpaperModel.h"
 #import "TwoCell.h"
 #import "ThreeCell.h"
+#import "FiveCell.h"
 #import "NetManager.h"
 
 @interface RecommendedController ()
@@ -33,6 +34,7 @@
     //注册cell
     [self.tableView registerClass:[TwoCell class] forCellReuseIdentifier:@"TwoCell"];
     [self.tableView registerClass:[ThreeCell class] forCellReuseIdentifier:@"ThreeCell"];
+    [self.tableView registerClass:[FiveCell class] forCellReuseIdentifier:@"FiveCell"];
     
     
     
@@ -100,11 +102,11 @@
     switch (model.pictures.count) {
         case 2:
             return kScreenWidth * 344 / 375.0;
-        //case 3:
-            default:
+        case 3:
             return kScreenWidth * 449 / 375.0;
-//        case 5:
-//            return kScreenWidth * 338 / 375.0;
+        //case 5:
+            default:
+            return kScreenWidth * 338 / 375.0;
 //        case 6:
 //            return kScreenWidth * 504 / 375.0;
 //        default: // 9
@@ -133,8 +135,7 @@
             return cell;
         }
             
-        //case 3:
-        default:
+        case 3:
         {
             ThreeCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ThreeCell" forIndexPath:indexPath];
             [cell.firstIV setImageURL:model.pictures[0].thumb.url.wf_url];
@@ -143,9 +144,18 @@
             return cell;
         }
             
-//        case 5:
-//            <#statements#>
-//            break;
+        //case 5:
+            default:
+        {
+            FiveCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FiveCell" forIndexPath:indexPath];
+            [cell.firstIV setImageURL:model.pictures[0].thumb.url.wf_url];
+            [cell.secondIV setImageURL:model.pictures[1].thumb.url.wf_url];
+            [cell.thirdIV setImageURL:model.pictures[2].thumb.url.wf_url];
+            [cell.fourthIV setImageURL:model.pictures[3].thumb.url.wf_url];
+            [cell.fifthIV setImageURL:model.pictures[4].thumb.url.wf_url];
+            return cell;
+        }
+            
 //        case 6:
 //            <#statements#>
 //            break;
