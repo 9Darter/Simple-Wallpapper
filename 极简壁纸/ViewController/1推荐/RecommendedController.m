@@ -12,6 +12,8 @@
 #import "ThreeCell.h"
 #import "FiveCell.h"
 #import "NetManager.h"
+#import "SixCell.h"
+#import "NineCell.h"
 
 @interface RecommendedController ()
 @property(nonatomic, copy) NSMutableArray<WallpaperDataModel *> *dataList;
@@ -35,7 +37,8 @@
     [self.tableView registerClass:[TwoCell class] forCellReuseIdentifier:@"TwoCell"];
     [self.tableView registerClass:[ThreeCell class] forCellReuseIdentifier:@"ThreeCell"];
     [self.tableView registerClass:[FiveCell class] forCellReuseIdentifier:@"FiveCell"];
-    
+    [self.tableView registerClass:[SixCell class] forCellReuseIdentifier:@"SixCell"];
+    [self.tableView registerClass:[NineCell class] forCellReuseIdentifier:@"NineCell"];
     
     
     self.tableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 0, 1)];
@@ -104,13 +107,12 @@
             return kScreenWidth * 344 / 375.0;
         case 3:
             return kScreenWidth * 449 / 375.0;
-        //case 5:
-            default:
+        case 5:
             return kScreenWidth * 338 / 375.0;
-//        case 6:
-//            return kScreenWidth * 504 / 375.0;
-//        default: // 9
-//            return kScreenWidth * 500 / 375.0;
+        case 6:
+            return kScreenWidth * 504 / 375.0;
+        default: //case: 9
+            return kScreenWidth * 500 / 375.0;
     }
 }
 
@@ -144,8 +146,8 @@
             return cell;
         }
             
-        //case 5:
-            default:
+        case 5:
+            
         {
             FiveCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FiveCell" forIndexPath:indexPath];
             [cell.firstIV setImageURL:model.pictures[0].thumb.url.wf_url];
@@ -156,12 +158,32 @@
             return cell;
         }
             
-//        case 6:
-//            <#statements#>
-//            break;
-//        case 9:
-//            <#statements#>
-//            break;
+        case 6:
+        {
+            SixCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SixCell" forIndexPath:indexPath];
+            [cell.firstIV setImageURL:model.pictures[0].thumb.url.wf_url];
+            [cell.secondIV setImageURL:model.pictures[1].thumb.url.wf_url];
+            [cell.thirdIV setImageURL:model.pictures[2].thumb.url.wf_url];
+            [cell.fourthIV setImageURL:model.pictures[3].thumb.url.wf_url];
+            [cell.fifthIV setImageURL:model.pictures[4].thumb.url.wf_url];
+            [cell.sixIV setImageURL:model.pictures[5].thumb.url.wf_url];
+            return cell;
+        }
+            
+        default: //case 9:
+        {
+            NineCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NineCell" forIndexPath:indexPath];
+            [cell.firstIV setImageURL:model.pictures[0].thumb.url.wf_url];
+            [cell.secondIV setImageURL:model.pictures[1].thumb.url.wf_url];
+            [cell.thirdIV setImageURL:model.pictures[2].thumb.url.wf_url];
+            [cell.fourthIV setImageURL:model.pictures[3].thumb.url.wf_url];
+            [cell.fifthIV setImageURL:model.pictures[4].thumb.url.wf_url];
+            [cell.sixIV setImageURL:model.pictures[5].thumb.url.wf_url];
+            [cell.sevenIV setImageURL:model.pictures[6].thumb.url.wf_url];
+            [cell.eightIV setImageURL:model.pictures[7].thumb.url.wf_url];
+            [cell.nineIV setImageURL:model.pictures[8].thumb.url.wf_url];
+            return cell;
+        }
     }
 }
 
