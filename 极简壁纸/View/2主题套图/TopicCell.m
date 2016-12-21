@@ -56,10 +56,11 @@
 -(UIButton *)downloadBtn {
     if (!_downloadBtn) {
         _downloadBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        _downloadBtn.layer.cornerRadius = 2;
+        _downloadBtn.layer.cornerRadius = 3;
         _downloadBtn.clipsToBounds = YES;
         _downloadBtn.backgroundColor = [UIColor colorWithRed:212 / 255.0 green:41 / 255.0 blue:53 / 255.0 alpha:1];
         _downloadBtn.titleLabel.textColor = [UIColor whiteColor];
+        _downloadBtn.titleLabel.font = [UIFont systemFontOfSize:13];
         [self.contentView addSubview:_downloadBtn];
         [_downloadBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.equalTo(self.secondIV);

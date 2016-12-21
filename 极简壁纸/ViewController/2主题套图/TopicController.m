@@ -111,7 +111,21 @@
     [cell.firstIV setImageURL:model.pictures[0].thumb.url.wf_url];
     [cell.secondIV setImageURL:model.pictures[1].thumb.url.wf_url];
     cell.freeLb.text = @"免费";
-    cell.downloadBtn.titleLabel.text = @"一键下载";
+    [cell.downloadBtn setTitle:@"一键下载" forState:UIControlStateNormal];
+    //*****给图片上面加一个额外的图层，显示锁屏图案和图标*****
+    UIImageView *lockScreenView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"page_cell_style_preview_lock_cn_200x355_"]];
+    lockScreenView.contentMode = UIViewContentModeScaleAspectFit;
+    UIImageView *homeScreenView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"page_cell_style_preview_home_cn_200x355_"]];
+    homeScreenView.contentMode = UIViewContentModeScaleAspectFit;
+    [cell.firstIV addSubview:lockScreenView];
+    [lockScreenView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(0);
+    }];
+    [cell.secondIV addSubview:homeScreenView];
+    [homeScreenView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(0);
+    }];
+    //****************
     return cell;
 }
 
