@@ -9,6 +9,7 @@
 #import "NetManager.h"
 
 @implementation NetManager
+//通用网络请求
 +(id)getWallpaperModelWithTitle:(Title)title andPage:(NSInteger)page andLimit:(NSInteger)limit completionHandler:(void (^)(WallpaperModel *, NSError *))completionHandler {
     NSString *path = nil;
     switch (title) {
@@ -57,6 +58,16 @@
 //    path = [path stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet characterSetWithCharactersInString:@"`#%^{}\"[]|\\<> "].invertedSet];
     return [self GET:path parameters:nil completionHandler:^(id responseObj, NSError *error) {
         !completionHandler ?: completionHandler([WallpaperModel parse:responseObj], error);
+    }];
+}
+
+//锁屏页的特殊网络请求
++(id)getLockScreenModelWithPage:(NSInteger)page andLimit:(NSInteger)limit completionHandler:(void (^)(LockScreenModel *, NSError *))completionHandler {
+    NSString *path = nil;
+    path = [NSString stringWithFormat:kPath, @"1989899", @"051106301", @"88068", page, limit];
+    path = [path stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    return [self GET:path parameters:nil completionHandler:^(id responseObj, NSError *error) {
+        !completionHandler ?: completionHandler([LockScreenModel parse:responseObj], error);
     }];
 }
 @end

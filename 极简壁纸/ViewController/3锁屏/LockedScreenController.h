@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LockedScreenController : UITableViewController
+@interface LockedScreenController : UICollectionViewController
 
 @end

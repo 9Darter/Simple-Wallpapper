@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "WallpaperModel.h"
+#import "LockScreenModel.h"
 #import "BaseNetmanager.h"
 typedef NS_ENUM(NSUInteger, Title) {
     TitleRecommended,
@@ -26,7 +27,10 @@ typedef NS_ENUM(NSUInteger, Title) {
 };
 
 @interface NetManager : BaseNetmanager
+//通用的网络请求
 +(id)getWallpaperModelWithTitle:(Title)title andPage:(NSInteger)page andLimit:(NSInteger)limit completionHandler:(void(^)(WallpaperModel *model, NSError *error))completionHandler;
+//锁屏页的特殊网络请求
++(id)getLockScreenModelWithPage:(NSInteger)page andLimit:(NSInteger)limit completionHandler:(void(^)(LockScreenModel *model, NSError *error))completionHandler;
 @end
 
 

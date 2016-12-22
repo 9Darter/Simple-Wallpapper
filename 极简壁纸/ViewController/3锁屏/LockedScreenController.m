@@ -7,21 +7,68 @@
 //
 
 #import "LockedScreenController.h"
+#import "LockScreenLayout.h"
+#import "NetManager.h"
+#import "LockScreenCell.h"
 
 @interface LockedScreenController ()
-
+@property(nonatomic, copy) NSMutableArray<WallpaperDataModel *> *dataList;
+@property(nonatomic, assign) NSInteger page;
 @end
 
 @implementation LockedScreenController
 
+#pragma mark - 重写初始化方法
+-(instancetype)init {
+    if (self = [super initWithCollectionViewLayout:[LockScreenLayout new]]) {
+        
+    }
+    return self;
+}
+#pragma mark - Lazy
+-(NSMutableArray<WallpaperDataModel *> *)dataList {
+    if (!_dataList) {
+        _dataList = [NSMutableArray new];
+    }
+    return _dataList;
+}
+
+#pragma mark - Life
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    self.collectionView.backgroundColor = [UIColor whiteColor];
+    //注册cell
+    [self.collectionView registerClass:[LockScreenCell class] forCellWithReuseIdentifier:@"LockScreenCell"];
+    //刷新及网络请求
+    self.collectionView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [NetManager getWallpaperModelWithTitle:TitleLockedScreen andPage:1 andLimit:25 completionHandler:^(WallpaperModel *model, NSError *error) {
+            if (!error) {
+                [self.dataList removeAllObjects];
+                [self.dataList addObjectsFromArray:model.data];
+                [self.collectionView reloadData];
+                self.page = 1;
+            }
+            [self.collectionView.mj_header endRefreshing];
+        }];
+    }];
+    [self.collectionView.mj_header beginRefreshing];
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.collectionView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+        [NetManager getWallpaperModelWithTitle:TitleLockedScreen andPage:self.page + 1 andLimit:25 completionHandler:^(WallpaperModel *model, NSError *error) {
+            if (!error) {
+                [self.dataList addObjectsFromArray:model.data];
+                [self.collectionView reloadData];
+                self.page++;
+            }
+            if (model.data.count < 30) {
+                [self.collectionView.mj_footer endRefreshingWithNoMoreData];
+            } else {
+                [self.collectionView.mj_footer endRefreshing];
+            }
+        }];
+    }];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -29,70 +76,14 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
+#pragma mark - Delegate
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return self.dataList.count;
 }
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
-}
-
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
-}
-*/
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
+//-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+//    LockScreenCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"LockScreenCell" forIndexPath:indexPath];
+//    WallpaperDataModel *model = self.dataList[indexPath.row];
+//    cell.iconIV setImageURL:model.pictures
+//    
+//}
 @end

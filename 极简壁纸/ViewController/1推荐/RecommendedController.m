@@ -48,7 +48,7 @@
     
     
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        [NetManager getWallpaperModelWithTitle:TitleRecommended andPage:1 andLimit:30 completionHandler:^(WallpaperModel *model, NSError *error) {
+        [NetManager getWallpaperModelWithTitle:TitleRecommended andPage:1 andLimit:25 completionHandler:^(WallpaperModel *model, NSError *error) {
             if (!error) {
                 [self.dataList removeAllObjects];
                 //********新建一个可变数组，把model.data保存下来，然后调用方法去掉广告
@@ -65,7 +65,7 @@
     [self.tableView.mj_header beginRefreshing];
     
     self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
-        [NetManager getWallpaperModelWithTitle:TitleRecommended andPage:self.page + 1 andLimit:30 completionHandler:^(WallpaperModel *model, NSError *error) {
+        [NetManager getWallpaperModelWithTitle:TitleRecommended andPage:self.page + 1 andLimit:25 completionHandler:^(WallpaperModel *model, NSError *error) {
             if (!error) {
                 //********新建一个可变数组，把model.data保存下来，然后调用方法去掉广告
                 NSMutableArray *array = [NSMutableArray arrayWithArray:model.data];
@@ -134,15 +134,17 @@
             TwoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TwoCell" forIndexPath:indexPath];
             [cell.firstIV setImageURL:model.pictures[0].thumb.url.wf_url];
             [cell.secondIV setImageURL:model.pictures[1].thumb.url.wf_url];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
             return cell;
         }
             
-        case 3:
+        case 3: case 4: //一般不会出现case 4
         {
             ThreeCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ThreeCell" forIndexPath:indexPath];
             [cell.firstIV setImageURL:model.pictures[0].thumb.url.wf_url];
             [cell.secondIV setImageURL:model.pictures[1].thumb.url.wf_url];
             [cell.thirdIV setImageURL:model.pictures[2].thumb.url.wf_url];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
             return cell;
         }
             
@@ -155,10 +157,11 @@
             [cell.thirdIV setImageURL:model.pictures[2].thumb.url.wf_url];
             [cell.fourthIV setImageURL:model.pictures[3].thumb.url.wf_url];
             [cell.fifthIV setImageURL:model.pictures[4].thumb.url.wf_url];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
             return cell;
         }
             
-        case 6:
+        case 6: case 7: case 8:// case 7、8也为特殊情况
         {
             SixCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SixCell" forIndexPath:indexPath];
             [cell.firstIV setImageURL:model.pictures[0].thumb.url.wf_url];
@@ -167,6 +170,7 @@
             [cell.fourthIV setImageURL:model.pictures[3].thumb.url.wf_url];
             [cell.fifthIV setImageURL:model.pictures[4].thumb.url.wf_url];
             [cell.sixIV setImageURL:model.pictures[5].thumb.url.wf_url];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
             return cell;
         }
             
@@ -182,6 +186,7 @@
             [cell.sevenIV setImageURL:model.pictures[6].thumb.url.wf_url];
             [cell.eightIV setImageURL:model.pictures[7].thumb.url.wf_url];
             [cell.nineIV setImageURL:model.pictures[8].thumb.url.wf_url];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
             return cell;
         }
     }

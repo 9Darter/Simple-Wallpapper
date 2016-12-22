@@ -39,7 +39,7 @@
     
     
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        [NetManager getWallpaperModelWithTitle:TitleTopic andPage:1 andLimit:30 completionHandler:^(WallpaperModel *model, NSError *error) {
+        [NetManager getWallpaperModelWithTitle:TitleTopic andPage:1 andLimit:25 completionHandler:^(WallpaperModel *model, NSError *error) {
             if (!error) {
                 [self.dataList removeAllObjects];
                 //********新建一个可变数组，把model.data保存下来，然后调用方法去掉广告
@@ -56,7 +56,7 @@
     [self.tableView.mj_header beginRefreshing];
     
     self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
-        [NetManager getWallpaperModelWithTitle:TitleTopic andPage:self.page + 1 andLimit:30 completionHandler:^(WallpaperModel *model, NSError *error) {
+        [NetManager getWallpaperModelWithTitle:TitleTopic andPage:self.page + 1 andLimit:25 completionHandler:^(WallpaperModel *model, NSError *error) {
             if (!error) {
                 //********新建一个可变数组，把model.data保存下来，然后调用方法去掉广告
                 NSMutableArray *array = [NSMutableArray arrayWithArray:model.data];
@@ -89,7 +89,7 @@
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     WallpaperDataModel *model = self.dataList[indexPath.section];
-    return [self tableView:tableView cellForRowAtIndexPath:indexPath model:model]; //调用自己写的方法，给每个cell赋值
+    return [self tableView:tableView cellForRowAtIndexPath:indexPath model:model]; //调用本类方法，给每个cell赋值
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return kScreenWidth * 382 / 375.0;
@@ -126,6 +126,7 @@
         make.edges.equalTo(0);
     }];
     //****************
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 

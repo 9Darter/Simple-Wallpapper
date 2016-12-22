@@ -13,6 +13,10 @@
 		431FFE761E0A2FE1007A8EDC /* ThreeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 431FFE701E0A2FE1007A8EDC /* ThreeCell.m */; };
 		431FFE771E0A2FE1007A8EDC /* TwoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 431FFE721E0A2FE1007A8EDC /* TwoCell.m */; };
 		431FFE7B1E0A3020007A8EDC /* TopicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 431FFE7A1E0A3020007A8EDC /* TopicCell.m */; };
+		4363612E1E0B5A410068A043 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4363612D1E0B5A410068A043 /* Assets.xcassets */; };
+		436361321E0B626B0068A043 /* LockScreenLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 436361311E0B626B0068A043 /* LockScreenLayout.m */; };
+		436361351E0B67610068A043 /* LockScreenCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 436361341E0B67610068A043 /* LockScreenCell.m */; };
+		436361391E0B6FEE0068A043 /* LockScreenModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 436361381E0B6FEE0068A043 /* LockScreenModel.m */; };
 		A143FD531E062828006D5EB8 /* WallpaperModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A143FD521E062828006D5EB8 /* WallpaperModel.m */; };
 		A143FD561E063B28006D5EB8 /* NSString+WF.m in Sources */ = {isa = PBXBuildFile; fileRef = A143FD551E063B28006D5EB8 /* NSString+WF.m */; };
 		A143FD591E063B96006D5EB8 /* NSObject+Parse.m in Sources */ = {isa = PBXBuildFile; fileRef = A143FD581E063B96006D5EB8 /* NSObject+Parse.m */; };
@@ -20,7 +24,6 @@
 		A143FD5F1E06414E006D5EB8 /* NetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A143FD5E1E06414E006D5EB8 /* NetManager.m */; };
 		A1EFC86C1E053EF300161592 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EFC86B1E053EF300161592 /* main.m */; };
 		A1EFC86F1E053EF300161592 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EFC86E1E053EF300161592 /* AppDelegate.m */; };
-		A1EFC8771E053EF300161592 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1EFC8761E053EF300161592 /* Assets.xcassets */; };
 		A1EFC87A1E053EF300161592 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1EFC8781E053EF300161592 /* LaunchScreen.storyboard */; };
 		A1EFC8991E05696200161592 /* RecommendedController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EFC8981E05696200161592 /* RecommendedController.m */; };
 		A1EFC89C1E05698C00161592 /* TopicController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EFC89B1E05698C00161592 /* TopicController.m */; };
@@ -51,6 +54,13 @@
 		431FFE721E0A2FE1007A8EDC /* TwoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwoCell.m; sourceTree = "<group>"; };
 		431FFE791E0A3020007A8EDC /* TopicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopicCell.h; sourceTree = "<group>"; };
 		431FFE7A1E0A3020007A8EDC /* TopicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopicCell.m; sourceTree = "<group>"; };
+		4363612D1E0B5A410068A043 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		436361301E0B626B0068A043 /* LockScreenLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LockScreenLayout.h; sourceTree = "<group>"; };
+		436361311E0B626B0068A043 /* LockScreenLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LockScreenLayout.m; sourceTree = "<group>"; };
+		436361331E0B67610068A043 /* LockScreenCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LockScreenCell.h; sourceTree = "<group>"; };
+		436361341E0B67610068A043 /* LockScreenCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LockScreenCell.m; sourceTree = "<group>"; };
+		436361371E0B6FEE0068A043 /* LockScreenModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LockScreenModel.h; sourceTree = "<group>"; };
+		436361381E0B6FEE0068A043 /* LockScreenModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LockScreenModel.m; sourceTree = "<group>"; };
 		A143FD511E062828006D5EB8 /* WallpaperModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WallpaperModel.h; sourceTree = "<group>"; };
 		A143FD521E062828006D5EB8 /* WallpaperModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WallpaperModel.m; sourceTree = "<group>"; };
 		A143FD541E063B28006D5EB8 /* NSString+WF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+WF.h"; sourceTree = "<group>"; };
@@ -66,7 +76,6 @@
 		A1EFC86B1E053EF300161592 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A1EFC86D1E053EF300161592 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A1EFC86E1E053EF300161592 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		A1EFC8761E053EF300161592 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
 		A1EFC8791E053EF300161592 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A1EFC87B1E053EF300161592 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1EFC8881E05435600161592 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -149,6 +158,26 @@
 			path = "2主题套图";
 			sourceTree = "<group>";
 		};
+		4363612F1E0B61CC0068A043 /* 3锁屏 */ = {
+			isa = PBXGroup;
+			children = (
+				436361301E0B626B0068A043 /* LockScreenLayout.h */,
+				436361311E0B626B0068A043 /* LockScreenLayout.m */,
+				436361331E0B67610068A043 /* LockScreenCell.h */,
+				436361341E0B67610068A043 /* LockScreenCell.m */,
+			);
+			path = "3锁屏";
+			sourceTree = "<group>";
+		};
+		436361361E0B69D70068A043 /* 锁屏页的特殊model */ = {
+			isa = PBXGroup;
+			children = (
+				436361371E0B6FEE0068A043 /* LockScreenModel.h */,
+				436361381E0B6FEE0068A043 /* LockScreenModel.m */,
+			);
+			path = "锁屏页的特殊model";
+			sourceTree = "<group>";
+		};
 		A1EFC85E1E053EF200161592 = {
 			isa = PBXGroup;
 			children = (
@@ -209,6 +238,7 @@
 		A1EFC8821E05431900161592 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				436361361E0B69D70068A043 /* 锁屏页的特殊model */,
 				A143FD511E062828006D5EB8 /* WallpaperModel.h */,
 				A143FD521E062828006D5EB8 /* WallpaperModel.m */,
 			);
@@ -229,7 +259,7 @@
 		A1EFC8841E05431900161592 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				A1EFC8761E053EF300161592 /* Assets.xcassets */,
+				4363612D1E0B5A410068A043 /* Assets.xcassets */,
 				A1EFC8781E053EF300161592 /* LaunchScreen.storyboard */,
 			);
 			path = Resource;
@@ -247,6 +277,7 @@
 			children = (
 				431FFE591E0A2FA8007A8EDC /* 1推荐 */,
 				431FFE781E0A2FFB007A8EDC /* 2主题套图 */,
+				4363612F1E0B61CC0068A043 /* 3锁屏 */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -460,7 +491,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1EFC87A1E053EF300161592 /* LaunchScreen.storyboard in Resources */,
-				A1EFC8771E053EF300161592 /* Assets.xcassets in Resources */,
+				4363612E1E0B5A410068A043 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -536,8 +567,11 @@
 				431FFE741E0A2FE1007A8EDC /* NineCell.m in Sources */,
 				431FFE761E0A2FE1007A8EDC /* ThreeCell.m in Sources */,
 				431FFE751E0A2FE1007A8EDC /* SixCell.m in Sources */,
+				436361391E0B6FEE0068A043 /* LockScreenModel.m in Sources */,
+				436361321E0B626B0068A043 /* LockScreenLayout.m in Sources */,
 				A1EFC8AE1E056A4E00161592 /* LatestController.m in Sources */,
 				A1EFC8A81E056A0200161592 /* PerfectCoupleController.m in Sources */,
+				436361351E0B67610068A043 /* LockScreenCell.m in Sources */,
 				A143FD5C1E063F38006D5EB8 /* BaseNetmanager.m in Sources */,
 				A1EFC8B41E056A6D00161592 /* BoysController.m in Sources */,
 				A1EFC8BD1E056AB200161592 /* ChatBackgroundsController.m in Sources */,
@@ -660,7 +694,7 @@
 				GCC_PREFIX_HEADER = "$(PRODUCT_NAME)/PrefixHeader.pch";
 				INFOPLIST_FILE = "极简壁纸/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.mycompany.----";
+				PRODUCT_BUNDLE_IDENTIFIER = com.SimpleWallpaper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -674,7 +708,7 @@
 				GCC_PREFIX_HEADER = "$(PRODUCT_NAME)/PrefixHeader.pch";
 				INFOPLIST_FILE = "极简壁纸/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.mycompany.----";
+				PRODUCT_BUNDLE_IDENTIFIER = com.SimpleWallpaper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
