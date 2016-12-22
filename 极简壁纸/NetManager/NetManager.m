@@ -64,10 +64,11 @@
 //锁屏页的特殊网络请求
 +(id)getLockScreenModelWithPage:(NSInteger)page andLimit:(NSInteger)limit completionHandler:(void (^)(LockScreenModel *, NSError *))completionHandler {
     NSString *path = nil;
-    path = [NSString stringWithFormat:kPath, @"1989899", @"051106301", @"88068", page, limit];
+    path = [NSString stringWithFormat:kPath, @"1989643", @"051106300", @"87812", page, limit];
     path = [path stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     return [self GET:path parameters:nil completionHandler:^(id responseObj, NSError *error) {
-        !completionHandler ?: completionHandler([LockScreenModel parse:responseObj], error);
+        //此处用锁屏model的类方法去解析，不要用分类中的通用parse方法
+        !completionHandler ?: completionHandler([LockScreenModel parseDic:responseObj], error);
     }];
 }
 @end

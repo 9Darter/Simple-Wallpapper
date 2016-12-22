@@ -117,9 +117,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    [NetManager getLockScreenModelWithPage:1 andLimit:25 completionHandler:^(LockScreenModel *model, NSError *error) {
-        NSLog(@"");
-    }];
+//    [NetManager getLockScreenModelWithPage:1 andLimit:25 completionHandler:^(LockScreenModel *model, NSError *error) {
+//        NSLog(@"");
+//    }];
     
     
     
