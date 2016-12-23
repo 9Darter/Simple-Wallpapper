@@ -48,7 +48,7 @@
     
     
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        [NetManager getWallpaperModelWithTitle:TitleRecommended andPage:1 andLimit:25 completionHandler:^(WallpaperModel *model, NSError *error) {
+        [NetManager getWallpaperModelWithTitle:TitleRecommended andPage:1 andLimit:kLimit completionHandler:^(WallpaperModel *model, NSError *error) {
             if (!error) {
                 [self.dataList removeAllObjects];
                 //********新建一个可变数组，把model.data保存下来，然后调用方法去掉广告
@@ -65,7 +65,7 @@
     [self.tableView.mj_header beginRefreshing];
     
     self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
-        [NetManager getWallpaperModelWithTitle:TitleRecommended andPage:self.page + 1 andLimit:25 completionHandler:^(WallpaperModel *model, NSError *error) {
+        [NetManager getWallpaperModelWithTitle:TitleRecommended andPage:self.page + 1 andLimit:kLimit completionHandler:^(WallpaperModel *model, NSError *error) {
             if (!error) {
                 //********新建一个可变数组，把model.data保存下来，然后调用方法去掉广告
                 NSMutableArray *array = [NSMutableArray arrayWithArray:model.data];
@@ -75,7 +75,7 @@
                 self.page++;
                 [self.tableView reloadData];
             }
-            if (model.data.count < 30) {
+            if (model.data.count < 1) {
                 [self.tableView.mj_footer endRefreshingWithNoMoreData];
             } else {
                 [self.tableView.mj_footer endRefreshing];
