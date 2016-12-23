@@ -53,9 +53,8 @@
             path = [NSString stringWithFormat:kPath, @"1990155", @"051106304", @"88580", page, limit];
             break;
     }
-    path = [path stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    
-//    path = [path stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet characterSetWithCharactersInString:@"`#%^{}\"[]|\\<> "].invertedSet];
+    //path = [path stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    path = [path stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet characterSetWithCharactersInString:@"`#%^{}\"[]|\\<> "].invertedSet];
     return [self GET:path parameters:nil completionHandler:^(id responseObj, NSError *error) {
         !completionHandler ?: completionHandler([WallpaperModel parse:responseObj], error);
     }];
@@ -65,7 +64,8 @@
 +(id)getLockScreenModelWithPage:(NSInteger)page andLimit:(NSInteger)limit completionHandler:(void (^)(LockScreenModel *, NSError *))completionHandler {
     NSString *path = nil;
     path = [NSString stringWithFormat:kPath, @"1989643", @"051106300", @"87812", page, limit];
-    path = [path stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    //path = [path stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    path = [path stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet characterSetWithCharactersInString:@"`#%^{}\"[]|\\<> "].invertedSet];
     return [self GET:path parameters:nil completionHandler:^(id responseObj, NSError *error) {
         //此处用锁屏model的类方法去解析，不要用分类中的通用parse方法
         !completionHandler ?: completionHandler([LockScreenModel parseDic:responseObj], error);
