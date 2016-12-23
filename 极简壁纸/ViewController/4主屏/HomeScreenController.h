@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HomeScreenController : UITableViewController
+@interface HomeScreenController : UICollectionViewController
 
 @end

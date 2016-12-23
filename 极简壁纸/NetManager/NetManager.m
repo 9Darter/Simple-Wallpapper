@@ -14,7 +14,7 @@
     NSString *path = nil;
     switch (title) {
         case 0:
-            path = [NSString stringWithFormat:kPath, @"1988107", @"051071101", @"91396", page, limit];
+            path = [NSString stringWithFormat:kPath, @"1988107", @"051071101", @"87044", page, limit];
             break;
         case 1:
             path = [NSString stringWithFormat:kPath, @"1988619", @"051071101302200", @"87556", page, limit];
@@ -53,7 +53,6 @@
             path = [NSString stringWithFormat:kPath, @"1990155", @"051106304", @"88580", page, limit];
             break;
     }
-    //path = [path stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     path = [path stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet characterSetWithCharactersInString:@"`#%^{}\"[]|\\<> "].invertedSet];
     return [self GET:path parameters:nil completionHandler:^(id responseObj, NSError *error) {
         !completionHandler ?: completionHandler([WallpaperModel parse:responseObj], error);
@@ -61,10 +60,16 @@
 }
 
 //锁屏页的特殊网络请求
-+(id)getLockScreenModelWithPage:(NSInteger)page andLimit:(NSInteger)limit completionHandler:(void (^)(LockScreenModel *, NSError *))completionHandler {
++(id)getLockScreenModelWithSpecial:(NSInteger)special andPage:(NSInteger)page andLimit:(NSInteger)limit completionHandler:(void (^)(LockScreenModel *, NSError *))completionHandler {
     NSString *path = nil;
-    path = [NSString stringWithFormat:kPath, @"1989643", @"051106300", @"87812", page, limit];
-    //path = [path stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    switch (special) {
+        case 0:
+            path = [NSString stringWithFormat:kPath, @"1989643", @"051106300", @"87812", page, limit];
+            break;
+        default:
+            path = [NSString stringWithFormat:kPath, @"1989899", @"051106301", @"88068", page, limit];
+            break;
+    }
     path = [path stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet characterSetWithCharactersInString:@"`#%^{}\"[]|\\<> "].invertedSet];
     return [self GET:path parameters:nil completionHandler:^(id responseObj, NSError *error) {
         //此处用锁屏model的类方法去解析，不要用分类中的通用parse方法

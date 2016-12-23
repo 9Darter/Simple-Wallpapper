@@ -7,21 +7,72 @@
 //
 
 #import "PerfectCoupleController.h"
+#import "WallpaperModel.h"
+#import "PerfectCoupleCell.h"
+#import "NetManager.h"
 
 @interface PerfectCoupleController ()
-
+@property(nonatomic, copy) NSMutableArray<WallpaperDataModel *> *dataList;
+@property(nonatomic, assign) NSInteger page;
 @end
 
 @implementation PerfectCoupleController
 
+#pragma mark - Lazy
+-(NSMutableArray<WallpaperDataModel *> *)dataList {
+    if (!_dataList) {
+        _dataList = [NSMutableArray new];
+    }
+    return _dataList;
+}
+
+#pragma mark - Life
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //注册cell
+    [self.tableView registerClass:[PerfectCoupleCell class] forCellReuseIdentifier:@"PerfectCoupleCell"];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    self.tableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 0, 1)];
+    self.tableView.sectionHeaderHeight = 5;
+    self.tableView.sectionFooterHeight = 5;
+    self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 5)];
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [NetManager getWallpaperModelWithTitle:TitlePerfectCouple andPage:1 andLimit:kLimit completionHandler:^(WallpaperModel *model, NSError *error) {
+            if (!error) {
+                [self.dataList removeAllObjects];
+                //********新建一个可变数组，把model.data保存下来，然后调用方法去掉广告
+                NSMutableArray *array = [NSMutableArray arrayWithArray:model.data];
+                array = [self removeAds:array];
+                //********
+                [self.dataList addObjectsFromArray:array];
+                self.page = 1;
+                [self.tableView reloadData];
+            }
+            [self.tableView.mj_header endRefreshing];
+        }];
+    }];
+    [self.tableView.mj_header beginRefreshing];
+    
+    self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+        [NetManager getWallpaperModelWithTitle:TitlePerfectCouple andPage:self.page + 1 andLimit:kLimit completionHandler:^(WallpaperModel *model, NSError *error) {
+            if (!error) {
+                //********新建一个可变数组，把model.data保存下来，然后调用方法去掉广告
+                NSMutableArray *array = [NSMutableArray arrayWithArray:model.data];
+                array = [self removeAds:array];
+                //*************
+                [self.dataList addObjectsFromArray:array];
+                self.page++;
+                [self.tableView reloadData];
+            }
+            if (model.data.count < 1) {
+                [self.tableView.mj_footer endRefreshingWithNoMoreData];
+            } else {
+                [self.tableView.mj_footer endRefreshing];
+            }
+        }];
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -29,70 +80,37 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-
-    return 0;
+#pragma mark - Delegate
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return self.dataList.count;
+}
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 1;
+}
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    WallpaperDataModel *model = self.dataList[indexPath.section];
+    return [self tableView:tableView cellForRowAtIndexPath:indexPath model:model];
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return kScreenWidth * 344 / 375.0;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
-    return 0;
+#pragma mark - Methods
+-(NSMutableArray *)removeAds:(NSMutableArray *)dataList {
+    NSMutableArray *tmpArr = [NSMutableArray new];
+    for (WallpaperDataModel *model in dataList) {
+        if (model.pictures.count != 0) {
+            [tmpArr addObject:model];
+        }
+    }
+    return tmpArr;
 }
-
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath model:(WallpaperDataModel *)model {
+    PerfectCoupleCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PerfectCoupleCell" forIndexPath:indexPath];
+    [cell.firstIV setImageURL:model.pictures[0].thumb.url.wf_url];
+    [cell.secondIV setImageURL:model.pictures[1].thumb.url.wf_url];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
+    
 }
-*/
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 @end

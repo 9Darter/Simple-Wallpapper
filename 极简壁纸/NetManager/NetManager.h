@@ -30,7 +30,7 @@ typedef NS_ENUM(NSUInteger, Title) {
 //通用的网络请求
 +(id)getWallpaperModelWithTitle:(Title)title andPage:(NSInteger)page andLimit:(NSInteger)limit completionHandler:(void(^)(WallpaperModel *model, NSError *error))completionHandler;
 //锁屏页的特殊网络请求
-+(id)getLockScreenModelWithPage:(NSInteger)page andLimit:(NSInteger)limit completionHandler:(void(^)(LockScreenModel *model, NSError *error))completionHandler;
++(id)getLockScreenModelWithSpecial:(NSInteger)special andPage:(NSInteger)page andLimit:(NSInteger)limit completionHandler:(void(^)(LockScreenModel *model, NSError *error))completionHandler;
 @end
 
 
