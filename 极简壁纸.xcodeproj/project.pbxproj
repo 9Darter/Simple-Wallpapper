@@ -317,7 +317,7 @@
 				4363612F1E0B61CC0068A043 /* 3锁屏 */,
 				A1C9EE431E0D5847002010DB /* 4主屏 */,
 				A1C9EE4D1E0D5E11002010DB /* 5天生一对 */,
-				A1FCC3961E0E1D8800C2AFC1 /* 8最热 */,
+				A1FCC3961E0E1D8800C2AFC1 /* 8最热&9男生请进 */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -460,7 +460,7 @@
 			path = "13头像";
 			sourceTree = "<group>";
 		};
-		A1FCC3961E0E1D8800C2AFC1 /* 8最热 */ = {
+		A1FCC3961E0E1D8800C2AFC1 /* 8最热&9男生请进 */ = {
 			isa = PBXGroup;
 			children = (
 				A1FCC3971E0E1E5000C2AFC1 /* MostPopularLayout.h */,
@@ -468,6 +468,7 @@
 				A1FCC39A1E0F9E4800C2AFC1 /* MostPopularCell.h */,
 				A1FCC39B1E0F9E4800C2AFC1 /* MostPopularCell.m */,
 			);
+			name = "8最热&9男生请进";
 			path = "8最热";
 			sourceTree = "<group>";
 		};

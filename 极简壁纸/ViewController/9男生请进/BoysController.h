@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BoysController : UITableViewController
+@interface BoysController : UICollectionViewController
 
 @end

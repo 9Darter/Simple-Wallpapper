@@ -11,7 +11,7 @@
 #import "LockScreenModel.h"
 #import "BaseNetmanager.h"
 typedef NS_ENUM(NSUInteger, Title) {
-    TitleRecommended,
+    TitleRecommended = 1,
     TitleTopic,
     TitleLockedScreen,
     TitleHomeScreen,

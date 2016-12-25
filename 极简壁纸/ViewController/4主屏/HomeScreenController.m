@@ -42,7 +42,7 @@
     [self.collectionView registerClass:[HomeScreenCell class] forCellWithReuseIdentifier:@"HomeScreenCell"];
     //刷新及网络请求
     self.collectionView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        [NetManager getLockScreenModelWithSpecial:1 andPage:1 andLimit:kLimit completionHandler:^(LockScreenModel *model, NSError *error) {
+        [NetManager getLockScreenModelWithSpecial:4 andPage:1 andLimit:kLimit completionHandler:^(LockScreenModel *model, NSError *error) {
             if (!error) {
                 [self.dataList removeAllObjects];
                 [self.dataList addObjectsFromArray:model.data];
@@ -56,7 +56,7 @@
     [self.collectionView.mj_header beginRefreshing];
     
     self.collectionView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
-        [NetManager getLockScreenModelWithSpecial:1 andPage:self.page + 1 andLimit:kLimit completionHandler:^(LockScreenModel *model, NSError *error) {
+        [NetManager getLockScreenModelWithSpecial:4 andPage:self.page + 1 andLimit:kLimit completionHandler:^(LockScreenModel *model, NSError *error) {
             if (!error) {
                 [self.dataList addObjectsFromArray:model.data];
                 [self.collectionView reloadData];
