@@ -43,6 +43,7 @@
 		A1FCC39C1E0F9E4800C2AFC1 /* MostPopularCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A1FCC39B1E0F9E4800C2AFC1 /* MostPopularCell.m */; };
 		A1FCC3A01E0FFA4E00C2AFC1 /* ProfilePicsLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A1FCC39F1E0FFA4E00C2AFC1 /* ProfilePicsLayout.m */; };
 		A1FCC3A31E0FFB0D00C2AFC1 /* ProfilePicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A1FCC3A21E0FFB0D00C2AFC1 /* ProfilePicCell.m */; };
+		A1FCC3A61E10043500C2AFC1 /* PicController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1FCC3A51E10043500C2AFC1 /* PicController.m */; };
 		BBFCBBCD7FAF8323CA812228 /* libPods-极简壁纸.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC10060E6D2B4FB6E2707CBE /* libPods-极简壁纸.a */; };
 /* End PBXBuildFile section */
 
@@ -121,6 +122,8 @@
 		A1FCC39F1E0FFA4E00C2AFC1 /* ProfilePicsLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfilePicsLayout.m; sourceTree = "<group>"; };
 		A1FCC3A11E0FFB0D00C2AFC1 /* ProfilePicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfilePicCell.h; sourceTree = "<group>"; };
 		A1FCC3A21E0FFB0D00C2AFC1 /* ProfilePicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfilePicCell.m; sourceTree = "<group>"; };
+		A1FCC3A41E10043500C2AFC1 /* PicController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PicController.h; sourceTree = "<group>"; };
+		A1FCC3A51E10043500C2AFC1 /* PicController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PicController.m; sourceTree = "<group>"; };
 		CC10060E6D2B4FB6E2707CBE /* libPods-极简壁纸.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-极简壁纸.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE94BD93B5682723EE55A11A /* Pods-极简壁纸.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-极简壁纸.release.xcconfig"; path = "Pods/Target Support Files/Pods-极简壁纸/Pods-极简壁纸.release.xcconfig"; sourceTree = "<group>"; };
 		D72259887EF7F6F292823AE1 /* Pods-极简壁纸.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-极简壁纸.debug.xcconfig"; path = "Pods/Target Support Files/Pods-极简壁纸/Pods-极简壁纸.debug.xcconfig"; sourceTree = "<group>"; };
@@ -328,6 +331,8 @@
 				A1EFC8941E05691800161592 /* 11文字壁纸 */,
 				A1EFC8951E05691800161592 /* 12聊天背景 */,
 				A1EFC8961E05691800161592 /* 13头像 */,
+				A1FCC3A41E10043500C2AFC1 /* PicController.h */,
+				A1FCC3A51E10043500C2AFC1 /* PicController.m */,
 				A1EFC8C21E056B1000161592 /* ViewControllerHeader.h */,
 			);
 			path = ViewController;
@@ -608,6 +613,7 @@
 				A1FCC39C1E0F9E4800C2AFC1 /* MostPopularCell.m in Sources */,
 				A143FD5F1E06414E006D5EB8 /* NetManager.m in Sources */,
 				A1EFC8B71E056A7800161592 /* GirlsController.m in Sources */,
+				A1FCC3A61E10043500C2AFC1 /* PicController.m in Sources */,
 				A1EFC86C1E053EF300161592 /* main.m in Sources */,
 				A1EFC8991E05696200161592 /* RecommendedController.m in Sources */,
 				A143FD531E062828006D5EB8 /* WallpaperModel.m in Sources */,
