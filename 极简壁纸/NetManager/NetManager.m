@@ -63,11 +63,14 @@
 +(id)getLockScreenModelWithSpecial:(NSInteger)special andPage:(NSInteger)page andLimit:(NSInteger)limit completionHandler:(void (^)(LockScreenModel *, NSError *))completionHandler {
     NSString *path = nil;
     switch (special) {
-        case 0:
+        case 3:
             path = [NSString stringWithFormat:kPath, @"1989643", @"051106300", @"87812", page, limit];
             break;
-        default:
+        case 4:
             path = [NSString stringWithFormat:kPath, @"1989899", @"051106301", @"88068", page, limit];
+            break;
+        default: // case8
+            path = [NSString stringWithFormat:kPath, @"1988363", @"051108", @"516", page, limit];
             break;
     }
     path = [path stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet characterSetWithCharactersInString:@"`#%^{}\"[]|\\<> "].invertedSet];

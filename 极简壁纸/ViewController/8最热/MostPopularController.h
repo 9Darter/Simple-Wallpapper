@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MostPopularController : UITableViewController
+@interface MostPopularController : UICollectionViewController
 
 @end

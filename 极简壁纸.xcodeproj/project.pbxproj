@@ -41,6 +41,8 @@
 		A1EFC8BA1E056A9900161592 /* WordWallpapersController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EFC8B91E056A9900161592 /* WordWallpapersController.m */; };
 		A1EFC8BD1E056AB200161592 /* ChatBackgroundsController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EFC8BC1E056AB200161592 /* ChatBackgroundsController.m */; };
 		A1EFC8C01E056AC400161592 /* ProfilePicsController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EFC8BF1E056AC400161592 /* ProfilePicsController.m */; };
+		A1FCC3991E0E1E5000C2AFC1 /* MostPopularLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A1FCC3981E0E1E5000C2AFC1 /* MostPopularLayout.m */; };
+		A1FCC39C1E0F9E4800C2AFC1 /* MostPopularCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A1FCC39B1E0F9E4800C2AFC1 /* MostPopularCell.m */; };
 		BBFCBBCD7FAF8323CA812228 /* libPods-极简壁纸.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC10060E6D2B4FB6E2707CBE /* libPods-极简壁纸.a */; };
 /* End PBXBuildFile section */
 
@@ -115,6 +117,10 @@
 		A1EFC8BE1E056AC400161592 /* ProfilePicsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfilePicsController.h; sourceTree = "<group>"; };
 		A1EFC8BF1E056AC400161592 /* ProfilePicsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfilePicsController.m; sourceTree = "<group>"; };
 		A1EFC8C21E056B1000161592 /* ViewControllerHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewControllerHeader.h; sourceTree = "<group>"; };
+		A1FCC3971E0E1E5000C2AFC1 /* MostPopularLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MostPopularLayout.h; sourceTree = "<group>"; };
+		A1FCC3981E0E1E5000C2AFC1 /* MostPopularLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MostPopularLayout.m; sourceTree = "<group>"; };
+		A1FCC39A1E0F9E4800C2AFC1 /* MostPopularCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MostPopularCell.h; sourceTree = "<group>"; };
+		A1FCC39B1E0F9E4800C2AFC1 /* MostPopularCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MostPopularCell.m; sourceTree = "<group>"; };
 		CC10060E6D2B4FB6E2707CBE /* libPods-极简壁纸.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-极简壁纸.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE94BD93B5682723EE55A11A /* Pods-极简壁纸.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-极简壁纸.release.xcconfig"; path = "Pods/Target Support Files/Pods-极简壁纸/Pods-极简壁纸.release.xcconfig"; sourceTree = "<group>"; };
 		D72259887EF7F6F292823AE1 /* Pods-极简壁纸.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-极简壁纸.debug.xcconfig"; path = "Pods/Target Support Files/Pods-极简壁纸/Pods-极简壁纸.debug.xcconfig"; sourceTree = "<group>"; };
@@ -141,7 +147,7 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		431FFE591E0A2FA8007A8EDC /* 1推荐 */ = {
+		431FFE591E0A2FA8007A8EDC /* 1推荐&6全民看点&7最新图集 */ = {
 			isa = PBXGroup;
 			children = (
 				431FFE691E0A2FE1007A8EDC /* FiveCell.h */,
@@ -155,6 +161,7 @@
 				431FFE711E0A2FE1007A8EDC /* TwoCell.h */,
 				431FFE721E0A2FE1007A8EDC /* TwoCell.m */,
 			);
+			name = "1推荐&6全民看点&7最新图集";
 			path = "1推荐";
 			sourceTree = "<group>";
 		};
@@ -178,12 +185,13 @@
 			path = "3锁屏";
 			sourceTree = "<group>";
 		};
-		436361361E0B69D70068A043 /* 锁屏页的特殊model */ = {
+		436361361E0B69D70068A043 /* 数组套数组的特殊model */ = {
 			isa = PBXGroup;
 			children = (
 				436361371E0B6FEE0068A043 /* LockScreenModel.h */,
 				436361381E0B6FEE0068A043 /* LockScreenModel.m */,
 			);
+			name = "数组套数组的特殊model";
 			path = "锁屏页的特殊model";
 			sourceTree = "<group>";
 		};
@@ -267,7 +275,7 @@
 		A1EFC8821E05431900161592 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				436361361E0B69D70068A043 /* 锁屏页的特殊model */,
+				436361361E0B69D70068A043 /* 数组套数组的特殊model */,
 				A143FD511E062828006D5EB8 /* WallpaperModel.h */,
 				A143FD521E062828006D5EB8 /* WallpaperModel.m */,
 			);
@@ -304,11 +312,12 @@
 		A1EFC8861E05431900161592 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				431FFE591E0A2FA8007A8EDC /* 1推荐 */,
+				431FFE591E0A2FA8007A8EDC /* 1推荐&6全民看点&7最新图集 */,
 				431FFE781E0A2FFB007A8EDC /* 2主题套图 */,
 				4363612F1E0B61CC0068A043 /* 3锁屏 */,
 				A1C9EE431E0D5847002010DB /* 4主屏 */,
 				A1C9EE4D1E0D5E11002010DB /* 5天生一对 */,
+				A1FCC3961E0E1D8800C2AFC1 /* 8最热 */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -451,6 +460,17 @@
 			path = "13头像";
 			sourceTree = "<group>";
 		};
+		A1FCC3961E0E1D8800C2AFC1 /* 8最热 */ = {
+			isa = PBXGroup;
+			children = (
+				A1FCC3971E0E1E5000C2AFC1 /* MostPopularLayout.h */,
+				A1FCC3981E0E1E5000C2AFC1 /* MostPopularLayout.m */,
+				A1FCC39A1E0F9E4800C2AFC1 /* MostPopularCell.h */,
+				A1FCC39B1E0F9E4800C2AFC1 /* MostPopularCell.m */,
+			);
+			path = "8最热";
+			sourceTree = "<group>";
+		};
 		AACFA0FD5F367C97A3927CD9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -583,6 +603,7 @@
 			files = (
 				431FFE771E0A2FE1007A8EDC /* TwoCell.m in Sources */,
 				A1EFC86F1E053EF300161592 /* AppDelegate.m in Sources */,
+				A1FCC39C1E0F9E4800C2AFC1 /* MostPopularCell.m in Sources */,
 				A143FD5F1E06414E006D5EB8 /* NetManager.m in Sources */,
 				A1EFC8B71E056A7800161592 /* GirlsController.m in Sources */,
 				A1EFC86C1E053EF300161592 /* main.m in Sources */,
@@ -595,6 +616,7 @@
 				A1EFC8BA1E056A9900161592 /* WordWallpapersController.m in Sources */,
 				A1EFC89C1E05698C00161592 /* TopicController.m in Sources */,
 				A143FD561E063B28006D5EB8 /* NSString+WF.m in Sources */,
+				A1FCC3991E0E1E5000C2AFC1 /* MostPopularLayout.m in Sources */,
 				431FFE731E0A2FE1007A8EDC /* FiveCell.m in Sources */,
 				431FFE741E0A2FE1007A8EDC /* NineCell.m in Sources */,
 				431FFE761E0A2FE1007A8EDC /* ThreeCell.m in Sources */,

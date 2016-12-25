@@ -50,8 +50,7 @@
             break;
             
             case 5:
-            //vcClass = [PeopleWatchingController class];
-                vcClass = [RecommendedController class];
+            vcClass = [PeopleWatchingController class];
             title = @"全民看点";
             break;
             
