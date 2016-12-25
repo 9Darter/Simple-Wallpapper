@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ProfilePicsController : UITableViewController
+@interface ProfilePicsController : UICollectionViewController
 
 @end

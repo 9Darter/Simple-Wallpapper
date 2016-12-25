@@ -13,6 +13,7 @@
     if (!_iconIV) {
         _iconIV = [UIImageView new];
         _iconIV.contentMode = UIViewContentModeScaleAspectFill;
+        _iconIV.clipsToBounds = YES;
         [self.contentView addSubview:_iconIV];
         [_iconIV mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(0);

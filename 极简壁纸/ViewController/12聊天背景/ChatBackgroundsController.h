@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ChatBackgroundsController : UITableViewController
+@interface ChatBackgroundsController : UICollectionViewController
 
 @end

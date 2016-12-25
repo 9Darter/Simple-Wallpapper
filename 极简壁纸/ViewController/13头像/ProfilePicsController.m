@@ -7,21 +7,68 @@
 //
 
 #import "ProfilePicsController.h"
+#import "ProfilePicCell.h"
+#import "NetManager.h"
+#import "ProfilePicsLayout.h"
 
 @interface ProfilePicsController ()
-
+@property(nonatomic, copy) NSMutableArray<NSArray<LockScreenDataModel *> *> *dataList;
+@property(nonatomic, assign) NSInteger page;
 @end
 
 @implementation ProfilePicsController
 
+#pragma mark - 重写初始化方法
+-(instancetype)init {
+    if (self = [super initWithCollectionViewLayout:[ProfilePicsLayout new]]) {
+        
+    }
+    return self;
+}
+#pragma mark - Lazy
+-(NSMutableArray<NSArray<LockScreenDataModel *> *> *)dataList {
+    if (!_dataList) {
+        _dataList = [NSMutableArray new];
+    }
+    return _dataList;
+}
+
+#pragma mark - Life
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.collectionView.backgroundColor = [UIColor colorWithRed:235 / 255.0 green:235 / 255.0 blue:235 / 255.0 alpha:1];
+    //注册cell
+    [self.collectionView registerClass:[ProfilePicCell class] forCellWithReuseIdentifier:@"ProfilePicCell"];
+    //刷新及网络请求
+    self.collectionView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [NetManager getLockScreenModelWithSpecial:13 andPage:1 andLimit:kLimit completionHandler:^(LockScreenModel *model, NSError *error) {
+            if (!error) {
+                [self.dataList removeAllObjects];
+                [self.dataList addObjectsFromArray:model.data];
+                [self.collectionView reloadData];
+                self.page = 1;
+            }
+            [self.collectionView.mj_header endRefreshing];
+        }];
+    }];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    [self.collectionView.mj_header beginRefreshing];
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.collectionView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+        [NetManager getLockScreenModelWithSpecial:13 andPage:self.page + 1 andLimit:kLimit completionHandler:^(LockScreenModel *model, NSError *error) {
+            if (!error) {
+                [self.dataList addObjectsFromArray:model.data];
+                [self.collectionView reloadData];
+                self.page++;
+            }
+            if (model.data.count < 1) {
+                [self.collectionView.mj_footer endRefreshingWithNoMoreData];
+            } else {
+                [self.collectionView.mj_footer endRefreshing];
+            }
+        }];
+    }];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -29,70 +76,17 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-
-    return 0;
+#pragma mark - Delegate
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return self.dataList.count * 2;
 }
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
-    return 0;
-}
-
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    ProfilePicCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"ProfilePicCell" forIndexPath:indexPath];
+    LockScreenDataModel *model = self.dataList[indexPath.row / 2][indexPath.row % 2];
+    [cell.iconIV setImageURL:model.thumb.url.wf_url];
     
     return cell;
 }
-*/
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

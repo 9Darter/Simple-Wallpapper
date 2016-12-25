@@ -7,9 +7,9 @@
 //
 
 #import "HomeScreenController.h"
-#import "HomeScreenLayout.h"
+#import "LockScreenCell.h"
 #import "NetManager.h"
-#import "HomeScreenCell.h"
+#import "LockScreenLayout.h"
 
 @interface HomeScreenController ()
 @property(nonatomic, copy) NSMutableArray<NSArray<LockScreenDataModel *> *> *dataList;
@@ -20,7 +20,7 @@
 
 #pragma mark - 重写初始化方法
 -(instancetype)init {
-    if (self = [super initWithCollectionViewLayout:[HomeScreenLayout new]]) {
+    if (self = [super initWithCollectionViewLayout:[LockScreenLayout new]]) {
         
     }
     return self;
@@ -39,7 +39,7 @@
     
     self.collectionView.backgroundColor = [UIColor whiteColor];
     //注册cell
-    [self.collectionView registerClass:[HomeScreenCell class] forCellWithReuseIdentifier:@"HomeScreenCell"];
+    [self.collectionView registerClass:[LockScreenCell class] forCellWithReuseIdentifier:@"LockScreenCell"];
     //刷新及网络请求
     self.collectionView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [NetManager getLockScreenModelWithSpecial:4 andPage:1 andLimit:kLimit completionHandler:^(LockScreenModel *model, NSError *error) {
@@ -82,7 +82,7 @@
     return self.dataList.count * 2;
 }
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    HomeScreenCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"HomeScreenCell" forIndexPath:indexPath];
+    LockScreenCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"LockScreenCell" forIndexPath:indexPath];
     LockScreenDataModel *model = self.dataList[indexPath.row / 2][indexPath.row % 2];
     [cell.iconIV setImageURL:model.thumb.url.wf_url];
     
