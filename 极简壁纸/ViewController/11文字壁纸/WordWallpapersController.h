@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WordWallpapersController : UITableViewController
+@interface WordWallpapersController : UICollectionViewController
 
 @end
