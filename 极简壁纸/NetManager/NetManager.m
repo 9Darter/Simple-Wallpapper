@@ -72,9 +72,13 @@
         case 8:
             path = [NSString stringWithFormat:kPath, @"1988363", @"051108", @"516", page, limit];
             break;
-        default://case 9
+        case 9:
             path = [NSString stringWithFormat:kPath, @"1990411", @"051108", @"2564", page, limit];
             break;
+        default: //case 10:
+            path = [NSString stringWithFormat:kPath, @"1990667", @"051108", @"2820", page, limit];
+            break;
+
     }
     path = [path stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet characterSetWithCharactersInString:@"`#%^{}\"[]|\\<> "].invertedSet];
     return [self GET:path parameters:nil completionHandler:^(id responseObj, NSError *error) {
