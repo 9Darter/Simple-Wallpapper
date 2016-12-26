@@ -12,7 +12,7 @@ target '极简壁纸' do
 #  pod "BlocksKit"
 #  pod "MBProgressHUD"
   pod "MJRefresh"
-#  pod "CHTCollectionViewWaterfallLayout"
+  pod "CHTCollectionViewWaterfallLayout"
 #  pod "UITableView+FDTemplateLayoutCell"
 #  pod "iCarousel"
   pod "WMPageController"

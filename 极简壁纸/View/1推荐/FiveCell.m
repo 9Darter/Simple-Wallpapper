@@ -16,6 +16,11 @@
         [self.contentView addSubview:_firstIV];
         CGFloat width = (kScreenWidth - 21) / 2;
         CGFloat height = width * (16 / 9.0);
+        _firstIV.userInteractionEnabled = YES;
+        //添加一个手势
+        UITapGestureRecognizer *tapG1 = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(Push:)];
+        [_firstIV addGestureRecognizer:tapG1];
+
         [_firstIV mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(7);
             make.top.equalTo(10);
@@ -25,11 +30,18 @@
     }
     return _firstIV;
 }
+//手势方法
+-(void)Push:sender{
+    !_pushBlock1 ?: _pushBlock1(self);
+}
+
+
 
 -(UIImageView *)secondIV {
     if (!_secondIV) {
         _secondIV = [UIImageView new];
         [self.contentView addSubview:_secondIV];
+        
         [_secondIV mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(self.firstIV);
             make.left.equalTo(self.firstIV.mas_right).offset(7);
@@ -42,6 +54,8 @@
     if (!_thirdIV) {
         _thirdIV = [UIImageView new];
         [self.contentView addSubview:_thirdIV];
+
+        
         [_thirdIV mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self.secondIV.mas_right).offset(7);
             make.top.equalTo(self.secondIV);
@@ -57,6 +71,8 @@
     if (!_fourthIV) {
         _fourthIV = [UIImageView new];
         [self.contentView addSubview:_fourthIV];
+        
+        
         [_fourthIV mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.right.equalTo(self.secondIV);
             make.bottom.equalTo(self.firstIV);
@@ -71,6 +87,8 @@
     if (!_fifthIV) {
         _fifthIV = [UIImageView new];
         [self.contentView addSubview:_fifthIV];
+        
+        
         [_fifthIV mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.right.equalTo(self.thirdIV);
             make.top.bottom.equalTo(self.fourthIV);
@@ -81,9 +99,6 @@
 
 
 
-
-
-
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
@@ -91,7 +106,7 @@
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
+    
     // Configure the view for the selected state
 }
 

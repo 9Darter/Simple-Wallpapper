@@ -15,6 +15,8 @@
 #import "SixCell.h"
 #import "NineCell.h"
 
+#import "PicController.h"
+
 @interface RecommendedController ()
 @property(nonatomic, copy) NSMutableArray<WallpaperDataModel *> *dataList;
 @property(nonatomic, assign) NSInteger page;
@@ -39,7 +41,6 @@
     [self.tableView registerClass:[FiveCell class] forCellReuseIdentifier:@"FiveCell"];
     [self.tableView registerClass:[SixCell class] forCellReuseIdentifier:@"SixCell"];
     [self.tableView registerClass:[NineCell class] forCellReuseIdentifier:@"NineCell"];
-    
     
     self.tableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 0, 1)];
     self.tableView.sectionHeaderHeight = 5;
@@ -145,6 +146,7 @@
             [cell.secondIV setImageURL:model.pictures[1].thumb.url.wf_url];
             [cell.thirdIV setImageURL:model.pictures[2].thumb.url.wf_url];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            
             return cell;
         }
             
@@ -158,6 +160,14 @@
             [cell.fourthIV setImageURL:model.pictures[3].thumb.url.wf_url];
             [cell.fifthIV setImageURL:model.pictures[4].thumb.url.wf_url];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            
+            [cell setPushBlock1:^(FiveCell *cell) {
+                PicController *vc = [PicController new];
+                vc.low = model.pictures[0].low.url;
+                vc.stand = model.pictures[0].stand.url;
+                [self.navigationController pushViewController:vc animated:YES];
+            }];
+            
             return cell;
         }
             

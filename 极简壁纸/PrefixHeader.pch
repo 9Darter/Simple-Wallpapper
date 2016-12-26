@@ -25,5 +25,6 @@
 #import <MJRefresh.h>
 #define MAS_SHORTHAND_GLOBALS
 #import <Masonry.h>
+#import <CHTCollectionViewWaterfallLayout.h>
 
 #endif /* PrefixHeader_pch */
