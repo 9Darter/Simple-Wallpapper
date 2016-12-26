@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '8896FD7F662F44188263A13ACB046840'
-               BlueprintName = 'WMPageController'
+               BlueprintIdentifier = 'DC7A51F0B370F9976D21032BDDB7222E'
+               BlueprintName = 'iCarousel'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'libWMPageController.a'>
+               BuildableName = 'libiCarousel.a'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

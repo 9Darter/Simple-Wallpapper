@@ -14,9 +14,7 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
-  - CHTCollectionViewWaterfallLayout (0.9.5):
-    - CHTCollectionViewWaterfallLayout/ObjC (= 0.9.5)
-  - CHTCollectionViewWaterfallLayout/ObjC (0.9.5)
+  - iCarousel (1.8.3)
   - Masonry (1.0.2)
   - MJRefresh (3.1.12)
   - WMPageController (2.2.1)
@@ -26,7 +24,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
-  - CHTCollectionViewWaterfallLayout
+  - iCarousel
   - Masonry
   - MJRefresh
   - WMPageController
@@ -34,12 +32,12 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
-  CHTCollectionViewWaterfallLayout: 775ff73f48cfc13859b62d8bceb96e772e4a0318
+  iCarousel: d782f635afac190c49bb8ee455882284cff8b85f
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   WMPageController: 181bcc9b1fb7c9c3466bff66012552953a547d28
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: d7869bdc898d23ff78865db6ef33ed6d32588d62
+PODFILE CHECKSUM: 234234c5efb45b4920d4872ae7c5e70684e518fa
 
 COCOAPODS: 1.1.1
