@@ -36,7 +36,7 @@
 -(UIView *)buttonView {
     if (!_buttonView) {
         _buttonView = [UIView new];
-        _buttonView.backgroundColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:1];
+        _buttonView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:.7];
         [self.view addSubview:_buttonView];
         [_buttonView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.bottom.equalTo(-50);
@@ -64,7 +64,7 @@
     //ic要一页一页地显示
     self.ic.pagingEnabled = YES;
     //长条view的初始状态为隐藏
-    self.buttonView.hidden = YES;
+    self.buttonView.alpha = 0;
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -140,7 +140,14 @@
 }
 //点击某个图片后触发该方法，使长条view显示或隐藏
 -(void)carousel:(iCarousel *)carousel didSelectItemAtIndex:(NSInteger)index {
-    self.buttonView.hidden = !self.buttonView.hidden;
+    [UIView animateWithDuration:.5 animations:^{
+        if (self.buttonView.alpha == 0) {
+            self.buttonView.alpha = 1;
+        } else {
+            self.buttonView.alpha = 0;
+        }
+        
+    }];
 }
 
 
