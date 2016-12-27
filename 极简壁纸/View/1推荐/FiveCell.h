@@ -17,7 +17,7 @@
 
 
 @property (nonatomic, copy) void(^pushBlock1)(FiveCell *vc);
-//@property (nonatomic, copy) void(^pushBlock2)(FiveCell *vc);
+@property (nonatomic, copy) void(^pushBlock2)(FiveCell *vc);
 //@property (nonatomic, copy) void(^pushBlock3)(FiveCell *vc);
 //@property (nonatomic, copy) void(^pushBlock4)(FiveCell *vc);
 //@property (nonatomic, copy) void(^pushBlock5)(FiveCell *vc);

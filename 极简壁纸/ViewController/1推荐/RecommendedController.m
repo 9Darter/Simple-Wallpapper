@@ -35,6 +35,8 @@
 #pragma mark - Life
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationController.navigationBarHidden = NO;
+    
     //注册cell
     [self.tableView registerClass:[TwoCell class] forCellReuseIdentifier:@"TwoCell"];
     [self.tableView registerClass:[ThreeCell class] forCellReuseIdentifier:@"ThreeCell"];
@@ -163,10 +165,23 @@
             
             [cell setPushBlock1:^(FiveCell *cell) {
                 PicController *vc = [PicController new];
-                vc.low = model.pictures[0].low.url;
-                vc.stand = model.pictures[0].stand.url;
+                vc.dataList = self.dataList;
+                vc.fn = model.pictures[0].fn;
+                vc.page = self.page;
+                vc.picTitle = TitleRecommended;
                 [self.navigationController pushViewController:vc animated:YES];
             }];
+            
+            [cell setPushBlock2:^(FiveCell *cell) {
+                PicController *vc = [PicController new];
+                vc.dataList = self.dataList;
+                vc.fn = model.pictures[1].fn;
+                vc.page = self.page;
+                vc.picTitle = TitleRecommended;
+                [self.navigationController pushViewController:vc animated:YES];
+            }];
+            
+            
             
             return cell;
         }
