@@ -36,7 +36,6 @@
 #pragma mark - Life
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     self.collectionView.backgroundColor = [UIColor whiteColor];
     //注册cell
     [self.collectionView registerClass:[LockScreenCell class] forCellWithReuseIdentifier:@"LockScreenCell"];

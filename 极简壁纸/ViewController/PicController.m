@@ -43,8 +43,25 @@
             make.left.right.equalTo(0);
             make.height.equalTo(self.view.mas_height).multipliedBy(150 / 2001.0);
         }];
+        
+        //添加此view上的button
+        UIButton *backButton = [UIButton buttonWithType:UIButtonTypeSystem];
+        [backButton setBackgroundImage:[UIImage imageNamed:@"icon_toolbar_back_20x20_"] forState:UIControlStateNormal];
+        
+        [backButton addTarget:self action:@selector(back:) forControlEvents:UIControlEventTouchUpInside];
+        [self.buttonView addSubview:backButton];
+        [backButton mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.top.equalTo(10);
+            make.bottom.equalTo(-10);
+            make.width.equalTo(50);
+        }];
     }
     return _buttonView;
+}
+
+#pragma mark - buttonView上的按键的触发方法
+-(void)back:sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - Life
@@ -64,25 +81,19 @@
     //ic要一页一页地显示
     self.ic.pagingEnabled = YES;
     //长条view的初始状态为隐藏
-    self.buttonView.alpha = 0;
+    self.buttonView.alpha = 1;
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    //此页面中导航栏为隐藏状态
-    //self.navigationController.navigationBarHidden = YES;
-}
--(void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    
     //在前一页面中点击哪个图片，哪个图片就需要成为此页面中展示的图片，所以在进入页面后，设置当前页面为之前点击的那个图片
     //通过遍历数据源数组，判断传进来的fn与该数据源中哪个图片fn一致，就显示该图片
-        for (WallpaperPictureModel *model in self.mutablePicList) {
-            if (model.fn == self.fn) {
-                NSInteger index = [self.mutablePicList indexOfObject:model];
-                [self.ic scrollToItemAtIndex:index animated:NO];
-                break;
-            }
+    for (WallpaperPictureModel *model in self.mutablePicList) {
+        if (model.fn == self.fn) {
+            NSInteger index = [self.mutablePicList indexOfObject:model];
+            [self.ic scrollToItemAtIndex:index animated:NO];
+            break;
         }
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -101,7 +112,12 @@
         view = [[UIImageView alloc]initWithFrame:carousel.bounds];
     }
     WallpaperPictureModel *model = self.mutablePicList[index];
-    [((UIImageView *)view) setImageWithURL:model.stand.url.wf_url placeholder:[UIImage imageNamed:@"a4"] options:YYWebImageOptionProgressive completion:nil];
+    [((UIImageView *)view) setImageWithURL:model.thumb.url.wf_url placeholder:nil options:YYWebImageOptionProgressive completion:^(UIImage * _Nullable image, NSURL * _Nonnull url, YYWebImageFromType from, YYWebImageStage stage, NSError * _Nullable error) {
+        NSLog(@"低清图片加载完毕");
+//        [((UIImageView *)view) setImageWithURL:model.stand.url.wf_url placeholder:nil options:YYWebImageOptionProgressive completion:^(UIImage * _Nullable image, NSURL * _Nonnull url, YYWebImageFromType from, YYWebImageStage stage, NSError * _Nullable error) {
+//            NSLog(@"高清图片加载完毕");
+//        }];
+    }];
     return view;
 }
 ////placeholders
@@ -113,14 +129,14 @@
 //        view = [[UIImageView alloc]initWithFrame:carousel.bounds];
 //    }
 //    WallpaperPictureModel *model = self.mutablePicList[index];
-//    [((UIImageView *)view) setImageURL:model.low.url.wf_url];
+//    [((UIImageView *)view) setImageURL:model.thumb.url.wf_url];
 //    return view;
 //}
 
 //显示样式
 -(CGFloat)carousel:(iCarousel *)carousel valueForOption:(iCarouselOption)option withDefault:(CGFloat)value {
     if (option == iCarouselOptionWrap) {
-        value = YES;
+        value = NO;
     }
     return value;
 }
@@ -146,9 +162,13 @@
         } else {
             self.buttonView.alpha = 0;
         }
-        
     }];
 }
 
+- (void)carouselWillBeginScrollingAnimation:(iCarousel *)carousel {
+    NSLog(@"滑动了");
+    sleep(1);
+    [((UIImageView *)self.ic.currentItemView) setImage:[UIImage imageNamed:@"a4"]];
+}
 
 @end

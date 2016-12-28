@@ -169,7 +169,7 @@
                 vc.fn = model.pictures[0].fn;
                 vc.page = self.page;
                 vc.picTitle = TitleRecommended;
-                [self.navigationController pushViewController:vc animated:YES];
+                [self.navigationController presentViewController:vc animated:YES completion:nil];
             }];
             
             [cell setPushBlock2:^(FiveCell *cell) {
