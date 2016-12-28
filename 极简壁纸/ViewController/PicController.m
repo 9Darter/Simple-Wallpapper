@@ -112,12 +112,12 @@
         view = [[UIImageView alloc]initWithFrame:carousel.bounds];
     }
     WallpaperPictureModel *model = self.mutablePicList[index];
-    [((UIImageView *)view) setImageWithURL:model.thumb.url.wf_url placeholder:nil options:YYWebImageOptionProgressive completion:^(UIImage * _Nullable image, NSURL * _Nonnull url, YYWebImageFromType from, YYWebImageStage stage, NSError * _Nullable error) {
-        NSLog(@"低清图片加载完毕");
-//        [((UIImageView *)view) setImageWithURL:model.stand.url.wf_url placeholder:nil options:YYWebImageOptionProgressive completion:^(UIImage * _Nullable image, NSURL * _Nonnull url, YYWebImageFromType from, YYWebImageStage stage, NSError * _Nullable error) {
-//            NSLog(@"高清图片加载完毕");
-//        }];
-    }];
+        [((UIImageView *)view) setImageWithURL:model.thumb.url.wf_url placeholder:nil options:YYWebImageOptionProgressive completion:^(UIImage * _Nullable image, NSURL * _Nonnull url, YYWebImageFromType from, YYWebImageStage stage, NSError * _Nullable error) {
+            NSLog(@"低清图片加载完毕");
+    //        [((UIImageView *)view) setImageWithURL:model.stand.url.wf_url placeholder:nil options:YYWebImageOptionProgressive completion:^(UIImage * _Nullable image, NSURL * _Nonnull url, YYWebImageFromType from, YYWebImageStage stage, NSError * _Nullable error) {
+    //            NSLog(@"高清图片加载完毕");
+    //        }];
+        }];
     return view;
 }
 ////placeholders
@@ -153,6 +153,8 @@
             [self.ic reloadData];
         }];
     }
+//    WallpaperPictureModel *model = self.mutablePicList[self.ic.currentItemIndex];
+//    [(UIImageView *)self.ic.currentItemView setImageURL:model.stand.url.wf_url];
 }
 //点击某个图片后触发该方法，使长条view显示或隐藏
 -(void)carousel:(iCarousel *)carousel didSelectItemAtIndex:(NSInteger)index {
@@ -165,10 +167,17 @@
     }];
 }
 
-- (void)carouselWillBeginScrollingAnimation:(iCarousel *)carousel {
-    NSLog(@"滑动了");
-    sleep(1);
-    [((UIImageView *)self.ic.currentItemView) setImage:[UIImage imageNamed:@"a4"]];
+//- (void)carouselWillBeginScrollingAnimation:(iCarousel *)carousel {
+////    NSLog(@"滑动了");
+////    [((UIImageView *)self.ic.currentItemView) setImage:[UIImage imageNamed:@"a4"]];
+//    WallpaperPictureModel *model = self.mutablePicList[self.ic.currentItemIndex];
+//    [(UIImageView *)self.ic.currentItemView setImageURL:model.thumb.url.wf_url];
+//}
+-(void)carouselDidEndScrollingAnimation:(iCarousel *)carousel {
+    WallpaperPictureModel *model = self.mutablePicList[self.ic.currentItemIndex];
+    [(UIImageView *)self.ic.currentItemView setImageWithURL:model.stand.url.wf_url placeholder:nil options:YYWebImageOptionProgressive completion:^(UIImage * _Nullable image, NSURL * _Nonnull url, YYWebImageFromType from, YYWebImageStage stage, NSError * _Nullable error) {
+        NSLog(@"高清图片加载完毕");
+    }];
 }
 
 @end
