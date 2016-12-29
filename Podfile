@@ -18,6 +18,6 @@ target '极简壁纸' do
   pod "WMPageController"
 #  pod "MWPhotoBrowser"
 #  pod "MLTransition"
-
+  pod "SDWebImage"
 
 end

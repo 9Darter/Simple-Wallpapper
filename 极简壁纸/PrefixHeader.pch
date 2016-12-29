@@ -26,5 +26,8 @@
 #define MAS_SHORTHAND_GLOBALS
 #import <Masonry.h>
 #import <iCarousel.h>
+#import <UIImageView+WebCache.h>
+#import <SDWebImageManager.h>
+
 
 #endif /* PrefixHeader_pch */
