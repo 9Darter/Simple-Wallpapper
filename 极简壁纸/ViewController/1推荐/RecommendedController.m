@@ -101,6 +101,7 @@
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     WallpaperDataModel *model = self.dataList[indexPath.section];
+    //设置每个cell的样式，封装了一个方法，使此代理方法简洁
     return [self tableView:tableView cellForRowAtIndexPath:indexPath model:model];
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -120,6 +121,7 @@
 }
 
 #pragma mark - Methods
+//去除广告方法
 -(NSMutableArray *)removeAds:(NSMutableArray *)dataList {
     NSMutableArray *tmpArr = [NSMutableArray new];
     for (WallpaperDataModel *model in dataList) {
@@ -129,8 +131,21 @@
     }
     return tmpArr;
 }
+//点击图片后的正向传值和跳转
+-(void)creatVcOfPicControllerWithPictureIndex:(NSInteger)index ofModel:(WallpaperDataModel *)model{
+    PicController *vc = [PicController new];
+    vc.dataList = self.dataList;
+    vc.page = self.page;
+    vc.picTitle = TitleRecommended;
+    vc.fn = model.pictures[index].fn;
+    [self.navigationController presentViewController:vc animated:YES completion:nil];
+}
+
+
+/**************设置每个cell的样式的代理方法调用了此方法，做的事情比较多，所以多封装了一层***************/
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath model:(WallpaperDataModel *)model {
     NSInteger numberOfPics = model.pictures.count;
+    
     switch (numberOfPics) {
         case 2:
         {
@@ -148,7 +163,6 @@
             [cell.secondIV setImageURL:model.pictures[1].thumb.url.wf_url];
             [cell.thirdIV setImageURL:model.pictures[2].thumb.url.wf_url];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            
             return cell;
         }
             
@@ -156,6 +170,7 @@
             
         {
             FiveCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FiveCell" forIndexPath:indexPath];
+            //给每个imageView设置图片
             [cell.firstIV setImageURL:model.pictures[0].thumb.url.wf_url];
             [cell.secondIV setImageURL:model.pictures[1].thumb.url.wf_url];
             [cell.thirdIV setImageURL:model.pictures[2].thumb.url.wf_url];
@@ -163,25 +178,23 @@
             [cell.fifthIV setImageURL:model.pictures[4].thumb.url.wf_url];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             
+            //给每个imageView单独设置手势触发的block
             [cell setPushBlock1:^(FiveCell *cell) {
-                PicController *vc = [PicController new];
-                vc.dataList = self.dataList;
-                vc.fn = model.pictures[0].fn;
-                vc.page = self.page;
-                vc.picTitle = TitleRecommended;
-                [self.navigationController presentViewController:vc animated:YES completion:nil];
+                //封装了一个方法，要不然这里的代码重复率太高
+                [self creatVcOfPicControllerWithPictureIndex:0 ofModel:model];
             }];
-            
             [cell setPushBlock2:^(FiveCell *cell) {
-                PicController *vc = [PicController new];
-                vc.dataList = self.dataList;
-                vc.fn = model.pictures[1].fn;
-                vc.page = self.page;
-                vc.picTitle = TitleRecommended;
-                [self.navigationController pushViewController:vc animated:YES];
+                [self creatVcOfPicControllerWithPictureIndex:1 ofModel:model];
             }];
-            
-            
+            [cell setPushBlock3:^(FiveCell *cell) {
+                [self creatVcOfPicControllerWithPictureIndex:2 ofModel:model];
+            }];
+            [cell setPushBlock4:^(FiveCell *cell) {
+                [self creatVcOfPicControllerWithPictureIndex:3 ofModel:model];
+            }];
+            [cell setPushBlock5:^(FiveCell *cell) {
+                [self creatVcOfPicControllerWithPictureIndex:4 ofModel:model];
+            }];
             
             return cell;
         }
@@ -212,6 +225,37 @@
             [cell.eightIV setImageURL:model.pictures[7].thumb.url.wf_url];
             [cell.nineIV setImageURL:model.pictures[8].thumb.url.wf_url];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            
+            //给每个imageView单独设置手势触发的block
+            [cell setPushBlock1:^(NineCell *cell) {
+                //封装了一个方法，要不然这里的代码重复率太高
+                [self creatVcOfPicControllerWithPictureIndex:0 ofModel:model];
+            }];
+            [cell setPushBlock2:^(NineCell *cell) {
+                [self creatVcOfPicControllerWithPictureIndex:1 ofModel:model];
+            }];
+            [cell setPushBlock3:^(NineCell *cell) {
+                [self creatVcOfPicControllerWithPictureIndex:2 ofModel:model];
+            }];
+            [cell setPushBlock4:^(NineCell *cell) {
+                [self creatVcOfPicControllerWithPictureIndex:3 ofModel:model];
+            }];
+            [cell setPushBlock5:^(NineCell *cell) {
+                [self creatVcOfPicControllerWithPictureIndex:4 ofModel:model];
+            }];
+            [cell setPushBlock6:^(NineCell *cell) {
+                [self creatVcOfPicControllerWithPictureIndex:5 ofModel:model];
+            }];
+            [cell setPushBlock7:^(NineCell *cell) {
+                [self creatVcOfPicControllerWithPictureIndex:6 ofModel:model];
+            }];
+            [cell setPushBlock8:^(NineCell *cell) {
+                [self creatVcOfPicControllerWithPictureIndex:7 ofModel:model];
+            }];
+            [cell setPushBlock9:^(NineCell *cell) {
+                [self creatVcOfPicControllerWithPictureIndex:8 ofModel:model];
+            }];
+            
             return cell;
         }
     }

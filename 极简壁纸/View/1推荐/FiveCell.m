@@ -41,7 +41,7 @@
     if (!_secondIV) {
         _secondIV = [UIImageView new];
         [self.contentView addSubview:_secondIV];
-        
+        _secondIV.userInteractionEnabled = YES;
         //添加一个手势
         UITapGestureRecognizer *tapG = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(Push2:)];
         [_secondIV addGestureRecognizer:tapG];
@@ -63,7 +63,10 @@
     if (!_thirdIV) {
         _thirdIV = [UIImageView new];
         [self.contentView addSubview:_thirdIV];
-
+        _thirdIV.userInteractionEnabled = YES;
+        //添加一个手势
+        UITapGestureRecognizer *tapG = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(Push3:)];
+        [_thirdIV addGestureRecognizer:tapG];
         
         [_thirdIV mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self.secondIV.mas_right).offset(7);
@@ -75,12 +78,20 @@
     }
     return _thirdIV;
 }
+//手势方法
+-(void)Push3:sender{
+    !_pushBlock3 ?: _pushBlock3(self);
+}
+
 
 -(UIImageView *)fourthIV {
     if (!_fourthIV) {
         _fourthIV = [UIImageView new];
         [self.contentView addSubview:_fourthIV];
-        
+        _fourthIV.userInteractionEnabled = YES;
+        //添加一个手势
+        UITapGestureRecognizer *tapG = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(Push4:)];
+        [_fourthIV addGestureRecognizer:tapG];
         
         [_fourthIV mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.right.equalTo(self.secondIV);
@@ -91,12 +102,20 @@
     }
     return _fourthIV;
 }
+//手势方法
+-(void)Push4:sender{
+    !_pushBlock4 ?: _pushBlock4(self);
+}
+
 
 -(UIImageView *)fifthIV {
     if (!_fifthIV) {
         _fifthIV = [UIImageView new];
         [self.contentView addSubview:_fifthIV];
-        
+        _fifthIV.userInteractionEnabled = YES;
+        //添加一个手势
+        UITapGestureRecognizer *tapG = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(Push5:)];
+        [_fifthIV addGestureRecognizer:tapG];
         
         [_fifthIV mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.right.equalTo(self.thirdIV);
@@ -105,7 +124,10 @@
     }
     return _fifthIV;
 }
-
+//手势方法
+-(void)Push5:sender{
+    !_pushBlock5 ?: _pushBlock5(self);
+}
 
 
 - (void)awakeFromNib {

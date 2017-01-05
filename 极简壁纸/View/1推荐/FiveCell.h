@@ -15,10 +15,10 @@
 @property(nonatomic, strong) UIImageView *fourthIV;
 @property(nonatomic, strong) UIImageView *fifthIV;
 
-
+//给每个imageView单独设置了点击手势，每个手势触发的方法为block，单独设置
 @property (nonatomic, copy) void(^pushBlock1)(FiveCell *vc);
 @property (nonatomic, copy) void(^pushBlock2)(FiveCell *vc);
-//@property (nonatomic, copy) void(^pushBlock3)(FiveCell *vc);
-//@property (nonatomic, copy) void(^pushBlock4)(FiveCell *vc);
-//@property (nonatomic, copy) void(^pushBlock5)(FiveCell *vc);
+@property (nonatomic, copy) void(^pushBlock3)(FiveCell *vc);
+@property (nonatomic, copy) void(^pushBlock4)(FiveCell *vc);
+@property (nonatomic, copy) void(^pushBlock5)(FiveCell *vc);
 @end
