@@ -15,6 +15,10 @@
         [self.contentView addSubview:_firstIV];
         CGFloat width = (kScreenWidth - 14) * (708 / 1086.0);
         CGFloat height = width * (16 / 9.0);
+        _firstIV.userInteractionEnabled = YES;
+        //添加一个手势
+        UITapGestureRecognizer *tapG = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(Push1:)];
+        [_firstIV addGestureRecognizer:tapG];
         [_firstIV mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(7);
             make.top.equalTo(10);
@@ -24,11 +28,20 @@
     }
     return _firstIV;
 }
+//手势方法
+-(void)Push1:sender{
+    !_pushBlock1 ?: _pushBlock1(self);
+}
+
 
 -(UIImageView *)secondIV {
     if (!_secondIV) {
         _secondIV = [UIImageView new];
         [self.contentView addSubview:_secondIV];
+        _secondIV.userInteractionEnabled = YES;
+        //添加一个手势
+        UITapGestureRecognizer *tapG = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(Push2:)];
+        [_secondIV addGestureRecognizer:tapG];
         [_secondIV mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.equalTo(-7);
             make.top.equalTo(self.firstIV);
@@ -37,11 +50,20 @@
     }
     return _secondIV;
 }
+//手势方法
+-(void)Push2:sender{
+    !_pushBlock2 ?: _pushBlock2(self);
+}
+
 
 -(UIImageView *)thirdIV {
     if (!_thirdIV) {
         _thirdIV = [UIImageView new];
         [self.contentView addSubview:_thirdIV];
+        _thirdIV.userInteractionEnabled = YES;
+        //添加一个手势
+        UITapGestureRecognizer *tapG = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(Push3:)];
+        [_thirdIV addGestureRecognizer:tapG];
         [_thirdIV mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.right.equalTo(self.secondIV);
             make.bottom.equalTo(self.firstIV);
@@ -51,7 +73,10 @@
     }
     return _thirdIV;
 }
-
+//手势方法
+-(void)Push3:sender{
+    !_pushBlock3 ?: _pushBlock3(self);
+}
 
 
 
