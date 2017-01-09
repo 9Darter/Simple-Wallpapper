@@ -68,6 +68,7 @@
             make.left.equalTo(self.secondIV.mas_right).offset(7);
             make.right.equalTo(-7);
             make.width.equalTo(self.secondIV);
+            make.bottom.equalTo(_secondIV);
         }];
     }
     return _thirdIV;

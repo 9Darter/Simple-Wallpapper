@@ -209,6 +209,28 @@
             [cell.fifthIV setImageURL:model.pictures[4].thumb.url.wf_url];
             [cell.sixIV setImageURL:model.pictures[5].thumb.url.wf_url];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            
+            //给每个imageView单独设置手势触发的block
+            [cell setPushBlock1:^(SixCell *cell) {
+                //封装了一个方法，要不然这里的代码重复率太高
+                [self creatVcOfPicControllerWithPictureIndex:0 ofModel:model];
+            }];
+            [cell setPushBlock2:^(SixCell *cell) {
+                [self creatVcOfPicControllerWithPictureIndex:1 ofModel:model];
+            }];
+            [cell setPushBlock3:^(SixCell *cell) {
+                [self creatVcOfPicControllerWithPictureIndex:2 ofModel:model];
+            }];
+            [cell setPushBlock4:^(SixCell *cell) {
+                [self creatVcOfPicControllerWithPictureIndex:3 ofModel:model];
+            }];
+            [cell setPushBlock5:^(SixCell *cell) {
+                [self creatVcOfPicControllerWithPictureIndex:4 ofModel:model];
+            }];
+            [cell setPushBlock6:^(SixCell *cell) {
+                [self creatVcOfPicControllerWithPictureIndex:5 ofModel:model];
+            }];
+            
             return cell;
         }
             
