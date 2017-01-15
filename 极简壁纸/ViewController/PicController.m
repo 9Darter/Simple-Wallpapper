@@ -44,31 +44,102 @@
             make.height.equalTo(self.view.mas_height).multipliedBy(150 / 2001.0);
         }];
         
-        //添加此view上的button
-        UIButton *backButton = [UIButton buttonWithType:UIButtonTypeSystem];
-        [backButton setBackgroundImage:[UIImage imageNamed:@"icon_toolbar_back_20x20_"] forState:UIControlStateNormal];
+        //图片数组
+        UIImage *backImage = [UIImage imageNamed:@"icon_toolbar_back_20x20_"];
+        UIImage *previewImage = [UIImage imageNamed:@"icon_toolbar_preview_20x20_"];
+        UIImage *downloadImage = [UIImage imageNamed:@"icon_toolbar_save_20x20_"];
+        UIImage *shareImage = [UIImage imageNamed:@"icon_toolbar_share_20x20_"];
+        UIImage *saveImage = [UIImage imageNamed:@"icon_toolbar_like_20x20_"];
+        UIImage *moreImage = [UIImage imageNamed:@"icon_toolbar_more_20x20_"];
+        NSArray *imageArray = [NSArray arrayWithObjects:backImage, previewImage, downloadImage, shareImage, saveImage, moreImage, nil];
+        //文字数组
+        NSArray *wordsArray = [NSArray arrayWithObjects:@"返回", @"预览", @"下载", @"分享", @"收藏", @"更多", nil];
+        //手势数组
+        UITapGestureRecognizer *tapBack = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(back:)];
+        UITapGestureRecognizer *tapPreview = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(back:)];
+        UITapGestureRecognizer *tapDownload = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(download:)];
+        UITapGestureRecognizer *tapShare = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(back:)];
+        UITapGestureRecognizer *tapSave = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(back:)];
+        UITapGestureRecognizer *tapMore = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(back:)];
+        NSArray *gestureArray = [NSArray arrayWithObjects:tapBack, tapPreview, tapDownload, tapShare, tapSave, tapMore, nil];
         
-        [backButton addTarget:self action:@selector(back:) forControlEvents:UIControlEventTouchUpInside];
-        [self.buttonView addSubview:backButton];
-        [backButton mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.top.equalTo(10);
-            make.bottom.equalTo(-10);
-            make.width.equalTo(50);
-        }];
+        UIView *lastView = [UIView new];
+        //用循环的方式创建6个带手势操作的view
+        for (NSInteger i = 0; i < 6; i++) {
+            //创建view
+            UIView *singleButtonView = [UIView new];
+            [_buttonView addSubview:singleButtonView];
+            singleButtonView.backgroundColor = [UIColor clearColor];
+            [singleButtonView mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.top.bottom.equalTo(0);
+                if (i == 0) {
+                    make.left.equalTo(0);
+                } else if (i == 5) {
+                    make.right.equalTo(0);
+                    make.left.equalTo(lastView.mas_right);
+                    make.width.equalTo(lastView);
+                } else {
+                    make.left.equalTo(lastView.mas_right);
+                    make.width.equalTo(lastView);
+                }
+            }];
+            //添加一个图片view
+            UIImageView *singleImageView = [[UIImageView alloc]initWithImage:imageArray[i]];
+            singleImageView.contentMode = UIViewContentModeScaleAspectFit;
+            [singleButtonView addSubview:singleImageView];
+            [singleImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.top.equalTo(4);
+                make.centerX.equalTo(0);
+                make.width.equalTo(singleButtonView.mas_width).multipliedBy(0.4);
+                make.height.equalTo(_buttonView.mas_height).multipliedBy(0.6);
+            }];
+            //添加一个label
+            UILabel *singleLabel = [UILabel new];
+            singleLabel.text = wordsArray[i];
+            singleLabel.textColor = [UIColor whiteColor];
+            singleLabel.font = [UIFont systemFontOfSize:12];
+            singleLabel.textAlignment = NSTextAlignmentCenter;
+            [singleButtonView addSubview:singleLabel];
+            [singleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.top.equalTo(singleImageView.mas_bottom);
+                make.left.right.equalTo(0);
+            }];
+            //添加一个手势
+            [singleButtonView addGestureRecognizer:gestureArray[i]];
+            //在循环外部找一个变量保存一下这个view，下次循环还要用这个view做约束的参考
+            lastView = singleButtonView;
+        }
     }
     return _buttonView;
 }
 
 #pragma mark - buttonView上的按键的触发方法
+//返回
 -(void)back:sender {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+//下载图片到相册
+-(void)download:sender {
+    UIImageWriteToSavedPhotosAlbum(((UIImageView *)self.ic.currentItemView).image, self, @selector(imageSavedToPhotosAlbum:didFinishSavingWithError:contextInfo:), nil);
+}
+//完成下载之后的提示
+-(void)imageSavedToPhotosAlbum:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
+{
+    NSString *message = @"呵呵";
+    if (!error) {
+        message = @"成功保存到相册";
+    }else
+    {
+        message = [error description];
+    }
+    NSLog(@"message is %@",message);
 }
 
 #pragma mark - Life
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = [UIColor blackColor];
     
     //把传进来的数组进行遍历，每个数组元素中都包含多个图片，所以把这个数组中所有图片放到一个数组中，作为ic的数组源
     for (int i = 0; i < self.dataList.count; i++) {
