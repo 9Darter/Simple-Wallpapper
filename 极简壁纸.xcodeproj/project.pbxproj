@@ -13,6 +13,7 @@
 		431FFE761E0A2FE1007A8EDC /* ThreeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 431FFE701E0A2FE1007A8EDC /* ThreeCell.m */; };
 		431FFE771E0A2FE1007A8EDC /* TwoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 431FFE721E0A2FE1007A8EDC /* TwoCell.m */; };
 		431FFE7B1E0A3020007A8EDC /* TopicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 431FFE7A1E0A3020007A8EDC /* TopicCell.m */; };
+		4328E1E01E2C753000BED896 /* UIView+HUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 4328E1DF1E2C753000BED896 /* UIView+HUD.m */; };
 		4363612E1E0B5A410068A043 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4363612D1E0B5A410068A043 /* Assets.xcassets */; };
 		436361321E0B626B0068A043 /* LockScreenLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 436361311E0B626B0068A043 /* LockScreenLayout.m */; };
 		436361351E0B67610068A043 /* LockScreenCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 436361341E0B67610068A043 /* LockScreenCell.m */; };
@@ -60,6 +61,8 @@
 		431FFE721E0A2FE1007A8EDC /* TwoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwoCell.m; sourceTree = "<group>"; };
 		431FFE791E0A3020007A8EDC /* TopicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopicCell.h; sourceTree = "<group>"; };
 		431FFE7A1E0A3020007A8EDC /* TopicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopicCell.m; sourceTree = "<group>"; };
+		4328E1DE1E2C753000BED896 /* UIView+HUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+HUD.h"; sourceTree = "<group>"; };
+		4328E1DF1E2C753000BED896 /* UIView+HUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+HUD.m"; sourceTree = "<group>"; };
 		4363612D1E0B5A410068A043 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		436361301E0B626B0068A043 /* LockScreenLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LockScreenLayout.h; sourceTree = "<group>"; };
 		436361311E0B626B0068A043 /* LockScreenLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LockScreenLayout.m; sourceTree = "<group>"; };
@@ -261,6 +264,8 @@
 				A143FD551E063B28006D5EB8 /* NSString+WF.m */,
 				A143FD571E063B96006D5EB8 /* NSObject+Parse.h */,
 				A143FD581E063B96006D5EB8 /* NSObject+Parse.m */,
+				4328E1DE1E2C753000BED896 /* UIView+HUD.h */,
+				4328E1DF1E2C753000BED896 /* UIView+HUD.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -608,6 +613,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4328E1E01E2C753000BED896 /* UIView+HUD.m in Sources */,
 				431FFE771E0A2FE1007A8EDC /* TwoCell.m in Sources */,
 				A1EFC86F1E053EF300161592 /* AppDelegate.m in Sources */,
 				A1FCC39C1E0F9E4800C2AFC1 /* MostPopularCell.m in Sources */,

@@ -56,7 +56,7 @@
         NSArray *wordsArray = [NSArray arrayWithObjects:@"返回", @"预览", @"下载", @"分享", @"收藏", @"更多", nil];
         //手势数组
         UITapGestureRecognizer *tapBack = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(back:)];
-        UITapGestureRecognizer *tapPreview = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(back:)];
+        UITapGestureRecognizer *tapPreview = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(preview:)];
         UITapGestureRecognizer *tapDownload = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(download:)];
         UITapGestureRecognizer *tapShare = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(back:)];
         UITapGestureRecognizer *tapSave = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(back:)];
@@ -125,22 +125,23 @@
 //完成下载之后的提示
 -(void)imageSavedToPhotosAlbum:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
 {
-    NSString *message = @"呵呵";
-    if (!error) {
-        message = @"成功保存到相册";
-    }else
-    {
-        message = [error description];
-    }
-    NSLog(@"message is %@",message);
+    [self.view showMsg:@"图片已保存到本地相册" autoHideAfterDely:2];
 }
-
+//预览
+-(void)preview:sender {
+    self.buttonView.alpha = 0;
+    UIImageView *lockView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"page_cell_style_preview_lock_cn_200x355_"]];
+    [self.view addSubview:lockView];
+    [lockView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(0);
+    }];
+}
 #pragma mark - Life
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor blackColor];
-    
+    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:NO];
     //把传进来的数组进行遍历，每个数组元素中都包含多个图片，所以把这个数组中所有图片放到一个数组中，作为ic的数组源
     for (int i = 0; i < self.dataList.count; i++) {
         [self.mutablePicList addObjectsFromArray:self.dataList[i].pictures];

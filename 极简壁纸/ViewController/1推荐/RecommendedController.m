@@ -36,7 +36,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationController.navigationBarHidden = NO;
-    
     //注册cell
     [self.tableView registerClass:[TwoCell class] forCellReuseIdentifier:@"TwoCell"];
     [self.tableView registerClass:[ThreeCell class] forCellReuseIdentifier:@"ThreeCell"];
@@ -90,6 +89,9 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+-(void)viewWillAppear:(BOOL)animated {
+    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:NO];
 }
 
 #pragma mark - Delegate

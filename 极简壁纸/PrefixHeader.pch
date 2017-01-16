@@ -14,7 +14,7 @@
 #import "Define.h"
 #import "NSObject+Parse.h"
 #import "NSString+WF.h"
-
+#import "UIView+HUD.h"
 
 
 
@@ -28,6 +28,7 @@
 #import <iCarousel.h>
 #import <UIImageView+WebCache.h>
 #import <SDWebImageManager.h>
+#import <MBProgressHUD.h>
 
 
 #endif /* PrefixHeader_pch */

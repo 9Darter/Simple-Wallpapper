@@ -16,6 +16,7 @@ PODS:
     - AFNetworking/NSURLSession
   - iCarousel (1.8.3)
   - Masonry (1.0.2)
+  - MBProgressHUD (1.0.0)
   - MJRefresh (3.1.12)
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
@@ -29,6 +30,7 @@ DEPENDENCIES:
   - AFNetworking
   - iCarousel
   - Masonry
+  - MBProgressHUD
   - MJRefresh
   - SDWebImage
   - WMPageController
@@ -38,11 +40,12 @@ SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   iCarousel: d782f635afac190c49bb8ee455882284cff8b85f
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
+  MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   WMPageController: 181bcc9b1fb7c9c3466bff66012552953a547d28
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 8a20b7040e6356bca7cbb615af2e928d45e0db80
+PODFILE CHECKSUM: 856d5f56ece6347d28a6eda9b7654224f5e4f086
 
 COCOAPODS: 1.1.1

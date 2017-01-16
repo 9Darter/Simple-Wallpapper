@@ -10,7 +10,7 @@ target '极简壁纸' do
   pod "AFNetworking"
   pod "YYKit"
 #  pod "BlocksKit"
-#  pod "MBProgressHUD"
+  pod "MBProgressHUD"
   pod "MJRefresh"
 #  pod "CHTCollectionViewWaterfallLayout"
 #  pod "UITableView+FDTemplateLayoutCell"

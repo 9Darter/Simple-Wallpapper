@@ -39,5 +39,7 @@
 	</array>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Save Photo To Album</string>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
 </dict>
 </plist>
