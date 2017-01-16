@@ -11,6 +11,11 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
+		<key>MBProgressHUD.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>9</integer>
+		</dict>
 		<key>MJRefresh.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -66,6 +71,16 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>06094CB2C9E04DFFDCF764E3F67971C5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>166879B5BBB46BCD59BB3FEF56D1B395</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>3646A5D2B692EFBED6876705C9477537</key>
 		<dict>
 			<key>primary</key>
@@ -81,6 +96,16 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>586F2DFA9BDCC6675C2546793A69E5CC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6773F26676F3658C4D94BF5B464B7EA4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>8896FD7F662F44188263A13ACB046840</key>
 		<dict>
 			<key>primary</key>
@@ -92,6 +117,11 @@
 			<true/>
 		</dict>
 		<key>9E033EDB5EC0819481B0546434FA577B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B3C3AFF73A79BA18272056D6A00072D8</key>
 		<dict>
 			<key>primary</key>
 			<true/>

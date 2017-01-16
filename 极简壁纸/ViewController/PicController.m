@@ -12,6 +12,9 @@
 @property(nonatomic, strong)iCarousel *ic;//滚动页面由此轮子完成
 @property(nonatomic, copy) NSMutableArray<WallpaperPictureModel *> *mutablePicList;//数据数组，因为要加载更多，所以为可变数组
 @property(nonatomic, strong) UIView *buttonView;//点击图片显示一个长条view，上面有若干button
+@property(nonatomic, strong) UIImageView *lockView;//锁屏预览
+@property(nonatomic, strong) UIImageView *homeView;//主屏预览
+@property(nonatomic, assign) NSInteger currentPreview;//当前预览图
 @end
 
 @implementation PicController
@@ -55,12 +58,12 @@
         //文字数组
         NSArray *wordsArray = [NSArray arrayWithObjects:@"返回", @"预览", @"下载", @"分享", @"收藏", @"更多", nil];
         //手势数组
-        UITapGestureRecognizer *tapBack = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(back:)];
-        UITapGestureRecognizer *tapPreview = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(preview:)];
-        UITapGestureRecognizer *tapDownload = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(download:)];
-        UITapGestureRecognizer *tapShare = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(back:)];
-        UITapGestureRecognizer *tapSave = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(back:)];
-        UITapGestureRecognizer *tapMore = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(back:)];
+        UITapGestureRecognizer *tapBack = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(back)];
+        UITapGestureRecognizer *tapPreview = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(preview)];
+        UITapGestureRecognizer *tapDownload = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(download)];
+        UITapGestureRecognizer *tapShare = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(back)];
+        UITapGestureRecognizer *tapSave = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(back)];
+        UITapGestureRecognizer *tapMore = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(back)];
         NSArray *gestureArray = [NSArray arrayWithObjects:tapBack, tapPreview, tapDownload, tapShare, tapSave, tapMore, nil];
         
         UIView *lastView = [UIView new];
@@ -112,14 +115,37 @@
     }
     return _buttonView;
 }
-
+-(UIImageView *)lockView {
+    if (!_lockView) {
+        _lockView = [UIImageView new];
+        _lockView.image = [UIImage imageNamed:@"page_cell_style_preview_lock_cn_200x355_"];
+        _lockView.alpha = 0;
+        [self.view addSubview:_lockView];
+        [_lockView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.equalTo(0);
+        }];
+    }
+    return _lockView;
+}
+-(UIImageView *)homeView {
+    if (!_homeView) {
+        _homeView = [UIImageView new];
+        _homeView.image = [UIImage imageNamed:@"page_cell_style_preview_home_cn_200x355_"];
+        _homeView.alpha = 0;
+        [self.view addSubview:_homeView];
+        [_homeView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.equalTo(0);
+        }];
+    }
+    return _homeView;
+}
 #pragma mark - buttonView上的按键的触发方法
 //返回
--(void)back:sender {
+-(void)back {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 //下载图片到相册
--(void)download:sender {
+-(void)download {
     UIImageWriteToSavedPhotosAlbum(((UIImageView *)self.ic.currentItemView).image, self, @selector(imageSavedToPhotosAlbum:didFinishSavingWithError:contextInfo:), nil);
 }
 //完成下载之后的提示
@@ -128,13 +154,25 @@
     [self.view showMsg:@"图片已保存到本地相册" autoHideAfterDely:2];
 }
 //预览
--(void)preview:sender {
-    self.buttonView.alpha = 0;
-    UIImageView *lockView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"page_cell_style_preview_lock_cn_200x355_"]];
-    [self.view addSubview:lockView];
-    [lockView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(0);
-    }];
+-(void)preview {
+    //创建警告提醒
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"预览" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    // 添加按钮
+    [alert addAction:[UIAlertAction actionWithTitle:@"锁屏预览" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        self.buttonView.alpha = 0;
+        self.lockView.alpha = 1;
+        self.currentPreview = 1;
+    }]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"主屏预览" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        self.buttonView.alpha = 0;
+        self.homeView.alpha = 1;
+        self.currentPreview = 2;
+    }]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+        NSLog(@"点击了取消按钮");
+    }]];
+    
+    [self presentViewController:alert animated:YES completion:nil];
 }
 #pragma mark - Life
 - (void)viewDidLoad {
@@ -142,6 +180,7 @@
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor blackColor];
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:NO];
+    self.currentPreview = 0;
     //把传进来的数组进行遍历，每个数组元素中都包含多个图片，所以把这个数组中所有图片放到一个数组中，作为ic的数组源
     for (int i = 0; i < self.dataList.count; i++) {
         [self.mutablePicList addObjectsFromArray:self.dataList[i].pictures];
@@ -223,6 +262,12 @@
             self.buttonView.alpha = 1;
         } else {
             self.buttonView.alpha = 0;
+        }
+        if (self.currentPreview == 1) {
+            self.lockView.alpha = 0;
+        }
+        if (self.currentPreview == 2){
+            self.homeView.alpha = 0;
         }
     }];
 }
