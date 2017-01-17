@@ -10,4 +10,6 @@
 
 @interface UIView (HUD)
 -(void)showMsg:(NSString *)msg autoHideAfterDely:(double)delay;
+-(void)showPie;
+-(void)hideHUD;
 @end

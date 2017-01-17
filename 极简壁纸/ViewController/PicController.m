@@ -276,10 +276,17 @@
 //如果直接用setImageWithURL方法，将会导致低高清图片转换时的短暂闪烁，影响用户体验
 -(void)carouselDidEndScrollingAnimation:(iCarousel *)carousel {
     WallpaperPictureModel *model = self.mutablePicList[self.ic.currentItemIndex];
+    UIImageView *currentItemView = (UIImageView *)self.ic.currentItemView;
     SDWebImageManager *manager = [SDWebImageManager sharedManager];
-    [manager downloadImageWithURL:model.stand.url.wf_url options:SDWebImageRetryFailed progress:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+    [manager downloadImageWithURL:model.stand.url.wf_url options:SDWebImageRetryFailed progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+        NSLog(@"%ld", receivedSize);
+        if (receivedSize == 0) {
+            [currentItemView showPie];
+        }
+    } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
         if (image) {
-            [(UIImageView *)self.ic.currentItemView setImage:image];
+            [currentItemView hideHUD];
+            [currentItemView setImage:image];
         }
     }];
 }

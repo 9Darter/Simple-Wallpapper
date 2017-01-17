@@ -21,4 +21,13 @@
         [hud hideAnimated:YES afterDelay:delay];
     }
 }
+-(void)showPie {
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self animated:NO];
+    hud.mode = MBProgressHUDModeIndeterminate;
+    hud.bezelView.backgroundColor = [UIColor clearColor];
+}
+-(void)hideHUD {
+    //[MBProgressHUD hideHUDForView:self animated:YES];
+    [MBProgressHUD hideAllHUDsForView:self animated:NO];
+}
 @end
