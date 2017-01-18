@@ -525,7 +525,7 @@
 				TargetAttributes = {
 					A1EFC8661E053EF300161592 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = 545MYDUHE6;
+						DevelopmentTeam = 2L4DQWLA79;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -762,11 +762,11 @@
 			baseConfigurationReference = D72259887EF7F6F292823AE1 /* Pods-极简壁纸.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 545MYDUHE6;
+				DEVELOPMENT_TEAM = 2L4DQWLA79;
 				GCC_PREFIX_HEADER = "$(PRODUCT_NAME)/PrefixHeader.pch";
 				INFOPLIST_FILE = "极简壁纸/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.SimpleWallpaper;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wf.SimpleWallpaper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -776,11 +776,11 @@
 			baseConfigurationReference = CE94BD93B5682723EE55A11A /* Pods-极简壁纸.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 545MYDUHE6;
+				DEVELOPMENT_TEAM = 2L4DQWLA79;
 				GCC_PREFIX_HEADER = "$(PRODUCT_NAME)/PrefixHeader.pch";
 				INFOPLIST_FILE = "极简壁纸/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.SimpleWallpaper;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wf.SimpleWallpaper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
