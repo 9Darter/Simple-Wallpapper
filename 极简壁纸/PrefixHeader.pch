@@ -29,6 +29,6 @@
 #import <UIImageView+WebCache.h>
 #import <SDWebImageManager.h>
 #import <MBProgressHUD.h>
-
+#import <UMSocialCore/UMSocialCore.h>
 
 #endif /* PrefixHeader_pch */

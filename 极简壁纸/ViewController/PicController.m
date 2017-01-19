@@ -7,6 +7,7 @@
 //
 
 #import "PicController.h"
+#import <UShareUI/UShareUI.h>
 
 @interface PicController ()<iCarouselDelegate, iCarouselDataSource>
 @property(nonatomic, strong)iCarousel *ic;//滚动页面由此轮子完成
@@ -61,7 +62,7 @@
         UITapGestureRecognizer *tapBack = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(back)];
         UITapGestureRecognizer *tapPreview = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(preview)];
         UITapGestureRecognizer *tapDownload = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(download)];
-        UITapGestureRecognizer *tapShare = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(back)];
+        UITapGestureRecognizer *tapShare = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(share)];
         UITapGestureRecognizer *tapSave = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(back)];
         UITapGestureRecognizer *tapMore = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(back)];
         NSArray *gestureArray = [NSArray arrayWithObjects:tapBack, tapPreview, tapDownload, tapShare, tapSave, tapMore, nil];
@@ -174,6 +175,44 @@
     
     [self presentViewController:alert animated:YES completion:nil];
 }
+//分享
+-(void)share {
+    //显示分享面板
+    [UMSocialUIManager showShareMenuViewInWindowWithPlatformSelectionBlock:^(UMSocialPlatformType platformType, NSDictionary *userInfo) {
+        // 根据获取的platformType确定所选平台进行下一步操作
+        // 调用下面的分享方法
+        [self shareImageAndTextToPlatformType:platformType];
+    }];
+}
+- (void)shareImageAndTextToPlatformType:(UMSocialPlatformType)platformType
+{
+    //创建分享消息对象
+    UMSocialMessageObject *messageObject = [UMSocialMessageObject messageObject];
+    
+    //设置文本
+    messageObject.text = @"这张图来自于一个叫“180壁纸”的App";
+    
+    //创建图片内容对象
+    UMShareImageObject *shareObject = [[UMShareImageObject alloc] init];
+    //如果有缩略图，则设置缩略图
+    shareObject.thumbImage = [UIImage imageNamed:@"5-180"];
+    //[shareObject setShareImage:@"https://www.umeng.com/img/index/demo/1104.4b2f7dfe614bea70eea4c6071c72d7f5.jpg"];
+    UIImageView *shareImageView = (UIImageView *)self.ic.currentItemView;
+    [shareObject setShareImage:shareImageView.image];
+    //分享消息对象设置分享内容对象
+    messageObject.shareObject = shareObject;
+    
+    //调用分享接口
+    [[UMSocialManager defaultManager] shareToPlatform:platformType messageObject:messageObject currentViewController:self completion:^(id data, NSError *error) {
+        if (error) {
+            NSLog(@"************Share fail with error %@*********",error);
+        }else{
+            NSLog(@"response data is %@",data);
+        }
+    }];
+}
+
+
 #pragma mark - Life
 - (void)viewDidLoad {
     [super viewDidLoad];
