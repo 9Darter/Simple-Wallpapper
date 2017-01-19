@@ -126,13 +126,13 @@
     // 获取友盟social版本号
     //NSLog(@"UMeng social version: %@", [UMSocialGlobal umSocialSDKVersion]);
     
-//    //设置微信的appKey和appSecret
-//    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession appKey:@"wxdc1e388c3822c80b" appSecret:@"3baf1193c85774b3fd9d18447d76cab0" redirectURL:@"http://mobile.umeng.com/social"];
-//    
-//    
-//    //设置分享到QQ互联的appKey和appSecret
-//    // U-Share SDK为了兼容大部分平台命名，统一用appKey和appSecret进行参数设置，而QQ平台仅需将appID作为U-Share的appKey参数传进即可。
-//    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_QQ appKey:@"100424468"  appSecret:nil redirectURL:@"http://mobile.umeng.com/social"];
+    //设置微信的appKey和appSecret
+    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession appKey:@"wx0bb6e450f4a47e8e" appSecret:@"36f65c08248095f30b573f277b98841a" redirectURL:@"http://mobile.umeng.com/social"];
+    
+//
+    //设置分享到QQ互联的appKey和appSecret
+    // U-Share SDK为了兼容大部分平台命名，统一用appKey和appSecret进行参数设置，而QQ平台仅需将appID作为U-Share的appKey参数传进即可。
+    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_QQ appKey:@"100424468"  appSecret:nil redirectURL:@"http://mobile.umeng.com/social"];
     
     //设置新浪的appKey和appSecret
     [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_Sina appKey:@"235796094"  appSecret:@"250bc6eb9e65395f423e5b161e1b6f17" redirectURL:@"http://sns.whalecloud.com/sina2/callback"];

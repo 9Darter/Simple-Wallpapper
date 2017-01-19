@@ -181,7 +181,11 @@
     [UMSocialUIManager showShareMenuViewInWindowWithPlatformSelectionBlock:^(UMSocialPlatformType platformType, NSDictionary *userInfo) {
         // 根据获取的platformType确定所选平台进行下一步操作
         // 调用下面的分享方法
-        [self shareImageAndTextToPlatformType:platformType];
+        if (platformType == UMSocialPlatformType_Sina) {
+            [self shareImageAndTextToPlatformType:platformType];
+        } else {
+            [self shareImageToPlatformType:platformType];
+        }
     }];
 }
 - (void)shareImageAndTextToPlatformType:(UMSocialPlatformType)platformType
@@ -211,7 +215,29 @@
         }
     }];
 }
-
+- (void)shareImageToPlatformType:(UMSocialPlatformType)platformType
+{
+    //创建分享消息对象
+    UMSocialMessageObject *messageObject = [UMSocialMessageObject messageObject];
+    
+    //创建图片内容对象
+    UMShareImageObject *shareObject = [[UMShareImageObject alloc] init];
+    //如果有缩略图，则设置缩略图
+    shareObject.thumbImage = [UIImage imageNamed:@"icon"];
+    [shareObject setShareImage:@"https://mobile.umeng.com/images/pic/home/social/img-1.png"];
+    
+    //分享消息对象设置分享内容对象
+    messageObject.shareObject = shareObject;
+    
+    //调用分享接口
+    [[UMSocialManager defaultManager] shareToPlatform:platformType messageObject:messageObject currentViewController:self completion:^(id data, NSError *error) {
+        if (error) {
+            NSLog(@"************Share fail with error %@*********",error);
+        }else{
+            NSLog(@"response data is %@",data);
+        }
+    }];
+}
 
 #pragma mark - Life
 - (void)viewDidLoad {

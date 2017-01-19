@@ -2,88 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-    <key>NSAppTransportSecurity</key>
-    <dict>
-        <!-- 配置允许 http的任意网络End-->
-        <key>NSExceptionDomains</key>
-        <dict>
-            <!-- 集成新浪微博对应的HTTP白名单-->
-            <key>sina.com.cn</key>
-            <dict>
-                <key>NSIncludesSubdomains</key>
-                <true/>
-                <key>NSThirdPartyExceptionAllowsInsecureHTTPLoads</key>
-                <true/>
-                <key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
-                <false/>
-            </dict>
-            <key>sinaimg.cn</key>
-            <dict>
-                <key>NSIncludesSubdomains</key>
-                <true/>
-                <key>NSThirdPartyExceptionAllowsInsecureHTTPLoads</key>
-                <true/>
-                <key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
-                <false/>
-            </dict>
-            <key>sinajs.cn</key>
-            <dict>
-                <key>NSIncludesSubdomains</key>
-                <true/>
-                <key>NSThirdPartyExceptionAllowsInsecureHTTPLoads</key>
-                <true/>
-                <key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
-                <false/>
-            </dict>
-            <key>sina.cn</key>
-            <dict>
-                <!-- 适配iOS10 -->
-                <key>NSExceptionMinimumTLSVersion</key>
-                <string>TLSv1.0</string>
-                <key>NSIncludesSubdomains</key>
-                <true/>
-                <key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
-                <false/>
-            </dict>
-            <key>weibo.cn</key>
-            <dict>
-                <!-- 适配iOS10 -->
-                <key>NSExceptionMinimumTLSVersion</key>
-                <string>TLSv1.0</string>
-                <key>NSIncludesSubdomains</key>
-                <true/>
-                <key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
-                <false/>
-            </dict>
-            <key>weibo.com</key>
-            <dict>
-                <!-- 适配iOS10 -->
-                <key>NSExceptionMinimumTLSVersion</key>
-                <string>TLSv1.0</string>
-                <key>NSIncludesSubdomains</key>
-                <true/>
-                <key>NSThirdPartyExceptionAllowsInsecureHTTPLoads</key>
-                <true/>
-                <key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
-                <false/>
-            </dict>
-            <!-- 新浪微博-->
-            
-            <!-- 集成人人授权对应的HTTP白名单-->
-            <key>renren.com</key>
-            <dict>
-                <key>NSIncludesSubdomains</key>
-                <true/>
-                <key>NSThirdPartyExceptionAllowsInsecureHTTPLoads</key>
-                <true/>
-                <key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
-                <false/>
-            </dict>
-            <!-- 人人授权-->
-        </dict>
-    </dict>
-    
-    
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
@@ -108,6 +26,14 @@
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>wb235796094</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>wx0bb6e450f4a47e8e</string>
 			</array>
 		</dict>
 	</array>
@@ -171,7 +97,6 @@
 		<string>kakaostory-2.9.0</string>
 		<string>pinterestsdk.v1</string>
 	</array>
-    
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
