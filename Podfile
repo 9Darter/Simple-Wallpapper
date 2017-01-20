@@ -30,5 +30,4 @@ pod 'UMengUShare/Social/WeChat'
 # 集成QQ
 pod 'UMengUShare/Social/QQ'
 
-
 end

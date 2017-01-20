@@ -140,6 +140,7 @@
     }
     return _homeView;
 }
+
 #pragma mark - buttonView上的按键的触发方法
 //返回
 -(void)back {
@@ -199,8 +200,8 @@
     //创建图片内容对象
     UMShareImageObject *shareObject = [[UMShareImageObject alloc] init];
     //如果有缩略图，则设置缩略图
-    shareObject.thumbImage = [UIImage imageNamed:@"5-180"];
     UIImageView *shareImageView = (UIImageView *)self.ic.currentItemView;
+    shareObject.thumbImage = shareImageView.image;
     [shareObject setShareImage:shareImageView.image];
     //分享消息对象设置分享内容对象
     messageObject.shareObject = shareObject;
@@ -222,8 +223,8 @@
     //创建图片内容对象
     UMShareImageObject *shareObject = [[UMShareImageObject alloc] init];
     //如果有缩略图，则设置缩略图
-    shareObject.thumbImage = [UIImage imageNamed:@"5-180"];
     UIImageView *shareImageView = (UIImageView *)self.ic.currentItemView;
+    shareObject.thumbImage = shareImageView.image;
     [shareObject setShareImage:shareImageView.image];
     
     //分享消息对象设置分享内容对象
@@ -342,14 +343,23 @@
 -(void)carouselDidEndScrollingAnimation:(iCarousel *)carousel {
     WallpaperPictureModel *model = self.mutablePicList[self.ic.currentItemIndex];
     UIImageView *currentItemView = (UIImageView *)self.ic.currentItemView;
+//    //下载图片时的动画提示（每个图片都有一个下面的view，所以不设为属性，而是在这个代理方法中初始化，添加到当前view中）
+//    UIActivityIndicatorView *iView = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+//    [currentItemView addSubview:iView];
+//    [iView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.center.equalTo(0);
+//    }];
+    
     SDWebImageManager *manager = [SDWebImageManager sharedManager];
     [manager downloadImageWithURL:model.stand.url.wf_url options:SDWebImageRetryFailed progress:^(NSInteger receivedSize, NSInteger expectedSize) {
         NSLog(@"%ld", receivedSize);
         if (receivedSize == 0) {
+            //[currentItemView.subviews.lastObject startAnimating];
             [currentItemView showPie];
         }
     } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
         if (image) {
+            //[currentItemView.subviews.lastObject stopAnimating];
             [currentItemView hideHUD];
             [currentItemView setImage:image];
         }

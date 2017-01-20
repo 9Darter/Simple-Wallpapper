@@ -63,6 +63,7 @@
 		431FFE7A1E0A3020007A8EDC /* TopicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopicCell.m; sourceTree = "<group>"; };
 		4328E1DE1E2C753000BED896 /* UIView+HUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+HUD.h"; sourceTree = "<group>"; };
 		4328E1DF1E2C753000BED896 /* UIView+HUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+HUD.m"; sourceTree = "<group>"; };
+		4342C40D1E31C2FE001649AB /* DefineAppKey.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DefineAppKey.h; sourceTree = "<group>"; };
 		4363612D1E0B5A410068A043 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		436361301E0B626B0068A043 /* LockScreenLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LockScreenLayout.h; sourceTree = "<group>"; };
 		436361311E0B626B0068A043 /* LockScreenLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LockScreenLayout.m; sourceTree = "<group>"; };
@@ -235,6 +236,7 @@
 				A1EFC86D1E053EF300161592 /* AppDelegate.h */,
 				A1EFC86E1E053EF300161592 /* AppDelegate.m */,
 				A143FD601E06427A006D5EB8 /* Define.h */,
+				4342C40D1E31C2FE001649AB /* DefineAppKey.h */,
 				A1EFC8811E05431900161592 /* Category */,
 				A1EFC8821E05431900161592 /* Model */,
 				A1EFC8831E05431900161592 /* NetManager */,
