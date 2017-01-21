@@ -10,9 +10,10 @@
 #import "ViewControllerHeader.h"
 #import "NetManager.h"
 #import "DefineAppKey.h"
+#import "SaveController.h"
 
 @interface AppDelegate ()
-
+@property(nonatomic, strong) WMPageController *vcProperty;
 @end
 
 @implementation AppDelegate
@@ -111,6 +112,7 @@
     pageVC.titleColorSelected = [UIColor greenColor];
 
     pageVC.navigationItem.title = @"180壁纸";
+
     return pageVC;
 }
 
@@ -123,16 +125,41 @@
     
     [self configUSharePlatforms];
     [self confitUShareSettings];
-
+    //************************************************************************
+    //获取documents路径
+    NSString *docPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
+    NSString *thumbArrPath = [docPath stringByAppendingPathComponent:@"thumbArr.plist"];
+    NSString *standArrPath = [docPath stringByAppendingPathComponent:@"standArr.plist"];
+    //读磁盘
+    //判断当前要打开的数组在磁盘上是否存在
+    NSFileManager *fileMgr = [NSFileManager defaultManager];
+    BOOL exitsThumb = [fileMgr fileExistsAtPath:thumbArrPath];
+    BOOL exitsStand = [fileMgr fileExistsAtPath:standArrPath];
+    if (!exitsThumb) {
+        [[NSArray new] writeToFile:thumbArrPath atomically:YES];
+    }
+    if (!exitsStand) {
+        [[NSArray new] writeToFile:standArrPath atomically:YES];
+    }
     //************************************************************************
     _window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     [_window makeKeyAndVisible];
     WMPageController *vc = [self p_defaultController];
-    
+    self.vcProperty = vc;
     _window.rootViewController = [[UINavigationController alloc]initWithRootViewController:vc];
     
+    //创建一个导航栏按钮，点击进入收藏页面
+    vc.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(goToSavePage)];
+    
+    
+    NSLog(@"%@", NSHomeDirectory());
+
     return YES;
 }
+- (void)goToSavePage {
+    [self.vcProperty.navigationController pushViewController:[SaveController new] animated:YES];
+}
+
 
 - (void)confitUShareSettings
 {

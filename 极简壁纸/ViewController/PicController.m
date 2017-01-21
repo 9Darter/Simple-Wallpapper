@@ -8,6 +8,8 @@
 
 #import "PicController.h"
 #import <UShareUI/UShareUI.h>
+#import "ClearCacheTool.h"
+#import "SaveController.h"
 
 @interface PicController ()<iCarouselDelegate, iCarouselDataSource>
 @property(nonatomic, strong)iCarousel *ic;//滚动页面由此轮子完成
@@ -63,8 +65,8 @@
         UITapGestureRecognizer *tapPreview = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(preview)];
         UITapGestureRecognizer *tapDownload = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(download)];
         UITapGestureRecognizer *tapShare = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(share)];
-        UITapGestureRecognizer *tapSave = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(back)];
-        UITapGestureRecognizer *tapMore = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(back)];
+        UITapGestureRecognizer *tapSave = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(save)];
+        UITapGestureRecognizer *tapMore = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(more)];
         NSArray *gestureArray = [NSArray arrayWithObjects:tapBack, tapPreview, tapDownload, tapShare, tapSave, tapMore, nil];
         
         UIView *lastView = [UIView new];
@@ -239,6 +241,53 @@
         }
     }];
 }
+//收藏
+-(void)save {
+    WallpaperPictureModel *model = self.mutablePicList[self.ic.currentItemIndex];
+    UIImageView *currentItemView = (UIImageView *)self.ic.currentItemView;
+    [currentItemView showMsg:@"收藏成功" autoHideAfterDely:2];
+    //获取documents路径
+    NSString *docPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
+    NSString *thumbArrPath = [docPath stringByAppendingPathComponent:@"thumbArr.plist"];
+    NSString *standArrPath = [docPath stringByAppendingPathComponent:@"standArr.plist"];
+    //读磁盘，添加url到plist文件中
+    NSMutableArray *thumbArr = [[NSMutableArray alloc]initWithContentsOfFile:thumbArrPath];
+    [thumbArr addObject:model.thumb.url];
+    NSMutableArray *standArr = [[NSMutableArray alloc]initWithContentsOfFile:standArrPath];
+    [standArr addObject:model.stand.url];
+    [thumbArr writeToFile:thumbArrPath atomically:YES];
+    [standArr writeToFile:standArrPath atomically:YES];
+}
+
+//更多
+-(void)more {
+    //创建警告提醒
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    // 添加按钮
+    NSString *thumbPicPath = [NSHomeDirectory() stringByAppendingString:@"/Library/Caches/com.ibireme.yykit/images/data/"];
+    NSString *standPicPath = [NSHomeDirectory() stringByAppendingString:@"/Library/Caches/default/com.hackemist.SDWebImageCache.default/"];
+    NSInteger thumbPicSize = [ClearCacheTool getCacheSizeWithFilePath:thumbPicPath];
+    NSInteger standPicSize = [ClearCacheTool getCacheSizeWithFilePath:standPicPath];
+    NSString *picSize = [ClearCacheTool transformNSIntegerToNSString:thumbPicSize + standPicSize];
+    NSString *actionTitle = [NSString stringWithFormat:@"清除缓存(%@)", picSize];
+    [alert addAction:[UIAlertAction actionWithTitle:actionTitle style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        [ClearCacheTool clearCacheWithFilePath:thumbPicPath];
+        [ClearCacheTool clearCacheWithFilePath:standPicPath];
+        [self.view showMsg:@"已清除缓存" autoHideAfterDely:2];
+    }]];
+    
+//    [alert addAction:[UIAlertAction actionWithTitle:@"查看收藏" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+//        SaveController *vc = [SaveController new];
+//        [self.navigationController presentViewController:vc animated:YES completion:nil];
+//    }]];
+    
+    [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+        NSLog(@"点击了取消按钮");
+    }]];
+    
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
 
 #pragma mark - Life
 - (void)viewDidLoad {
