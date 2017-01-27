@@ -136,10 +136,14 @@
     BOOL exitsThumb = [fileMgr fileExistsAtPath:thumbArrPath];
     BOOL exitsStand = [fileMgr fileExistsAtPath:standArrPath];
     if (!exitsThumb) {
-        [[NSArray new] writeToFile:thumbArrPath atomically:YES];
+        NSArray *thumbArr = [NSArray new];
+        [thumbArr writeToFile:thumbArrPath atomically:YES];
+        self.thumbArr = thumbArr;
     }
     if (!exitsStand) {
-        [[NSArray new] writeToFile:standArrPath atomically:YES];
+        NSArray *standArr = [NSArray new];
+        [standArr writeToFile:standArrPath atomically:YES];
+        self.standArr = standArr;
     }
     //************************************************************************
     _window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];

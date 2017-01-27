@@ -10,14 +10,19 @@
 #import <UShareUI/UShareUI.h>
 #import "ClearCacheTool.h"
 #import "SaveController.h"
+#import "AppDelegate.h"
 
 @interface PicController ()<iCarouselDelegate, iCarouselDataSource>
 @property(nonatomic, strong)iCarousel *ic;//滚动页面由此轮子完成
 @property(nonatomic, copy) NSMutableArray<WallpaperPictureModel *> *mutablePicList;//数据数组，因为要加载更多，所以为可变数组
 @property(nonatomic, strong) UIView *buttonView;//点击图片显示一个长条view，上面有若干button
+@property(nonatomic, strong) UIImageView *saveView;//收藏按钮的view
 @property(nonatomic, strong) UIImageView *lockView;//锁屏预览
 @property(nonatomic, strong) UIImageView *homeView;//主屏预览
 @property(nonatomic, assign) NSInteger currentPreview;//当前预览图
+@property(nonatomic, strong) AppDelegate *delegate;
+//@property(nonatomic, copy) NSMutableArray *thumbArr;//该数组存储收藏的string
+//@property(nonatomic, copy) NSMutableArray *standArr;
 @end
 
 @implementation PicController
@@ -99,6 +104,9 @@
                 make.width.equalTo(singleButtonView.mas_width).multipliedBy(0.4);
                 make.height.equalTo(_buttonView.mas_height).multipliedBy(0.6);
             }];
+            if (i == 4) {
+                self.saveView = singleImageView;
+            }
             //添加一个label
             UILabel *singleLabel = [UILabel new];
             singleLabel.text = wordsArray[i];
@@ -245,20 +253,32 @@
 -(void)save {
     WallpaperPictureModel *model = self.mutablePicList[self.ic.currentItemIndex];
     UIImageView *currentItemView = (UIImageView *)self.ic.currentItemView;
-    [currentItemView showMsg:@"收藏成功" autoHideAfterDely:2];
+    //遍历收藏的数组，若当前图片已被收藏，则取消点亮收藏图标；若没有被收藏，则点亮图标
+    BOOL isSaved = NO;
+    for (NSString *thumbURL in self.delegate.thumbArr) {
+        if ([thumbURL isEqualToString:model.thumb.url]) {
+            isSaved = YES;
+            break;
+        }
+    }
+    self.saveView.image = isSaved ? [UIImage imageNamed:@"icon_toolbar_like_20x20_"] : [UIImage imageNamed:@"icon_toolbar_liked_20x20_"];
+
+    isSaved ? [currentItemView showMsg:@"取消收藏" autoHideAfterDely:2] : [currentItemView showMsg:@"收藏成功" autoHideAfterDely:2];
+    
     //获取documents路径
     NSString *docPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
     NSString *thumbArrPath = [docPath stringByAppendingPathComponent:@"thumbArr.plist"];
     NSString *standArrPath = [docPath stringByAppendingPathComponent:@"standArr.plist"];
     //读磁盘，添加url到plist文件中
     NSMutableArray *thumbArr = [[NSMutableArray alloc]initWithContentsOfFile:thumbArrPath];
-    [thumbArr addObject:model.thumb.url];
+    isSaved ? [thumbArr removeObject:model.thumb.url] : [thumbArr addObject:model.thumb.url];
     NSMutableArray *standArr = [[NSMutableArray alloc]initWithContentsOfFile:standArrPath];
-    [standArr addObject:model.stand.url];
+    isSaved ? [standArr removeObject:model.stand.url] : [standArr addObject:model.stand.url];
     [thumbArr writeToFile:thumbArrPath atomically:YES];
     [standArr writeToFile:standArrPath atomically:YES];
+    self.delegate.thumbArr = thumbArr;
+    self.delegate.standArr = standArr;
 }
-
 //更多
 -(void)more {
     //创建警告提醒
@@ -308,6 +328,9 @@
     self.ic.pagingEnabled = YES;
     //长条view的初始状态为隐藏
     self.buttonView.alpha = 1;
+    
+    //获取当前应用程序的代理
+    self.delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -413,5 +436,15 @@
             [currentItemView setImage:image];
         }
     }];
+    
+    //遍历收藏的数组，若当前图片已被收藏，则点亮收藏图标
+    BOOL isSaved = NO;
+    for (NSString *thumbURL in self.delegate.thumbArr) {
+        if ([thumbURL isEqualToString:model.thumb.url]) {
+            isSaved = YES;
+            break;
+        }
+    }
+    self.saveView.image = isSaved ? [UIImage imageNamed:@"icon_toolbar_liked_20x20_"] : [UIImage imageNamed:@"icon_toolbar_like_20x20_"];
 }
 @end
