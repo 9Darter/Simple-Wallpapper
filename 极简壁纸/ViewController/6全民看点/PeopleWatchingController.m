@@ -15,6 +15,7 @@
 #import "SixCell.h"
 #import "NineCell.h"
 
+#import "PicController.h"
 
 @interface PeopleWatchingController ()
 @property(nonatomic, copy) NSMutableArray<WallpaperDataModel *> *dataList;
@@ -89,6 +90,9 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+-(void)viewWillAppear:(BOOL)animated {
+    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:NO];
+}
 
 #pragma mark - Delegate
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -127,6 +131,17 @@
     }
     return tmpArr;
 }
+
+//点击图片后的正向传值和跳转
+-(void)creatVcOfPicControllerWithPictureIndex:(NSInteger)index ofModel:(WallpaperDataModel *)model{
+    PicController *vc = [PicController new];
+    vc.dataList = self.dataList;
+    vc.page = self.page;
+    vc.picTitle = TitleRecommended;
+    vc.fn = model.pictures[index].fn;
+    [self.navigationController presentViewController:vc animated:YES completion:nil];
+}
+
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath model:(WallpaperDataModel *)model {
     NSInteger numberOfPics = model.pictures.count;
     switch (numberOfPics) {
@@ -136,6 +151,15 @@
             [cell.firstIV setImageURL:model.pictures[0].thumb.url.wf_url];
             [cell.secondIV setImageURL:model.pictures[1].thumb.url.wf_url];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            //给每个imageView单独设置手势触发的block
+            [cell setPushBlock1:^(TwoCell *cell) {
+                //封装了一个方法，要不然这里的代码重复率太高
+                [self creatVcOfPicControllerWithPictureIndex:0 ofModel:model];
+            }];
+            [cell setPushBlock2:^(TwoCell *cell) {
+                [self creatVcOfPicControllerWithPictureIndex:1 ofModel:model];
+            }];
+            
             return cell;
         }
             
@@ -146,6 +170,17 @@
             [cell.secondIV setImageURL:model.pictures[1].thumb.url.wf_url];
             [cell.thirdIV setImageURL:model.pictures[2].thumb.url.wf_url];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            //给每个imageView单独设置手势触发的block
+            [cell setPushBlock1:^(ThreeCell *cell) {
+                //封装了一个方法，要不然这里的代码重复率太高
+                [self creatVcOfPicControllerWithPictureIndex:0 ofModel:model];
+            }];
+            [cell setPushBlock2:^(ThreeCell *cell) {
+                [self creatVcOfPicControllerWithPictureIndex:1 ofModel:model];
+            }];
+            [cell setPushBlock3:^(ThreeCell *cell) {
+                [self creatVcOfPicControllerWithPictureIndex:2 ofModel:model];
+            }];
             return cell;
         }
             
@@ -159,6 +194,23 @@
             [cell.fourthIV setImageURL:model.pictures[3].thumb.url.wf_url];
             [cell.fifthIV setImageURL:model.pictures[4].thumb.url.wf_url];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            //给每个imageView单独设置手势触发的block
+            [cell setPushBlock1:^(FiveCell *cell) {
+                //封装了一个方法，要不然这里的代码重复率太高
+                [self creatVcOfPicControllerWithPictureIndex:0 ofModel:model];
+            }];
+            [cell setPushBlock2:^(FiveCell *cell) {
+                [self creatVcOfPicControllerWithPictureIndex:1 ofModel:model];
+            }];
+            [cell setPushBlock3:^(FiveCell *cell) {
+                [self creatVcOfPicControllerWithPictureIndex:2 ofModel:model];
+            }];
+            [cell setPushBlock4:^(FiveCell *cell) {
+                [self creatVcOfPicControllerWithPictureIndex:3 ofModel:model];
+            }];
+            [cell setPushBlock5:^(FiveCell *cell) {
+                [self creatVcOfPicControllerWithPictureIndex:4 ofModel:model];
+            }];
             return cell;
         }
             
@@ -172,6 +224,26 @@
             [cell.fifthIV setImageURL:model.pictures[4].thumb.url.wf_url];
             [cell.sixIV setImageURL:model.pictures[5].thumb.url.wf_url];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            //给每个imageView单独设置手势触发的block
+            [cell setPushBlock1:^(SixCell *cell) {
+                //封装了一个方法，要不然这里的代码重复率太高
+                [self creatVcOfPicControllerWithPictureIndex:0 ofModel:model];
+            }];
+            [cell setPushBlock2:^(SixCell *cell) {
+                [self creatVcOfPicControllerWithPictureIndex:1 ofModel:model];
+            }];
+            [cell setPushBlock3:^(SixCell *cell) {
+                [self creatVcOfPicControllerWithPictureIndex:2 ofModel:model];
+            }];
+            [cell setPushBlock4:^(SixCell *cell) {
+                [self creatVcOfPicControllerWithPictureIndex:3 ofModel:model];
+            }];
+            [cell setPushBlock5:^(SixCell *cell) {
+                [self creatVcOfPicControllerWithPictureIndex:4 ofModel:model];
+            }];
+            [cell setPushBlock6:^(SixCell *cell) {
+                [self creatVcOfPicControllerWithPictureIndex:5 ofModel:model];
+            }];
             return cell;
         }
             
@@ -188,6 +260,35 @@
             [cell.eightIV setImageURL:model.pictures[7].thumb.url.wf_url];
             [cell.nineIV setImageURL:model.pictures[8].thumb.url.wf_url];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            //给每个imageView单独设置手势触发的block
+            [cell setPushBlock1:^(NineCell *cell) {
+                //封装了一个方法，要不然这里的代码重复率太高
+                [self creatVcOfPicControllerWithPictureIndex:0 ofModel:model];
+            }];
+            [cell setPushBlock2:^(NineCell *cell) {
+                [self creatVcOfPicControllerWithPictureIndex:1 ofModel:model];
+            }];
+            [cell setPushBlock3:^(NineCell *cell) {
+                [self creatVcOfPicControllerWithPictureIndex:2 ofModel:model];
+            }];
+            [cell setPushBlock4:^(NineCell *cell) {
+                [self creatVcOfPicControllerWithPictureIndex:3 ofModel:model];
+            }];
+            [cell setPushBlock5:^(NineCell *cell) {
+                [self creatVcOfPicControllerWithPictureIndex:4 ofModel:model];
+            }];
+            [cell setPushBlock6:^(NineCell *cell) {
+                [self creatVcOfPicControllerWithPictureIndex:5 ofModel:model];
+            }];
+            [cell setPushBlock7:^(NineCell *cell) {
+                [self creatVcOfPicControllerWithPictureIndex:6 ofModel:model];
+            }];
+            [cell setPushBlock8:^(NineCell *cell) {
+                [self creatVcOfPicControllerWithPictureIndex:7 ofModel:model];
+            }];
+            [cell setPushBlock9:^(NineCell *cell) {
+                [self creatVcOfPicControllerWithPictureIndex:8 ofModel:model];
+            }];
             return cell;
         }
     }

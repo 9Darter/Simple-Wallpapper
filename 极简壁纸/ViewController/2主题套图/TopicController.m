@@ -11,6 +11,8 @@
 #import "TopicCell.h"
 #import "NetManager.h"
 
+#import "PicController.h"
+
 @interface TopicController ()
 @property(nonatomic, copy) NSMutableArray<WallpaperDataModel *> *dataList;
 @property(nonatomic, assign) NSInteger page;
@@ -79,6 +81,9 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+-(void)viewWillAppear:(BOOL)animated {
+    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:NO];
+}
 
 #pragma mark - Delegate
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -105,6 +110,16 @@
     }
     return tmpArr;
 }
+//点击图片后的正向传值和跳转
+-(void)creatVcOfPicControllerWithPictureIndex:(NSInteger)index ofModel:(WallpaperDataModel *)model{
+    PicController *vc = [PicController new];
+    vc.dataList = self.dataList;
+    vc.page = self.page;
+    vc.picTitle = TitleRecommended;
+    vc.fn = model.pictures[index].fn;
+    [self.navigationController presentViewController:vc animated:YES completion:nil];
+}
+
 //该方法比代理方法多加了一个参数model，在此方法中给cell赋值
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath model:(WallpaperDataModel *)model {
     TopicCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TopicCell" forIndexPath:indexPath];
@@ -127,6 +142,14 @@
     }];
     //****************
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    //给每个imageView单独设置手势触发的block
+    [cell setPushBlock1:^(TopicCell *cell) {
+        //封装了一个方法，要不然这里的代码重复率太高
+        [self creatVcOfPicControllerWithPictureIndex:0 ofModel:model];
+    }];
+    [cell setPushBlock2:^(TopicCell *cell) {
+        [self creatVcOfPicControllerWithPictureIndex:1 ofModel:model];
+    }];
     return cell;
 }
 
