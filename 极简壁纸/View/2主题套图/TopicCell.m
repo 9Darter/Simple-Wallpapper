@@ -78,6 +78,8 @@
         _downloadBtn.titleLabel.textColor = [UIColor whiteColor];
         _downloadBtn.titleLabel.font = [UIFont systemFontOfSize:13];
         [self.contentView addSubview:_downloadBtn];
+        //添加触发方法
+        [_downloadBtn addTarget:self action:@selector(Push3:) forControlEvents:UIControlEventTouchUpInside];
         [_downloadBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.equalTo(self.secondIV);
             make.top.equalTo(self.secondIV.mas_bottom).offset(17);
@@ -87,7 +89,10 @@
     }
     return _downloadBtn;
 }
-
+//点击方法
+-(void)Push3:sender{
+    !_pushBlock3 ?: _pushBlock3(self);
+}
 
 
 

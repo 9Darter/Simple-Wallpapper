@@ -11,6 +11,8 @@
 #import "NetManager.h"
 #import "ProfilePicsLayout.h"
 
+#import "PicController.h"
+
 @interface ProfilePicsController ()
 @property(nonatomic, copy) NSMutableArray<NSArray<LockScreenDataModel *> *> *dataList;
 @property(nonatomic, assign) NSInteger page;
@@ -75,6 +77,9 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+-(void)viewWillAppear:(BOOL)animated {
+    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:NO];
+}
 
 #pragma mark - Delegate
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
@@ -87,6 +92,15 @@
     
     return cell;
 }
-
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    PicController *vc = [PicController new];
+    vc.lockDataList = self.dataList;
+    vc.page = self.page;
+    vc.picTitle = TitleProfilePics;
+    LockScreenDataModel *model = self.dataList[indexPath.row / 2][indexPath.row % 2];
+    vc.fn = [model.fn integerValue];
+    vc.isSpecial = YES;
+    [self.navigationController presentViewController:vc animated:YES completion:nil];
+}
 
 @end

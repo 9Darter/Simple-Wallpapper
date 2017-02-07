@@ -115,9 +115,52 @@
     PicController *vc = [PicController new];
     vc.dataList = self.dataList;
     vc.page = self.page;
-    vc.picTitle = TitleRecommended;
+    vc.picTitle = TitleTopic;
     vc.fn = model.pictures[index].fn;
+    vc.isSpecial = NO;
     [self.navigationController presentViewController:vc animated:YES completion:nil];
+}
+//点击button触发的block调用的方法
+//-(void)downloadWithModel:(WallpaperDataModel *)model {
+//    //从网络下载图片
+//    SDWebImageManager *manager = [SDWebImageManager sharedManager];
+//    [manager downloadImageWithURL:model.pictures[0].stand.url.wf_url options:SDWebImageRetryFailed progress:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+//        if (image) {
+//            self.image1 = image;
+//        }
+//    }];
+//    [manager downloadImageWithURL:model.pictures[1].stand.url.wf_url options:SDWebImageRetryFailed progress:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+//        if (image) {
+//            self.image2 = image;
+//        }
+//    }];
+//    //下载图片到相册
+//    UIImageWriteToSavedPhotosAlbum(self.image1, self, nil, nil);
+//    UIImageWriteToSavedPhotosAlbum(self.image2, self, @selector(imageSavedToPhotosAlbum:didFinishSavingWithError:contextInfo:), nil);
+//}
+-(void)downloadWithModel:(WallpaperDataModel *)model {
+    //从网络下载图片
+    SDWebImageManager *manager = [SDWebImageManager sharedManager];
+    for (int i = 0; i < 2; i++) {
+        [manager downloadImageWithURL:model.pictures[i].stand.url.wf_url options:SDWebImageRetryFailed progress:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+            if (image) {
+                if (i == 1) {
+                    UIImageWriteToSavedPhotosAlbum(image, self, @selector(imageSavedToPhotosAlbum:didFinishSavingWithError:contextInfo:), nil);
+                } else {
+                    UIImageWriteToSavedPhotosAlbum(image, self, nil, nil);
+                }
+            }
+        }];
+    }
+}
+//完成下载之后的提示
+-(void)imageSavedToPhotosAlbum:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
+{
+    //做一个alert对话框
+    NSLog(@"主题已保存到本地相册");
+    if (error) {
+        NSLog(@"%@", error);
+    }
 }
 
 //该方法比代理方法多加了一个参数model，在此方法中给cell赋值
@@ -149,6 +192,10 @@
     }];
     [cell setPushBlock2:^(TopicCell *cell) {
         [self creatVcOfPicControllerWithPictureIndex:1 ofModel:model];
+    }];
+    //点击触发的block
+    [cell setPushBlock3:^(TopicCell *cell) {
+        [self downloadWithModel:model];
     }];
     return cell;
 }

@@ -137,7 +137,7 @@
     PicController *vc = [PicController new];
     vc.dataList = self.dataList;
     vc.page = self.page;
-    vc.picTitle = TitleRecommended;
+    vc.picTitle = TitlePeopleWatching;
     vc.fn = model.pictures[index].fn;
     [self.navigationController presentViewController:vc animated:YES completion:nil];
 }

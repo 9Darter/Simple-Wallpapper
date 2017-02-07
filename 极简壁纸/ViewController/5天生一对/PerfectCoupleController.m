@@ -11,6 +11,8 @@
 #import "PerfectCoupleCell.h"
 #import "NetManager.h"
 
+#import "PicController.h"
+
 @interface PerfectCoupleController ()
 @property(nonatomic, copy) NSMutableArray<WallpaperDataModel *> *dataList;
 @property(nonatomic, assign) NSInteger page;
@@ -79,6 +81,9 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+-(void)viewWillAppear:(BOOL)animated {
+    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:NO];
+}
 
 #pragma mark - Delegate
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -105,11 +110,30 @@
     }
     return tmpArr;
 }
+//点击图片后的正向传值和跳转
+-(void)creatVcOfPicControllerWithPictureIndex:(NSInteger)index ofModel:(WallpaperDataModel *)model{
+    PicController *vc = [PicController new];
+    vc.dataList = self.dataList;
+    vc.page = self.page;
+    vc.picTitle = TitlePerfectCouple;
+    vc.fn = model.pictures[index].fn;
+    vc.isSpecial = NO;
+    [self.navigationController presentViewController:vc animated:YES completion:nil];
+}
+
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath model:(WallpaperDataModel *)model {
     PerfectCoupleCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PerfectCoupleCell" forIndexPath:indexPath];
     [cell.firstIV setImageURL:model.pictures[0].thumb.url.wf_url];
     [cell.secondIV setImageURL:model.pictures[1].thumb.url.wf_url];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    //给每个imageView单独设置手势触发的block
+    [cell setPushBlock1:^(PerfectCoupleCell *cell) {
+        //封装了一个方法，要不然这里的代码重复率太高
+        [self creatVcOfPicControllerWithPictureIndex:0 ofModel:model];
+    }];
+    [cell setPushBlock2:^(PerfectCoupleCell *cell) {
+        [self creatVcOfPicControllerWithPictureIndex:1 ofModel:model];
+    }];
     return cell;
     
 }

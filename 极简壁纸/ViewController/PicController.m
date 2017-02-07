@@ -14,7 +14,8 @@
 
 @interface PicController ()<iCarouselDelegate, iCarouselDataSource>
 @property(nonatomic, strong)iCarousel *ic;//滚动页面由此轮子完成
-@property(nonatomic, copy) NSMutableArray<WallpaperPictureModel *> *mutablePicList;//数据数组，因为要加载更多，所以为可变数组
+//@property(nonatomic, copy) NSMutableArray<WallpaperPictureModel *> *mutablePicList;//数据数组，因为要加载更多，所以为可变数组
+@property(nonatomic, copy) NSMutableArray *mutablePicList;//数据数组，因为要加载更多，所以为可变数组
 @property(nonatomic, strong) UIView *buttonView;//点击图片显示一个长条view，上面有若干button
 @property(nonatomic, strong) UIImageView *saveView;//收藏按钮的view
 @property(nonatomic, strong) UIImageView *lockView;//锁屏预览
@@ -262,7 +263,7 @@
         }
     }
     self.saveView.image = isSaved ? [UIImage imageNamed:@"icon_toolbar_like_20x20_"] : [UIImage imageNamed:@"icon_toolbar_liked_20x20_"];
-
+    
     isSaved ? [currentItemView showMsg:@"取消收藏" autoHideAfterDely:2] : [currentItemView showMsg:@"收藏成功" autoHideAfterDely:2];
     
     //获取documents路径
@@ -296,10 +297,10 @@
         [self.view showMsg:@"已清除缓存" autoHideAfterDely:2];
     }]];
     
-//    [alert addAction:[UIAlertAction actionWithTitle:@"查看收藏" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-//        SaveController *vc = [SaveController new];
-//        [self.navigationController presentViewController:vc animated:YES completion:nil];
-//    }]];
+    //    [alert addAction:[UIAlertAction actionWithTitle:@"查看收藏" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+    //        SaveController *vc = [SaveController new];
+    //        [self.navigationController presentViewController:vc animated:YES completion:nil];
+    //    }]];
     
     [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
         NSLog(@"点击了取消按钮");
@@ -316,9 +317,16 @@
     self.view.backgroundColor = [UIColor blackColor];
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:NO];
     self.currentPreview = 0;
+    
     //把传进来的数组进行遍历，每个数组元素中都包含多个图片，所以把这个数组中所有图片放到一个数组中，作为ic的数组源
-    for (int i = 0; i < self.dataList.count; i++) {
-        [self.mutablePicList addObjectsFromArray:self.dataList[i].pictures];
+    if (self.isSpecial) {
+        for (int i = 0; i < self.lockDataList.count; i++) {
+            [self.mutablePicList addObjectsFromArray:self.lockDataList[i]];
+        }
+    } else {
+        for (int i = 0; i < self.dataList.count; i++) {
+            [self.mutablePicList addObjectsFromArray:self.dataList[i].pictures];
+        }
     }
     
     //设置ic的代理
@@ -336,11 +344,22 @@
     [super viewWillAppear:animated];
     //在前一页面中点击哪个图片，哪个图片就需要成为此页面中展示的图片，所以在进入页面后，设置当前页面为之前点击的那个图片
     //通过遍历数据源数组，判断传进来的fn与该数据源中哪个图片fn一致，就显示该图片
-    for (WallpaperPictureModel *model in self.mutablePicList) {
-        if (model.fn == self.fn) {
-            NSInteger index = [self.mutablePicList indexOfObject:model];
-            [self.ic scrollToItemAtIndex:index animated:NO];
-            break;
+    
+    if (self.isSpecial) {
+        for (LockScreenDataModel *model in self.mutablePicList) {
+            if ([model.fn integerValue] == self.fn) {
+                NSInteger index = [self.mutablePicList indexOfObject:model];
+                [self.ic scrollToItemAtIndex:index animated:NO];
+                break;
+            }
+        }
+    } else {
+        for (WallpaperPictureModel *model in self.mutablePicList) {
+            if (model.fn == self.fn) {
+                NSInteger index = [self.mutablePicList indexOfObject:model];
+                [self.ic scrollToItemAtIndex:index animated:NO];
+                break;
+            }
         }
     }
 }
@@ -364,9 +383,9 @@
     //由于前一页将低清图片已缓存，此处仅设置图片为之前缓存的图片，这样在下载高清图片的过程中先脱机显示低清图片
     //下载高清图片的过程不在此处，因为会耗费大量流量，应该滑倒哪张图片再去下载
     WallpaperPictureModel *model = self.mutablePicList[index];
-        [((UIImageView *)view) setImageWithURL:model.thumb.url.wf_url placeholder:nil options:YYWebImageOptionProgressive completion:^(UIImage * _Nullable image, NSURL * _Nonnull url, YYWebImageFromType from, YYWebImageStage stage, NSError * _Nullable error) {
-            NSLog(@"低清图片加载完毕");
-        }];
+    [((UIImageView *)view) setImageWithURL:model.thumb.url.wf_url placeholder:nil options:YYWebImageOptionProgressive completion:^(UIImage * _Nullable image, NSURL * _Nonnull url, YYWebImageFromType from, YYWebImageStage stage, NSError * _Nullable error) {
+        NSLog(@"低清图片加载完毕");
+    }];
     return view;
 }
 
@@ -382,14 +401,25 @@
 //每当滑动了图片，都会判断一下该图片是否为数据源的最后一张。如果是，就进行网络加载扩充数据源，使后续的图片可以继续展示
 -(void)carouselCurrentItemIndexDidChange:(iCarousel *)carousel {
     if (self.ic.currentItemIndex == self.mutablePicList.count - 1) {
-        [NetManager getWallpaperModelWithTitle:self.picTitle andPage:self.page + 1 andLimit:kLimit completionHandler:^(WallpaperModel *model, NSError *error) {
-            if (!error) {
-                for (int i = 0; i < self.dataList.count; i++) {
-                    [self.mutablePicList addObjectsFromArray:model.data[i].pictures];
+        if (self.isSpecial) {
+            [NetManager getLockScreenModelWithSpecial:self.picTitle andPage:self.page + 1 andLimit:kLimit completionHandler:^(LockScreenModel *model, NSError *error) {
+                if (!error) {
+                    for (int i = 0; i < self.lockDataList.count; i++) {
+                        [self.mutablePicList addObjectsFromArray:model.data[i]];
+                    }
                 }
-            }
-            [self.ic reloadData];
-        }];
+                [self.ic reloadData];
+            }];
+        } else {
+            [NetManager getWallpaperModelWithTitle:self.picTitle andPage:self.page + 1 andLimit:kLimit completionHandler:^(WallpaperModel *model, NSError *error) {
+                if (!error) {
+                    for (int i = 0; i < self.dataList.count; i++) {
+                        [self.mutablePicList addObjectsFromArray:model.data[i].pictures];
+                    }
+                }
+                [self.ic reloadData];
+            }];
+        }  
     }
 }
 
@@ -415,12 +445,12 @@
 -(void)carouselDidEndScrollingAnimation:(iCarousel *)carousel {
     WallpaperPictureModel *model = self.mutablePicList[self.ic.currentItemIndex];
     UIImageView *currentItemView = (UIImageView *)self.ic.currentItemView;
-//    //下载图片时的动画提示（每个图片都有一个下面的view，所以不设为属性，而是在这个代理方法中初始化，添加到当前view中）
-//    UIActivityIndicatorView *iView = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-//    [currentItemView addSubview:iView];
-//    [iView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.center.equalTo(0);
-//    }];
+    //    //下载图片时的动画提示（每个图片都有一个下面的view，所以不设为属性，而是在这个代理方法中初始化，添加到当前view中）
+    //    UIActivityIndicatorView *iView = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    //    [currentItemView addSubview:iView];
+    //    [iView mas_makeConstraints:^(MASConstraintMaker *make) {
+    //        make.center.equalTo(0);
+    //    }];
     
     SDWebImageManager *manager = [SDWebImageManager sharedManager];
     [manager downloadImageWithURL:model.stand.url.wf_url options:SDWebImageRetryFailed progress:^(NSInteger receivedSize, NSInteger expectedSize) {
