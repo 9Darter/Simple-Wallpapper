@@ -81,8 +81,8 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
--(void)viewWillAppear:(BOOL)animated {
-    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:NO];
+-(BOOL)prefersStatusBarHidden {
+    return NO;
 }
 
 #pragma mark - Delegate
@@ -121,28 +121,16 @@
     [self.navigationController presentViewController:vc animated:YES completion:nil];
 }
 //点击button触发的block调用的方法
-//-(void)downloadWithModel:(WallpaperDataModel *)model {
-//    //从网络下载图片
-//    SDWebImageManager *manager = [SDWebImageManager sharedManager];
-//    [manager downloadImageWithURL:model.pictures[0].stand.url.wf_url options:SDWebImageRetryFailed progress:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
-//        if (image) {
-//            self.image1 = image;
-//        }
-//    }];
-//    [manager downloadImageWithURL:model.pictures[1].stand.url.wf_url options:SDWebImageRetryFailed progress:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
-//        if (image) {
-//            self.image2 = image;
-//        }
-//    }];
-//    //下载图片到相册
-//    UIImageWriteToSavedPhotosAlbum(self.image1, self, nil, nil);
-//    UIImageWriteToSavedPhotosAlbum(self.image2, self, @selector(imageSavedToPhotosAlbum:didFinishSavingWithError:contextInfo:), nil);
-//}
 -(void)downloadWithModel:(WallpaperDataModel *)model {
     //从网络下载图片
     SDWebImageManager *manager = [SDWebImageManager sharedManager];
     for (int i = 0; i < 2; i++) {
-        [manager downloadImageWithURL:model.pictures[i].stand.url.wf_url options:SDWebImageRetryFailed progress:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+        [manager downloadImageWithURL:model.pictures[i].stand.url.wf_url options:SDWebImageRetryFailed progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+            //状态栏转菊花
+            [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+        } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+            //取消状态栏转菊花
+            [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
             if (image) {
                 if (i == 1) {
                     UIImageWriteToSavedPhotosAlbum(image, self, @selector(imageSavedToPhotosAlbum:didFinishSavingWithError:contextInfo:), nil);
@@ -153,14 +141,20 @@
         }];
     }
 }
+
 //完成下载之后的提示
 -(void)imageSavedToPhotosAlbum:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
 {
     //做一个alert对话框
-    NSLog(@"主题已保存到本地相册");
-    if (error) {
-        NSLog(@"%@", error);
-    }
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"主题已保存到本地相册" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    //    step2:  创建可以收集用户意图的按键 — UIAlertAction， 创建时，不仅仅说明该按键上要显示的提示性文字，还要使用block的方式来设定点击了该按键之后要做的事情
+    UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+        
+    }];
+    //    step3: 将创建好的  UIAlertAction 添加到 UIAlertController中
+    [alert addAction:action1];
+    //    step4：使用控制器的pressentViewController方法将AlertController推出显示
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 //该方法比代理方法多加了一个参数model，在此方法中给cell赋值

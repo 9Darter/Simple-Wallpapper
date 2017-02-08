@@ -315,20 +315,22 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor blackColor];
-    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:NO];
     self.currentPreview = 0;
     
     //把传进来的数组进行遍历，每个数组元素中都包含多个图片，所以把这个数组中所有图片放到一个数组中，作为ic的数组源
-    if (self.isSpecial) {
+    if (self.isSpecial == 1) {
         for (int i = 0; i < self.lockDataList.count; i++) {
             [self.mutablePicList addObjectsFromArray:self.lockDataList[i]];
         }
-    } else {
+    } else if (self.isSpecial == 0) {
         for (int i = 0; i < self.dataList.count; i++) {
             [self.mutablePicList addObjectsFromArray:self.dataList[i].pictures];
         }
+    } else {
+        [self.mutablePicList addObjectsFromArray:self.saveDataList];
     }
     
+
     //设置ic的代理
     self.ic.delegate = self;
     self.ic.dataSource = self;
@@ -345,7 +347,7 @@
     //在前一页面中点击哪个图片，哪个图片就需要成为此页面中展示的图片，所以在进入页面后，设置当前页面为之前点击的那个图片
     //通过遍历数据源数组，判断传进来的fn与该数据源中哪个图片fn一致，就显示该图片
     
-    if (self.isSpecial) {
+    if (self.isSpecial == 1) {
         for (LockScreenDataModel *model in self.mutablePicList) {
             if ([model.fn integerValue] == self.fn) {
                 NSInteger index = [self.mutablePicList indexOfObject:model];
@@ -353,7 +355,7 @@
                 break;
             }
         }
-    } else {
+    } else if (self.isSpecial == 0){
         for (WallpaperPictureModel *model in self.mutablePicList) {
             if (model.fn == self.fn) {
                 NSInteger index = [self.mutablePicList indexOfObject:model];
@@ -361,6 +363,8 @@
                 break;
             }
         }
+    } else {
+        [self.ic scrollToItemAtIndex:self.selectedIndexPathRow animated:NO];
     }
 }
 
@@ -368,6 +372,10 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+-(BOOL)prefersStatusBarHidden {
+    return YES;
+}
+
 
 #pragma mark - iC Delegate
 //图片数量为数据源数组中元素的个数
@@ -382,10 +390,23 @@
     
     //由于前一页将低清图片已缓存，此处仅设置图片为之前缓存的图片，这样在下载高清图片的过程中先脱机显示低清图片
     //下载高清图片的过程不在此处，因为会耗费大量流量，应该滑倒哪张图片再去下载
-    WallpaperPictureModel *model = self.mutablePicList[index];
-    [((UIImageView *)view) setImageWithURL:model.thumb.url.wf_url placeholder:nil options:YYWebImageOptionProgressive completion:^(UIImage * _Nullable image, NSURL * _Nonnull url, YYWebImageFromType from, YYWebImageStage stage, NSError * _Nullable error) {
-        NSLog(@"低清图片加载完毕");
-    }];
+    if (self.isSpecial == 0) {
+        WallpaperPictureModel *model = self.mutablePicList[index];
+        [((UIImageView *)view) setImageWithURL:model.thumb.url.wf_url placeholder:nil options:YYWebImageOptionProgressive completion:^(UIImage * _Nullable image, NSURL * _Nonnull url, YYWebImageFromType from, YYWebImageStage stage, NSError * _Nullable error) {
+            NSLog(@"标准低清图片加载完毕");
+        }];
+    } else if (self.isSpecial == 1) {
+        LockScreenDataModel *model = self.mutablePicList[index];
+        [((UIImageView *)view) setImageWithURL:model.thumb.url.wf_url placeholder:nil options:YYWebImageOptionProgressive completion:^(UIImage * _Nullable image, NSURL * _Nonnull url, YYWebImageFromType from, YYWebImageStage stage, NSError * _Nullable error) {
+            NSLog(@"特殊低清图片加载完毕");
+        }];
+    } else {
+        SaveModel *model = self.mutablePicList[index];
+        [((UIImageView *)view) setImageWithURL:model.thumb.wf_url placeholder:nil options:YYWebImageOptionProgressive completion:^(UIImage * _Nullable image, NSURL * _Nonnull url, YYWebImageFromType from, YYWebImageStage stage, NSError * _Nullable error) {
+            NSLog(@"收藏低清图片加载完毕");
+        }];
+    }
+    
     return view;
 }
 
@@ -400,6 +421,9 @@
 //捕捉到滑动图片后的触发方法
 //每当滑动了图片，都会判断一下该图片是否为数据源的最后一张。如果是，就进行网络加载扩充数据源，使后续的图片可以继续展示
 -(void)carouselCurrentItemIndexDidChange:(iCarousel *)carousel {
+    if (self.isSpecial != 0 && self.isSpecial != 1) {
+        return;
+    }
     if (self.ic.currentItemIndex == self.mutablePicList.count - 1) {
         if (self.isSpecial) {
             [NetManager getLockScreenModelWithSpecial:self.picTitle andPage:self.page + 1 andLimit:kLimit completionHandler:^(LockScreenModel *model, NSError *error) {
@@ -443,38 +467,87 @@
 //此方法为结束每一张滑动动画后触发的方法，在此方法中进行当前图片的高清版下载，下载完成后再设置显示
 //如果直接用setImageWithURL方法，将会导致低高清图片转换时的短暂闪烁，影响用户体验
 -(void)carouselDidEndScrollingAnimation:(iCarousel *)carousel {
-    WallpaperPictureModel *model = self.mutablePicList[self.ic.currentItemIndex];
-    UIImageView *currentItemView = (UIImageView *)self.ic.currentItemView;
-    //    //下载图片时的动画提示（每个图片都有一个下面的view，所以不设为属性，而是在这个代理方法中初始化，添加到当前view中）
-    //    UIActivityIndicatorView *iView = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-    //    [currentItemView addSubview:iView];
-    //    [iView mas_makeConstraints:^(MASConstraintMaker *make) {
-    //        make.center.equalTo(0);
-    //    }];
-    
-    SDWebImageManager *manager = [SDWebImageManager sharedManager];
-    [manager downloadImageWithURL:model.stand.url.wf_url options:SDWebImageRetryFailed progress:^(NSInteger receivedSize, NSInteger expectedSize) {
-        NSLog(@"%ld", receivedSize);
-        if (receivedSize == 0) {
-            //[currentItemView.subviews.lastObject startAnimating];
-            [currentItemView showPie];
+    if (self.isSpecial == 0) {
+        WallpaperPictureModel *model = self.mutablePicList[self.ic.currentItemIndex];
+        UIImageView *currentItemView = (UIImageView *)self.ic.currentItemView;
+        
+        SDWebImageManager *manager = [SDWebImageManager sharedManager];
+        [manager downloadImageWithURL:model.stand.url.wf_url options:SDWebImageRetryFailed progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+            NSLog(@"%ld", receivedSize);
+            if (receivedSize == 0) {
+                //[currentItemView.subviews.lastObject startAnimating];
+                [currentItemView showPie];
+            }
+        } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+            if (image) {
+                //[currentItemView.subviews.lastObject stopAnimating];
+                [currentItemView hideHUD];
+                [currentItemView setImage:image];
+            }
+        }];
+        //遍历收藏的数组，若当前图片已被收藏，则点亮收藏图标
+        BOOL isSaved = NO;
+        for (NSString *thumbURL in self.delegate.thumbArr) {
+            if ([thumbURL isEqualToString:model.thumb.url]) {
+                isSaved = YES;
+                break;
+            }
         }
-    } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
-        if (image) {
-            //[currentItemView.subviews.lastObject stopAnimating];
-            [currentItemView hideHUD];
-            [currentItemView setImage:image];
+        self.saveView.image = isSaved ? [UIImage imageNamed:@"icon_toolbar_liked_20x20_"] : [UIImage imageNamed:@"icon_toolbar_like_20x20_"];
+    } else if (self.isSpecial == 1) {
+        LockScreenDataModel *model = self.mutablePicList[self.ic.currentItemIndex];
+        UIImageView *currentItemView = (UIImageView *)self.ic.currentItemView;
+        
+        SDWebImageManager *manager = [SDWebImageManager sharedManager];
+        [manager downloadImageWithURL:model.stand.url.wf_url options:SDWebImageRetryFailed progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+            NSLog(@"%ld", receivedSize);
+            if (receivedSize == 0) {
+                //[currentItemView.subviews.lastObject startAnimating];
+                [currentItemView showPie];
+            }
+        } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+            if (image) {
+                //[currentItemView.subviews.lastObject stopAnimating];
+                [currentItemView hideHUD];
+                [currentItemView setImage:image];
+            }
+        }];
+        //遍历收藏的数组，若当前图片已被收藏，则点亮收藏图标
+        BOOL isSaved = NO;
+        for (NSString *thumbURL in self.delegate.thumbArr) {
+            if ([thumbURL isEqualToString:model.thumb.url]) {
+                isSaved = YES;
+                break;
+            }
         }
-    }];
-    
-    //遍历收藏的数组，若当前图片已被收藏，则点亮收藏图标
-    BOOL isSaved = NO;
-    for (NSString *thumbURL in self.delegate.thumbArr) {
-        if ([thumbURL isEqualToString:model.thumb.url]) {
-            isSaved = YES;
-            break;
+        self.saveView.image = isSaved ? [UIImage imageNamed:@"icon_toolbar_liked_20x20_"] : [UIImage imageNamed:@"icon_toolbar_like_20x20_"];
+    } else {
+        SaveModel *model = self.mutablePicList[self.ic.currentItemIndex];
+        UIImageView *currentItemView = (UIImageView *)self.ic.currentItemView;
+        
+        SDWebImageManager *manager = [SDWebImageManager sharedManager];
+        [manager downloadImageWithURL:model.stand.wf_url options:SDWebImageRetryFailed progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+            NSLog(@"%ld", receivedSize);
+            if (receivedSize == 0) {
+                //[currentItemView.subviews.lastObject startAnimating];
+                [currentItemView showPie];
+            }
+        } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+            if (image) {
+                //[currentItemView.subviews.lastObject stopAnimating];
+                [currentItemView hideHUD];
+                [currentItemView setImage:image];
+            }
+        }];
+        //遍历收藏的数组，若当前图片已被收藏，则点亮收藏图标
+        BOOL isSaved = NO;
+        for (NSString *thumbURL in self.delegate.thumbArr) {
+            if ([thumbURL isEqualToString:model.thumb]) {
+                isSaved = YES;
+                break;
+            }
         }
+        self.saveView.image = isSaved ? [UIImage imageNamed:@"icon_toolbar_liked_20x20_"] : [UIImage imageNamed:@"icon_toolbar_like_20x20_"];
     }
-    self.saveView.image = isSaved ? [UIImage imageNamed:@"icon_toolbar_liked_20x20_"] : [UIImage imageNamed:@"icon_toolbar_like_20x20_"];
 }
 @end

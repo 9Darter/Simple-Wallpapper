@@ -6,16 +6,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "&#x6781;&#x7b80;&#x58c1;&#x7eb8;/ViewController/PicController.m"
-            timestampString = "508148904.83953"
+            timestampString = "508258393.135024"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "317"
-            endingLineNumber = "317"
-            landmarkName = "-viewDidLoad"
+            startingLineNumber = "471"
+            endingLineNumber = "471"
+            landmarkName = "-carouselDidEndScrollingAnimation:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -90,8 +90,9 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
--(void)viewWillAppear:(BOOL)animated {
-    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:NO];
+
+-(BOOL)prefersStatusBarHidden {
+    return NO;
 }
 
 #pragma mark - Delegate

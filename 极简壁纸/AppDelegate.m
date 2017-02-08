@@ -153,17 +153,29 @@
     _window.rootViewController = [[UINavigationController alloc]initWithRootViewController:vc];
     
     //创建一个导航栏按钮，点击进入收藏页面
-    vc.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(goToSavePage)];
+    vc.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(alarmForSaveOrClearSave)];
     
     
     NSLog(@"%@", NSHomeDirectory());
 
     return YES;
 }
-- (void)goToSavePage {
-    [self.vcProperty.navigationController pushViewController:[SaveController new] animated:YES];
+-(void)alarmForSaveOrClearSave {
+    //创建警告提醒
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    // 添加按钮
+    [alert addAction:[UIAlertAction actionWithTitle:@"查看收藏" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        [self.vcProperty.navigationController pushViewController:[SaveController new] animated:YES];
+    }]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"清空收藏" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        
+    }]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+        NSLog(@"点击了取消按钮");
+    }]];
+    
+    [self.vcProperty.navigationController presentViewController:alert animated:YES completion:nil];
 }
-
 
 - (void)confitUShareSettings
 {
