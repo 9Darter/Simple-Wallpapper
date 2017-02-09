@@ -29,5 +29,6 @@ pod 'UMengUShare/Social/Sina'
 pod 'UMengUShare/Social/WeChat'
 # 集成QQ
 pod 'UMengUShare/Social/QQ'
-
+#**************友盟统计*********************
+pod 'UMengAnalytics-NO-IDFA'//无IDFA版SDK
 end

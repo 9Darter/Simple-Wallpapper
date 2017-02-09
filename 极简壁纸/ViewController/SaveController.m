@@ -43,6 +43,8 @@
     [self.collectionView registerClass:[MostPopularCell class] forCellWithReuseIdentifier:@"MostPopularCell"];
     //刷新及网络请求
     self.collectionView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        //先清空数据源数组，再重新往数据源数组里填数据
+        [self.dataList removeAllObjects];
         //取硬盘中的数组
         //获取documents路径
         NSString *docPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
@@ -84,7 +86,7 @@
     PicController *vc = [PicController new];
     vc.saveDataList = self.dataList;
     vc.selectedIndexPathRow = indexPath.row;
-    vc.isSpecial = 2;
+    vc.special = 2;
     [self.navigationController presentViewController:vc animated:YES completion:nil];
 }
 

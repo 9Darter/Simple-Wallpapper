@@ -141,7 +141,7 @@
     vc.page = self.page;
     vc.picTitle = TitleRecommended;
     vc.fn = model.pictures[index].fn;
-    vc.isSpecial = NO;
+    vc.special = 0;
     [self.navigationController presentViewController:vc animated:YES completion:nil];
 }
 

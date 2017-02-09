@@ -95,13 +95,20 @@
         [titles addObject:title];
     }
     WMPageController *pageVC = [[WMPageController alloc] initWithViewControllerClasses:viewControllers andTheirTitles:titles];
-    pageVC.menuItemWidth = 85;
+    //根据标题长度自动计算每个标题的宽度
+    pageVC.automaticallyCalculatesItemWidths = YES;
+    //每个标题间的间隔
+    pageVC.itemMargin = 22;
+    //选中的字号
+    pageVC.titleSizeSelected = 14;
+    //非选中的字号
+    pageVC.titleSizeNormal = 14;
+    
     pageVC.postNotification = YES;
     pageVC.bounces = YES;
     //让菜单显示在导航栏上
     pageVC.showOnNavigationBar = NO;
-    //设置菜单高度
-    //vc.menuHeight = 250;
+    
     //设置菜单背景色
     pageVC.menuBGColor = [UIColor clearColor];
     //选中时的样式
@@ -109,8 +116,10 @@
     //预加载机制，在停止滑动的时候预加载 n 页
     pageVC.preloadPolicy = WMPageControllerPreloadPolicyNeighbour;
     //选中时的文字颜色
-    pageVC.titleColorSelected = [UIColor greenColor];
-
+    pageVC.titleColorSelected = [UIColor colorWithRed:0 green:171/255.0 blue:108/255.0 alpha:1];
+    //非选中时的文字颜色
+    pageVC.titleColorNormal = [UIColor colorWithRed:74/255.0 green:74/255.0 blue:74/255.0 alpha:1];
+    
     pageVC.navigationItem.title = @"180壁纸";
 
     return pageVC;
@@ -168,7 +177,27 @@
         [self.vcProperty.navigationController pushViewController:[SaveController new] animated:YES];
     }]];
     [alert addAction:[UIAlertAction actionWithTitle:@"清空收藏" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        
+        //获取documents路径
+        NSString *docPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
+        NSString *thumbArrPath = [docPath stringByAppendingPathComponent:@"thumbArr.plist"];
+        NSString *standArrPath = [docPath stringByAppendingPathComponent:@"standArr.plist"];
+        //读磁盘，添加url到plist文件中
+        NSMutableArray *thumbArr = [[NSMutableArray alloc]initWithContentsOfFile:thumbArrPath];
+        NSMutableArray *standArr = [[NSMutableArray alloc]initWithContentsOfFile:standArrPath];
+        [standArr removeAllObjects];
+        [thumbArr removeAllObjects];
+        [thumbArr writeToFile:thumbArrPath atomically:YES];
+        [standArr writeToFile:standArrPath atomically:YES];
+        //做一个alert对话框
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"已清空收藏" message:nil preferredStyle:UIAlertControllerStyleAlert];
+        //    step2:  创建可以收集用户意图的按键 — UIAlertAction， 创建时，不仅仅说明该按键上要显示的提示性文字，还要使用block的方式来设定点击了该按键之后要做的事情
+        UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+            
+        }];
+        //    step3: 将创建好的  UIAlertAction 添加到 UIAlertController中
+        [alert addAction:action1];
+        //    step4：使用控制器的pressentViewController方法将AlertController推出显示
+        [self.vcProperty.navigationController presentViewController:alert animated:YES completion:nil];
     }]];
     [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
         NSLog(@"点击了取消按钮");

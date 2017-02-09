@@ -108,7 +108,7 @@
     vc.picTitle = TitleLockedScreen;
     LockScreenDataModel *model = self.dataList[indexPath.row / 2][indexPath.row % 2];
     vc.fn = [model.fn integerValue];
-    vc.isSpecial = YES;
+    vc.special = 1;
     [self.navigationController presentViewController:vc animated:YES completion:nil];
 }
 @end
