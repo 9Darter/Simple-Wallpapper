@@ -18,6 +18,7 @@
 		436361321E0B626B0068A043 /* LockScreenLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 436361311E0B626B0068A043 /* LockScreenLayout.m */; };
 		436361351E0B67610068A043 /* LockScreenCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 436361341E0B67610068A043 /* LockScreenCell.m */; };
 		436361391E0B6FEE0068A043 /* LockScreenModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 436361381E0B6FEE0068A043 /* LockScreenModel.m */; };
+		A110BEFB1E4CAA2C00218222 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A110BEFA1E4CAA2C00218222 /* Launch Screen.storyboard */; };
 		A143FD531E062828006D5EB8 /* WallpaperModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A143FD521E062828006D5EB8 /* WallpaperModel.m */; };
 		A143FD561E063B28006D5EB8 /* NSString+WF.m in Sources */ = {isa = PBXBuildFile; fileRef = A143FD551E063B28006D5EB8 /* NSString+WF.m */; };
 		A143FD591E063B96006D5EB8 /* NSObject+Parse.m in Sources */ = {isa = PBXBuildFile; fileRef = A143FD581E063B96006D5EB8 /* NSObject+Parse.m */; };
@@ -73,6 +74,7 @@
 		436361341E0B67610068A043 /* LockScreenCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LockScreenCell.m; sourceTree = "<group>"; };
 		436361371E0B6FEE0068A043 /* LockScreenModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LockScreenModel.h; sourceTree = "<group>"; };
 		436361381E0B6FEE0068A043 /* LockScreenModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LockScreenModel.m; sourceTree = "<group>"; };
+		A110BEFA1E4CAA2C00218222 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		A143FD511E062828006D5EB8 /* WallpaperModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WallpaperModel.h; sourceTree = "<group>"; };
 		A143FD521E062828006D5EB8 /* WallpaperModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WallpaperModel.m; sourceTree = "<group>"; };
 		A143FD541E063B28006D5EB8 /* NSString+WF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+WF.h"; sourceTree = "<group>"; };
@@ -306,6 +308,7 @@
 			isa = PBXGroup;
 			children = (
 				4363612D1E0B5A410068A043 /* Assets.xcassets */,
+				A110BEFA1E4CAA2C00218222 /* Launch Screen.storyboard */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -567,6 +570,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A110BEFB1E4CAA2C00218222 /* Launch Screen.storyboard in Resources */,
 				4363612E1E0B5A410068A043 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -696,6 +700,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 2L4DQWLA79;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -715,6 +720,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -744,6 +750,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 2L4DQWLA79;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -756,6 +763,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = NO;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=*]" = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
