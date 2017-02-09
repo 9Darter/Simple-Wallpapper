@@ -492,20 +492,17 @@
 
     UIImageView *currentItemView = (UIImageView *)self.ic.currentItemView;
     
+    [currentItemView showPie];
     SDWebImageManager *manager = [SDWebImageManager sharedManager];
-    [manager downloadImageWithURL:uniStandURL.wf_url options:SDWebImageRetryFailed progress:^(NSInteger receivedSize, NSInteger expectedSize) {
-        NSLog(@"%ld", receivedSize);
-        if (receivedSize == 0) {
-            //[currentItemView.subviews.lastObject startAnimating];
-            [currentItemView showPie];
-        }
-    } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+    [manager loadImageWithURL:uniStandURL.wf_url options:SDWebImageRetryFailed progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
+        NSLog(@"正在下载高清图片：%.0lf%%", (CGFloat)receivedSize / expectedSize * 100);
+    } completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, SDImageCacheType cacheType, BOOL finished, NSURL * _Nullable imageURL) {
         if (image) {
-            //[currentItemView.subviews.lastObject stopAnimating];
             [currentItemView hideHUD];
             [currentItemView setImage:image];
         }
     }];
+    
     //遍历收藏的数组，若当前图片已被收藏，则点亮收藏图标
     BOOL isSaved = NO;
     [self getSaveURLInDiskAndWrite:NO isSaved:isSaved thumbURL:uniThumbURL standURL:uniStandURL];

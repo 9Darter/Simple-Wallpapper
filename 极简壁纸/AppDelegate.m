@@ -12,6 +12,7 @@
 #import "DefineAppKey.h"
 #import "SaveController.h"
 
+
 @interface AppDelegate ()
 @property(nonatomic, strong) WMPageController *vcProperty;
 @end
@@ -127,6 +128,12 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    //****************友盟统计************************
+    UMConfigInstance.appKey = USHARE_APPKEY;
+    UMConfigInstance.channelId = @"App Store";
+    //UMConfigInstance.eSType = E_UM_GAME; //仅适用于游戏场景，应用统计不用设置
+    [MobClick startWithConfigure:UMConfigInstance];//配置以上参数后调用此方法初始化SDK！
+    //************************友盟分享**********************************
     /* 打开调试日志 */
     [[UMSocialManager defaultManager] openLog:YES];
     /* 设置友盟appkey */

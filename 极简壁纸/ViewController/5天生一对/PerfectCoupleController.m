@@ -85,6 +85,17 @@
     return NO;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [MobClick beginLogPageView:@"5天生一对"];
+}
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [MobClick endLogPageView:@"5天生一对"];
+}
+
 #pragma mark - Delegate
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return self.dataList.count;

@@ -28,7 +28,10 @@
 #import <iCarousel.h>
 #import <UIImageView+WebCache.h>
 #import <SDWebImageManager.h>
+//#import <SDWebImageDownloader.h>
 #import <MBProgressHUD.h>
 #import <UMSocialCore/UMSocialCore.h>
+#import <UMMobClick/MobClick.h>
+
 
 #endif /* PrefixHeader_pch */

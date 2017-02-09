@@ -85,6 +85,18 @@
     return NO;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [MobClick beginLogPageView:@"2主题套图"];
+}
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [MobClick endLogPageView:@"2主题套图"];
+}
+
+
 #pragma mark - Delegate
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return self.dataList.count;
@@ -122,18 +134,19 @@
 }
 //点击button触发的block调用的方法
 -(void)downloadWithModel:(WallpaperDataModel *)model {
+    //状态栏转菊花
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     //从网络下载图片
     SDWebImageManager *manager = [SDWebImageManager sharedManager];
     for (int i = 0; i < 2; i++) {
-        [manager downloadImageWithURL:model.pictures[i].stand.url.wf_url options:SDWebImageRetryFailed progress:^(NSInteger receivedSize, NSInteger expectedSize) {
-            //状态栏转菊花
-            [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-        } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
-            //取消状态栏转菊花
-            [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+        [manager loadImageWithURL:model.pictures[i].stand.url.wf_url options:SDWebImageRetryFailed progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
+            NSLog(@"正在下载高清图片：%.0lf%%", (CGFloat)receivedSize / expectedSize * 100);
+        } completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, SDImageCacheType cacheType, BOOL finished, NSURL * _Nullable imageURL) {
             if (image) {
                 if (i == 1) {
                     UIImageWriteToSavedPhotosAlbum(image, self, @selector(imageSavedToPhotosAlbum:didFinishSavingWithError:contextInfo:), nil);
+                    //取消状态栏转菊花
+                    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
                 } else {
                     UIImageWriteToSavedPhotosAlbum(image, self, nil, nil);
                 }
