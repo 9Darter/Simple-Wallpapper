@@ -13,6 +13,8 @@
 -(UIImageView *)firstIV {
     if (!_firstIV) {
         _firstIV = [UIImageView new];
+        _firstIV.contentMode = UIViewContentModeScaleAspectFill;
+        _firstIV.clipsToBounds = YES;
         [self.contentView addSubview:_firstIV];
         CGFloat width = (kScreenWidth - 21) / 2;
         CGFloat height = width * (16 / 9.0);
@@ -40,6 +42,8 @@
 -(UIImageView *)secondIV {
     if (!_secondIV) {
         _secondIV = [UIImageView new];
+        _secondIV.contentMode = UIViewContentModeScaleAspectFill;
+        _secondIV.clipsToBounds = YES;
         [self.contentView addSubview:_secondIV];
         _secondIV.userInteractionEnabled = YES;
         //添加一个手势
@@ -62,6 +66,8 @@
 -(UIImageView *)thirdIV {
     if (!_thirdIV) {
         _thirdIV = [UIImageView new];
+        _thirdIV.contentMode = UIViewContentModeScaleAspectFill;
+        _thirdIV.clipsToBounds = YES;
         [self.contentView addSubview:_thirdIV];
         _thirdIV.userInteractionEnabled = YES;
         //添加一个手势
@@ -87,6 +93,8 @@
 -(UIImageView *)fourthIV {
     if (!_fourthIV) {
         _fourthIV = [UIImageView new];
+        _fourthIV.contentMode = UIViewContentModeScaleAspectFill;
+        _fourthIV.clipsToBounds = YES;
         [self.contentView addSubview:_fourthIV];
         _fourthIV.userInteractionEnabled = YES;
         //添加一个手势
@@ -111,6 +119,8 @@
 -(UIImageView *)fifthIV {
     if (!_fifthIV) {
         _fifthIV = [UIImageView new];
+        _fifthIV.contentMode = UIViewContentModeScaleAspectFill;
+        _fifthIV.clipsToBounds = YES;
         [self.contentView addSubview:_fifthIV];
         _fifthIV.userInteractionEnabled = YES;
         //添加一个手势
