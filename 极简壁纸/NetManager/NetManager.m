@@ -62,7 +62,7 @@
 //锁屏页的特殊网络请求
 +(id)getLockScreenModelWithSpecial:(NSInteger)special andPage:(NSInteger)page andLimit:(NSInteger)limit completionHandler:(void (^)(LockScreenModel *, NSError *))completionHandler {
     NSString *path = nil;
-    switch (special) {
+     switch (special) {
         case 3:
             path = [NSString stringWithFormat:kPath, @"1989643", @"051106300", @"87812", page, limit];
             break;

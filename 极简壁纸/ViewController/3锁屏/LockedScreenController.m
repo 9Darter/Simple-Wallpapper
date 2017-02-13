@@ -63,11 +63,7 @@
                 [self.collectionView reloadData];
                 self.page++;
             }
-            if (model.data.count < 1) {
-                [self.collectionView.mj_footer endRefreshingWithNoMoreData];
-            } else {
-                [self.collectionView.mj_footer endRefreshing];
-            }
+            [self.collectionView.mj_footer endRefreshing];
         }];
     }];
     

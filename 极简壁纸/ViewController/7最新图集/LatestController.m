@@ -77,11 +77,7 @@
                 self.page++;
                 [self.tableView reloadData];
             }
-            if (model.data.count < 1) {
-                [self.tableView.mj_footer endRefreshingWithNoMoreData];
-            } else {
-                [self.tableView.mj_footer endRefreshing];
-            }
+            [self.tableView.mj_footer endRefreshing];
         }];
     }];
 }
