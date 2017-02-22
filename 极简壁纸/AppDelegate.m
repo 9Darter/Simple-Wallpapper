@@ -178,7 +178,7 @@
 }
 -(void)alarmForSaveOrClearSave {
     //创建警告提醒
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleAlert];
     // 添加按钮
     [alert addAction:[UIAlertAction actionWithTitle:@"查看收藏" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         [self.vcProperty.navigationController pushViewController:[SaveController new] animated:YES];
@@ -204,12 +204,14 @@
         //    step3: 将创建好的  UIAlertAction 添加到 UIAlertController中
         [alert addAction:action1];
         //    step4：使用控制器的pressentViewController方法将AlertController推出显示
+        alert.popoverPresentationController.sourceView = self.vcProperty.view;
         [self.vcProperty.navigationController presentViewController:alert animated:YES completion:nil];
     }]];
     [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
         NSLog(@"点击了取消按钮");
     }]];
     
+    alert.popoverPresentationController.sourceView = self.vcProperty.view;
     [self.vcProperty.navigationController presentViewController:alert animated:YES completion:nil];
 }
 
@@ -277,6 +279,9 @@
     return result;
 }
 
+- (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window {
+    return UIInterfaceOrientationMaskPortrait;
+}
 
 
 

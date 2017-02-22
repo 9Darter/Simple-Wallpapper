@@ -269,16 +269,17 @@
 }
 //更多
 -(void)more {
-    //创建警告提醒
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-    // 添加按钮
     NSString *thumbPicPath = [NSHomeDirectory() stringByAppendingString:@"/Library/Caches/com.ibireme.yykit/images/data/"];
     NSString *standPicPath = [NSHomeDirectory() stringByAppendingString:@"/Library/Caches/default/com.hackemist.SDWebImageCache.default/"];
     NSInteger thumbPicSize = [ClearCacheTool getCacheSizeWithFilePath:thumbPicPath];
     NSInteger standPicSize = [ClearCacheTool getCacheSizeWithFilePath:standPicPath];
     NSString *picSize = [ClearCacheTool transformNSIntegerToNSString:thumbPicSize + standPicSize];
     NSString *actionTitle = [NSString stringWithFormat:@"清除缓存(%@)", picSize];
-    [alert addAction:[UIAlertAction actionWithTitle:actionTitle style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+
+    //创建警告提醒
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:actionTitle message:nil preferredStyle:UIAlertControllerStyleAlert];
+    // 添加按钮
+    [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         [ClearCacheTool clearCacheWithFilePath:thumbPicPath];
         [ClearCacheTool clearCacheWithFilePath:standPicPath];
         [self.view showMsg:@"已清除缓存" autoHideAfterDely:2];
@@ -288,6 +289,7 @@
         NSLog(@"点击了取消按钮");
     }]];
     
+    alert.popoverPresentationController.sourceView = self.ic.currentItemView;
     [self presentViewController:alert animated:YES completion:nil];
 }
 
@@ -349,7 +351,6 @@
         [self.mutablePicList addObjectsFromArray:self.saveDataList];
     }
     
-    
     //设置ic的代理
     self.ic.delegate = self;
     self.ic.dataSource = self;
@@ -406,7 +407,7 @@
     if (!view) {
         view = [[UIImageView alloc]initWithFrame:carousel.bounds];
     }
-    
+    view.contentMode = UIViewContentModeScaleAspectFill;
     //由于前一页将低清图片已缓存，此处仅设置图片为之前缓存的图片，这样在下载高清图片的过程中先脱机显示低清图片
     //下载高清图片的过程不在此处，因为会耗费大量流量，应该滑倒哪张图片再去下载
     if (self.special == 0) {
