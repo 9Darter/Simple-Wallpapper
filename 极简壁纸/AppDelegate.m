@@ -211,7 +211,7 @@
         NSLog(@"点击了取消按钮");
     }]];
     
-    alert.popoverPresentationController.sourceView = self.vcProperty.view;
+    ///alert.popoverPresentationController.sourceView = self.vcProperty.view;
     [self.vcProperty.navigationController presentViewController:alert animated:YES completion:nil];
 }
 
@@ -277,10 +277,6 @@
         // 其他如支付等SDK的回调
     }
     return result;
-}
-
-- (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window {
-    return UIInterfaceOrientationMaskPortrait;
 }
 
 

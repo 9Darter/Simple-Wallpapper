@@ -289,7 +289,7 @@
         NSLog(@"点击了取消按钮");
     }]];
     
-    alert.popoverPresentationController.sourceView = self.ic.currentItemView;
+    //alert.popoverPresentationController.sourceView = self.ic.currentItemView;
     [self presentViewController:alert animated:YES completion:nil];
 }
 
