@@ -64,28 +64,28 @@
     NSString *path = nil;
      switch (special) {
         case 3:
-            path = [NSString stringWithFormat:kPath, @"1989643", @"051106300", @"87812", page, limit];
+            path = [NSString stringWithFormat:kPath, @"1989643", @"051106300", @"87812", (long)page, limit];
             break;
         case 4:
-            path = [NSString stringWithFormat:kPath, @"1989899", @"051106301", @"88068", page, limit];
+            path = [NSString stringWithFormat:kPath, @"1989899", @"051106301", @"88068", (long)page, limit];
             break;
         case 8:
-            path = [NSString stringWithFormat:kPath, @"1988363", @"051108", @"516", page, limit];
+            path = [NSString stringWithFormat:kPath, @"1988363", @"051108", @"516", (long)page, limit];
             break;
         case 9:
-            path = [NSString stringWithFormat:kPath, @"1990411", @"051108", @"2564", page, limit];
+            path = [NSString stringWithFormat:kPath, @"1990411", @"051108", @"2564", (long)page, limit];
             break;
         case 10:
-            path = [NSString stringWithFormat:kPath, @"1990667", @"051108", @"2820", page, limit];
+            path = [NSString stringWithFormat:kPath, @"1990667", @"051108", @"2820", (long)page, limit];
             break;
         case 11:
-            path = [NSString stringWithFormat:kPath, @"1990923", @"051108", @"3076", page, limit];
+            path = [NSString stringWithFormat:kPath, @"1990923", @"051108", @"3076", (long)page, limit];
             break;
         case 12:
-            path = [NSString stringWithFormat:kPath, @"3481099", @"051106303", @"88324", page, limit];
+            path = [NSString stringWithFormat:kPath, @"3481099", @"051106303", @"88324", (long)page, limit];
             break;
         default: //case 13:
-            path = [NSString stringWithFormat:kPath, @"1990155", @"051106304", @"88580", page, limit];
+            path = [NSString stringWithFormat:kPath, @"1990155", @"051106304", @"88580", (long)page, limit];
             break;
 
     }

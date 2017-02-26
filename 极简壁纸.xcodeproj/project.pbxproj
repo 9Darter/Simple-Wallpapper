@@ -24,6 +24,19 @@
 		A143FD591E063B96006D5EB8 /* NSObject+Parse.m in Sources */ = {isa = PBXBuildFile; fileRef = A143FD581E063B96006D5EB8 /* NSObject+Parse.m */; };
 		A143FD5C1E063F38006D5EB8 /* BaseNetmanager.m in Sources */ = {isa = PBXBuildFile; fileRef = A143FD5B1E063F38006D5EB8 /* BaseNetmanager.m */; };
 		A143FD5F1E06414E006D5EB8 /* NetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A143FD5E1E06414E006D5EB8 /* NetManager.m */; };
+		A191F75D1E5FF941009BA530 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A191F75C1E5FF941009BA530 /* UserNotifications.framework */; };
+		A191F7621E605C91009BA530 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A191F7611E605C91009BA530 /* CFNetwork.framework */; };
+		A191F7641E605C99009BA530 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A191F7631E605C99009BA530 /* CoreFoundation.framework */; };
+		A191F7661E605C9F009BA530 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A191F7651E605C9F009BA530 /* CoreTelephony.framework */; };
+		A191F7681E605CA6009BA530 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A191F7671E605CA6009BA530 /* SystemConfiguration.framework */; };
+		A191F76A1E605CAE009BA530 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A191F7691E605CAE009BA530 /* CoreGraphics.framework */; };
+		A191F76C1E605CB6009BA530 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A191F76B1E605CB6009BA530 /* Foundation.framework */; };
+		A191F76E1E605CBC009BA530 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A191F76D1E605CBC009BA530 /* UIKit.framework */; };
+		A191F7701E605CC3009BA530 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A191F76F1E605CC3009BA530 /* Security.framework */; };
+		A191F7721E605CCE009BA530 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A191F7711E605CCE009BA530 /* libz.tbd */; };
+		A191F7741E605CF5009BA530 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A191F7731E605CF5009BA530 /* libresolv.tbd */; };
+		A191F7901E605F75009BA530 /* jcore-ios-1.1.1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A191F78D1E605F75009BA530 /* jcore-ios-1.1.1.a */; };
+		A191F7911E605F75009BA530 /* jpush-ios-3.0.2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A191F78E1E605F75009BA530 /* jpush-ios-3.0.2.a */; };
 		A1C9EE501E0D5E37002010DB /* PerfectCoupleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A1C9EE4F1E0D5E37002010DB /* PerfectCoupleCell.m */; };
 		A1DE290A1E332AAB00EBCC99 /* SaveController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1DE29091E332AAB00EBCC99 /* SaveController.m */; };
 		A1E556D81E4B49ED002AAB09 /* SaveModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A1E556D71E4B49ED002AAB09 /* SaveModel.m */; };
@@ -86,6 +99,21 @@
 		A143FD5D1E06414E006D5EB8 /* NetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetManager.h; sourceTree = "<group>"; };
 		A143FD5E1E06414E006D5EB8 /* NetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetManager.m; sourceTree = "<group>"; };
 		A143FD601E06427A006D5EB8 /* Define.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Define.h; sourceTree = "<group>"; };
+		A191F75C1E5FF941009BA530 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		A191F7611E605C91009BA530 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		A191F7631E605C99009BA530 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		A191F7651E605C9F009BA530 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		A191F7671E605CA6009BA530 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		A191F7691E605CAE009BA530 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		A191F76B1E605CB6009BA530 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		A191F76D1E605CBC009BA530 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		A191F76F1E605CC3009BA530 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		A191F7711E605CCE009BA530 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		A191F7731E605CF5009BA530 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
+		A191F7751E605D18009BA530 /* 极简壁纸.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "极简壁纸.entitlements"; sourceTree = "<group>"; };
+		A191F78D1E605F75009BA530 /* jcore-ios-1.1.1.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jcore-ios-1.1.1.a"; sourceTree = "<group>"; };
+		A191F78E1E605F75009BA530 /* jpush-ios-3.0.2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jpush-ios-3.0.2.a"; sourceTree = "<group>"; };
+		A191F78F1E605F75009BA530 /* JPUSHService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPUSHService.h; sourceTree = "<group>"; };
 		A1C9EE4E1E0D5E37002010DB /* PerfectCoupleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PerfectCoupleCell.h; sourceTree = "<group>"; };
 		A1C9EE4F1E0D5E37002010DB /* PerfectCoupleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PerfectCoupleCell.m; sourceTree = "<group>"; };
 		A1DE29081E332AAB00EBCC99 /* SaveController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SaveController.h; sourceTree = "<group>"; };
@@ -147,6 +175,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A191F7741E605CF5009BA530 /* libresolv.tbd in Frameworks */,
+				A191F7901E605F75009BA530 /* jcore-ios-1.1.1.a in Frameworks */,
+				A191F75D1E5FF941009BA530 /* UserNotifications.framework in Frameworks */,
+				A191F7721E605CCE009BA530 /* libz.tbd in Frameworks */,
+				A191F7911E605F75009BA530 /* jpush-ios-3.0.2.a in Frameworks */,
+				A191F7701E605CC3009BA530 /* Security.framework in Frameworks */,
+				A191F76E1E605CBC009BA530 /* UIKit.framework in Frameworks */,
+				A191F76C1E605CB6009BA530 /* Foundation.framework in Frameworks */,
+				A191F76A1E605CAE009BA530 /* CoreGraphics.framework in Frameworks */,
+				A191F7681E605CA6009BA530 /* SystemConfiguration.framework in Frameworks */,
+				A191F7661E605C9F009BA530 /* CoreTelephony.framework in Frameworks */,
+				A191F7641E605C99009BA530 /* CoreFoundation.framework in Frameworks */,
+				A191F7621E605C91009BA530 /* CFNetwork.framework in Frameworks */,
 				BBFCBBCD7FAF8323CA812228 /* libPods-极简壁纸.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -212,6 +253,16 @@
 			path = "锁屏页的特殊model";
 			sourceTree = "<group>";
 		};
+		A191F7921E605F84009BA530 /* JPUSH */ = {
+			isa = PBXGroup;
+			children = (
+				A191F78D1E605F75009BA530 /* jcore-ios-1.1.1.a */,
+				A191F78E1E605F75009BA530 /* jpush-ios-3.0.2.a */,
+				A191F78F1E605F75009BA530 /* JPUSHService.h */,
+			);
+			name = JPUSH;
+			sourceTree = "<group>";
+		};
 		A1C9EE4D1E0D5E11002010DB /* 5天生一对 */ = {
 			isa = PBXGroup;
 			children = (
@@ -242,15 +293,16 @@
 		A1EFC8691E053EF300161592 /* 极简壁纸 */ = {
 			isa = PBXGroup;
 			children = (
+				A191F7751E605D18009BA530 /* 极简壁纸.entitlements */,
 				A1EFC86D1E053EF300161592 /* AppDelegate.h */,
 				A1EFC86E1E053EF300161592 /* AppDelegate.m */,
 				A143FD601E06427A006D5EB8 /* Define.h */,
 				4342C40D1E31C2FE001649AB /* DefineAppKey.h */,
+				A191F7921E605F84009BA530 /* JPUSH */,
 				A1EFC8811E05431900161592 /* Category */,
 				A1EFC8821E05431900161592 /* Model */,
 				A1EFC8831E05431900161592 /* NetManager */,
 				A1EFC8841E05431900161592 /* Resource */,
-				A1EFC8851E05431900161592 /* Vendor */,
 				A1EFC8861E05431900161592 /* View */,
 				A1EFC8871E05431900161592 /* ViewController */,
 				A1EFC86A1E053EF300161592 /* Supporting Files */,
@@ -311,13 +363,6 @@
 				A110BEFA1E4CAA2C00218222 /* Launch Screen.storyboard */,
 			);
 			path = Resource;
-			sourceTree = "<group>";
-		};
-		A1EFC8851E05431900161592 /* Vendor */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Vendor;
 			sourceTree = "<group>";
 		};
 		A1EFC8861E05431900161592 /* View */ = {
@@ -503,6 +548,17 @@
 		AACFA0FD5F367C97A3927CD9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A191F7731E605CF5009BA530 /* libresolv.tbd */,
+				A191F7711E605CCE009BA530 /* libz.tbd */,
+				A191F76F1E605CC3009BA530 /* Security.framework */,
+				A191F76D1E605CBC009BA530 /* UIKit.framework */,
+				A191F76B1E605CB6009BA530 /* Foundation.framework */,
+				A191F7691E605CAE009BA530 /* CoreGraphics.framework */,
+				A191F7671E605CA6009BA530 /* SystemConfiguration.framework */,
+				A191F7651E605C9F009BA530 /* CoreTelephony.framework */,
+				A191F7631E605C99009BA530 /* CoreFoundation.framework */,
+				A191F7611E605C91009BA530 /* CFNetwork.framework */,
+				A191F75C1E5FF941009BA530 /* UserNotifications.framework */,
 				CC10060E6D2B4FB6E2707CBE /* libPods-极简壁纸.a */,
 			);
 			name = Frameworks;
@@ -544,6 +600,11 @@
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = 2L4DQWLA79;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -775,11 +836,17 @@
 			baseConfigurationReference = D72259887EF7F6F292823AE1 /* Pods-极简壁纸.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "极简壁纸/极简壁纸.entitlements";
 				DEVELOPMENT_TEAM = 2L4DQWLA79;
 				GCC_PREFIX_HEADER = "$(PRODUCT_NAME)/PrefixHeader.pch";
 				INFOPLIST_FILE = "极简壁纸/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/极简壁纸/Lib",
+					"$(PROJECT_DIR)/极简壁纸",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.wf.SimpleWallpaper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -791,11 +858,17 @@
 			baseConfigurationReference = CE94BD93B5682723EE55A11A /* Pods-极简壁纸.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "极简壁纸/极简壁纸.entitlements";
 				DEVELOPMENT_TEAM = 2L4DQWLA79;
 				GCC_PREFIX_HEADER = "$(PRODUCT_NAME)/PrefixHeader.pch";
 				INFOPLIST_FILE = "极简壁纸/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/极简壁纸/Lib",
+					"$(PROJECT_DIR)/极简壁纸",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.wf.SimpleWallpaper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
